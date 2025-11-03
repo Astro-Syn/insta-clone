@@ -17,7 +17,10 @@ export default function AuthForm() {
             alert("Please fill in all fields");
             return;
         }
-        navigate("/");
+        else {
+            navigate("/");
+        }
+        
      }
      
   return (
@@ -26,23 +29,36 @@ export default function AuthForm() {
             LOGIN HELLO
         </div>
             <div className='login-forum'>
-                <input
+                <div className='input-info-section'>
+                    <div className='input-bars'>
+                        <input
                 placeholder='Email'
                 type='email'
+                value={inputs.email}
+                onChange={(e) => setInputs({...inputs, email:e.target.value})}
                 />
                 <input
                 placeholder='password'
                 type='password'
+                value={inputs.password}
+                onChange={(e) => setInputs({...inputs, password:e.target.value})}
                 />
             {!isLogin ? (
                 <input
                 placeholder='Confirm Password'
+                value={inputs.confirmPassword}
+                onChange={(e) => setInputs({...inputs,confirmPassword:e.target.value})}
                 />
             ) : null}
+                    </div>
+                    
 
-            <button>
+            <button className='login-signup-button' onClick={handleAuth}>
                 {isLogin ? "Login" : "Sign Up"}
             </button>
+                </div>
+                
+
             <div className='or-box'>
                 <div></div>
                 <p>OR</p>
@@ -57,6 +73,9 @@ export default function AuthForm() {
                 <p>
                     {isLogin ? "Don't have an account?" : "Already have an account?"}
                 </p>
+                <button onClick={() => setIsLogin(!isLogin)}>
+                    {isLogin ? "Sign Up" : "Log in"}
+                </button>
             </div>
             
         </div>
