@@ -1,0 +1,8 @@
+.sidebar-container {
+    background: black;
+    height: 100vh;
+}
+
+.insta-logo {
+    cursor: pointer;
+}
