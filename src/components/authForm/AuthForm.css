@@ -1,0 +1,48 @@
+.auth-forum-container{
+    display: flex;
+    flex-direction: column;
+    width: 15vw;
+    height: 100vh;
+}
+
+.login-forum{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+input {
+    position: relative;
+    margin: 10px;
+    height: 3em;
+    width: 90%;
+    border-radius: 10px;
+    border: none;
+    padding: 2px;
+    font-size: 14px;
+}
+
+.or-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+}
+
+.or-box p{
+    margin: 10px;
+    font-weight: bold;
+}
+
+.or-box div {
+    height: 1px;
+    background: white;
+    width: 30%;
+}
+
+.google-login-box {
+    cursor: pointer;
+}

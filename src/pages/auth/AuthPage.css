@@ -1,0 +1,24 @@
+.auth-page-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.auth-page-content img {
+    border-radius: 10px;
+}
+
+.auth-page-content {
+    border: 1px solid white;
+    border-radius: 10px;
+    width: 50vw;
+    height: 50vh;
+    object-fit: contain;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+}
