@@ -1,0 +1,30 @@
+.home-container {
+    position: absolute;
+    background: blue;
+    margin-left: 350px;
+    width: 85vw;
+    
+}
+
+.home-contents {
+    display: flex;
+    flex-direction: row;
+    left: 50%;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+   
+}
+
+.scroll-feed{
+    border: 1px solid white;
+    flex: 3;
+    
+}
+
+.suggested-users {
+    
+    flex: 2;
+    border: 1px solid white;
+}

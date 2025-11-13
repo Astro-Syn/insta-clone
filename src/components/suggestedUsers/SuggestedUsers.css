@@ -1,0 +1,33 @@
+.suggested-users-container{
+    position: absolute;
+    margin: 10px;
+    top: 0;
+    border: 1px solid white;
+    width: 20vw;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.suggested-for-you {
+    display: flex;
+    justify-content: space-between;
+}
+
+.suggested-user-box{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  
+}
+
+.user-suggestion {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+   
+}
+

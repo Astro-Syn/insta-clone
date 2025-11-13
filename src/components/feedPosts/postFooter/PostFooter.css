@@ -1,0 +1,11 @@
+post-footer-container{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 2px;
+
+}
+
+.likes {
+    font-weight: bold;
+}

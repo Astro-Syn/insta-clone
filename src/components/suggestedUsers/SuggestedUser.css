@@ -1,0 +1,24 @@
+.suggested-user-container{
+    display: flex;
+}
+
+.user-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin: 10px;
+}
+
+.users-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+   
+    width: 100%;
+    align-items: center;
+}
+
+.user{
+    margin: 10px;
+}
+

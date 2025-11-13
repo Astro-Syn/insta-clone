@@ -1,0 +1,14 @@
+.feed-post-container{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid magenta;
+    margin-bottom: 20px;
+    width: 50%;
+    height: 40%;
+    padding: 10px;
+}
+
+.feed-post-image {
+   max-width: 700px;
+   max-height: 600px;
+}

@@ -1,8 +1,23 @@
 .sidebar-container {
+    position: sticky;
+    position: fixed;
+    top: 0;
     background: black;
     height: 100vh;
+    max-width: 300px;
 }
 
 .insta-logo {
     cursor: pointer;
+}
+
+.sidebar-links-container {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+}
+
+.sidebar-items {
+    margin: 10px;
+
 }

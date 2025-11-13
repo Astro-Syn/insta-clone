@@ -5,6 +5,7 @@ import AuthPage from "./pages/auth/AuthPage";
 import ErrorBoundary from "./components/ErrorBoundary";
 import PageLayout from "./Layout/PageLayout/PageLayout";
 
+
 function App() {
   
 
@@ -14,8 +15,10 @@ function App() {
     <ErrorBoundary fallback={<p>Something went wrong.</p>}>
     <PageLayout>
     <Routes>
+
       <Route path='/auth' element={<AuthPage />}/>
       <Route  path='/' element={<HomePage />}/>
+      
     </Routes>
     </PageLayout>
      </ErrorBoundary>

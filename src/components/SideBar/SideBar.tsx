@@ -50,14 +50,17 @@ export default function SideBar() {
             </button>
             </Link>
         </div>
-        <div>
+        <div className='sidebar-links-container'>
         {sideBarItems.map((item, index) => (
-            <div 
+            <Link 
             className='sidebar-items'
             key={index}
+            to={item.link ?? "./"}
+            
             >
+                {item.icon}
                 {item.text}
-            </div>
+            </Link>
         ))}
         </div>
     </div>
