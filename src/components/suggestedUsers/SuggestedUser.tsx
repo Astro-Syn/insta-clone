@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import '../suggestedUsers/SuggestedUser.css';
 
 interface SuggestedUserProps {
@@ -7,8 +7,11 @@ interface SuggestedUserProps {
   followers: number;
 }
 
-
 export default function SuggestedUser({name, followers, avatar}: SuggestedUserProps) {
+
+  const [isFollowed, setIsFollowed] = useState(false);
+
+  
   return (
     <div className='suggested-user-container'>
       <img src={avatar} className='user-avatar'/>
@@ -18,6 +21,12 @@ export default function SuggestedUser({name, followers, avatar}: SuggestedUserPr
         <p className='user name'>{name}</p>
         <p className='user followers'>{followers} followers</p>
         </div>
+        <button
+        onClick={() => setIsFollowed(!isFollowed)}
+        >
+
+          {isFollowed ? "Unfollow" : "Follow"}
+        </button>
         
       </div>
     </div>

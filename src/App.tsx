@@ -4,6 +4,7 @@ import HomePage from "./pages/home/HomePage";
 import AuthPage from "./pages/auth/AuthPage";
 import ErrorBoundary from "./components/ErrorBoundary";
 import PageLayout from "./Layout/PageLayout/PageLayout";
+import ProfilePage from "./pages/profile/profilePage/ProfilePage";
 
 
 function App() {
@@ -18,6 +19,8 @@ function App() {
 
       <Route path='/auth' element={<AuthPage />}/>
       <Route  path='/' element={<HomePage />}/>
+      <Route path='/:username' element={<ProfilePage/>}/>
+      <Route path='/profile' element={<ProfilePage />} />
       
     </Routes>
     </PageLayout>

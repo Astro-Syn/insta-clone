@@ -30,6 +30,7 @@ export default function SideBar() {
         },
          {
             text: "Profile",
+            link: '/profile',
             icon: <RiProfileLine />,
         
         },

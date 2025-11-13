@@ -18,15 +18,15 @@ export default function SuggestedUsers() {
        <div className='suggested-user-box'>
 
         <div className='user-suggestion'>
-             <SuggestedUser  name="Skizzo" followers={1500} avatar='Images/skizzo.jpg' /> <button>Follow</button>
+             <SuggestedUser  name="Skizzo" followers={1500} avatar='Images/skizzo.jpg' /> 
         </div>
            
            <div className='user-suggestion'>
-              <SuggestedUser name='Boozeman' followers={2678} avatar='Images/boozer.png'/><button>Follow</button>
+              <SuggestedUser name='Boozeman' followers={2678} avatar='Images/boozer.png'/>
            </div>
             
             <div className='user-suggestion'>
-                <SuggestedUser name='Cope' followers={1241} avatar='Images/copeland.png'/><button>Follow</button>
+                <SuggestedUser name='Cope' followers={1241} avatar='Images/copeland.png'/>
             </div>
             
        </div>
