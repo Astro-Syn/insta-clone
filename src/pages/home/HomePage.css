@@ -1,9 +1,8 @@
 .home-container {
-    position: absolute;
-    background: blue;
-    margin-left: 350px;
+    margin-left: 290px; 
+    background: var(--color1);
     width: 85vw;
-    
+    overflow-x: hidden;
 }
 
 .home-contents {
@@ -14,17 +13,30 @@
     justify-content: center;
     align-items: center;
     padding: 10px;
-   
+    overflow-x: hidden;
 }
 
 .scroll-feed{
-    border: 1px solid white;
-    flex: 3;
     
+    flex: 3;
+    overflow-x: hidden;
 }
 
 .suggested-users {
-    
     flex: 2;
-    border: 1px solid white;
+   
+}
+
+@media screen and (max-width: 900px){
+    .home-container {
+        margin-left: 10px;
+       width: 100%;
+    }
+    .home-contents {
+        flex-direction: column;   
+        gap: 20px;
+    }
+        .scroll-feed{
+        width: 100%;
+    }
 }

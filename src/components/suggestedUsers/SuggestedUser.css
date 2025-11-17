@@ -22,3 +22,9 @@
     margin: 10px;
 }
 
+@media screen and (max-width: 900px) {
+    .suggested-user-container {
+        
+        background-color: red;
+    }
+}

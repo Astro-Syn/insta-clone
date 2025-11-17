@@ -31,7 +31,7 @@ const PostFooter: React.FC<PostFooterProps> = ({ username, post }) => {
       className='post-footer-like-status'
       onClick={handleLike}
       >
-        {!liked ? (<FaHeart/>) : (<FaRegHeart/>)}
+        {!liked ? (<FaHeart className='liked-heart' color='rgb(179, 214, 230)'/>) : (<FaRegHeart className='unlike-heart'/>)}
       </button>
 
       <div className='post-comments-section'>

@@ -2,7 +2,7 @@
     position: sticky;
     position: fixed;
     top: 0;
-    background: black;
+    background: var(--color1);
     height: 100vh;
     max-width: 300px;
 }
@@ -20,4 +20,22 @@
 .sidebar-items {
     margin: 10px;
 
+}
+
+@media screen and (max-width: 800px) {
+    .sidebar-container{
+        max-width: 150px;
+    }
+
+    .sidebar-items{
+        font-size: 0;
+    }
+
+    .sidebar-items svg {
+        font-size: 24px;
+    }
+
+    .sidebar-items.text {
+        visibility: hidden;
+    }
 }

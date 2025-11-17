@@ -2,7 +2,6 @@
     position: absolute;
     margin: 10px;
     top: 0;
-    border: 1px solid white;
     width: 20vw;
     padding: 10px;
     display: flex;
@@ -31,3 +30,13 @@
    
 }
 
+
+@media screen and (max-width: 900px) {
+    .suggested-users-container{
+        position: fixed;
+        background: black;
+    }
+
+
+
+}

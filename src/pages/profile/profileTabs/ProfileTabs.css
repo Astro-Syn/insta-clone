@@ -1,0 +1,13 @@
+.profile-tabs-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    padding: 10px;
+}
+
+.profile-tabs-item {
+    font-weight: bold;
+    cursor: pointer;
+}

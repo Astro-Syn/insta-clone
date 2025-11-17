@@ -20,17 +20,26 @@ export default function ProfileHeader() {
         
           <div className='profile-numbers-info'>
           <div className='profile-follow-info'>
-            <p>5</p> <span>Posts</span>
+            <p className='profile-number'>5</p> <span>Posts</span>
           </div>
           <div className='profile-follow-info'>
-               <p>167</p>
+               <p className='profile-number'>167</p>
           <span>Followers</span>
           </div>
           <div className='profile-follow-info'>
 
-          </div> <p>137</p>
-          <span>Following</span>
+          </div> <p className='profile-number'>137 </p>
+           <span>Following</span>
          
+        </div>
+
+        <div className='profile-description'>
+          <div className='profile-name'>
+            Hey im Nomad
+          </div>
+          <div className='profile-description-text'>
+            Hey there this is a brief template
+          </div>
         </div>
       </div>
         

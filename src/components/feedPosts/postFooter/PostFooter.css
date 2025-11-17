@@ -9,3 +9,17 @@ post-footer-container{
 .likes {
     font-weight: bold;
 }
+
+.post-footer-like-status{
+    background: none;
+    color: var(--color4);
+}
+
+.liked-heart,
+.unlike-heart
+{
+    font-size: large;
+}
+
+
+

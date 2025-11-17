@@ -42,3 +42,11 @@
     align-items: center;
     margin-right: 10px;
 }
+
+.profile-number {
+    font-weight: bold;
+}
+
+.profile-name{
+    font-weight: bold;
+}
