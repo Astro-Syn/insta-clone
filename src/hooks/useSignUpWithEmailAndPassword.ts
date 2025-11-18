@@ -27,6 +27,7 @@ const useSignUpWithEmailAndPassword = (): UseSignUpWithEmailAndPassword => {
     loading,
     error,
   ] = useCreateUserWithEmailAndPassword(auth);
+  
 
   const signup = async (inputs: SignUpInputs) => {
     if (!inputs.email || !inputs.password || !inputs.username || !inputs.fullName) {

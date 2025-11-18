@@ -5,6 +5,7 @@ import { IoMdNotifications } from "react-icons/io";
 import { RiProfileLine } from "react-icons/ri";
 import { IoMdHome } from "react-icons/io";
 import { FaSearch } from "react-icons/fa";
+import useLogout from '../../hooks/useLogout';
 
 export default function SideBar() {
     const sideBarItems = [
@@ -34,7 +35,9 @@ export default function SideBar() {
             icon: <RiProfileLine />,
         
         },
-    ]
+    ];
+
+   const {handleLogout, isLoggingOut} =  useLogout();
   return (
     <div className='sidebar-container'>
         SideBar
@@ -56,13 +59,22 @@ export default function SideBar() {
             <Link 
             className='sidebar-items'
             key={index}
-            to={item.link ?? "./"}
+            to={item.link ?? "#"}
             
             >
                 {item.icon}
                 {item.text}
             </Link>
+           
         ))}
+         {/*Logout */}
+            <div>
+                <button
+                onClick={handleLogout}
+                >
+                    Logout
+                </button>
+            </div>
         </div>
     </div>
   )
