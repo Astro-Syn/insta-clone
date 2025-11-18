@@ -5,6 +5,7 @@ import AuthPage from "./pages/auth/AuthPage";
 import ErrorBoundary from "./components/ErrorBoundary";
 import PageLayout from "./Layout/PageLayout/PageLayout";
 import ProfilePage from "./pages/profile/profilePage/ProfilePage";
+import UpdateProfile from "./components/updateProfile/UpdateProfile";
 
 
 
@@ -22,7 +23,8 @@ function App() {
       <Route  path='/' element={<HomePage />}/>
       <Route path='/:username' element={<ProfilePage/>}/>
       <Route path='/profile' element={<ProfilePage />} />
-      
+      <Route path='/profile/edit' element={<UpdateProfile/>}/>
+
     </Routes>
     </PageLayout>
      </ErrorBoundary>

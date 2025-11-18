@@ -1,5 +1,6 @@
 import React from 'react';
 import './ProfileHeader.css';
+import UpdateProfile from '../../../components/updateProfile/UpdateProfile';
 
 export default function ProfileHeader() {
   return (
@@ -14,7 +15,9 @@ export default function ProfileHeader() {
           Nomad01
         </div>
         <div className='edit-profile-btn'>
-          <button>Edit Profile</button>
+          <button>
+            <UpdateProfile/>
+          </button>
         </div>
         </div>
         
