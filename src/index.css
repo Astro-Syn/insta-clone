@@ -11,7 +11,7 @@
   -moz-osx-font-smoothing: grayscale;
 
   /*Color pallet*/
-  --color1: rgb(36, 29, 29);
+  --color1: rgb(22, 18, 18);
   --color2: rgb(32, 36, 44);
   --color3: rgb(64, 96, 110);
   --color4: rgb(179, 214, 230);
@@ -40,16 +40,29 @@ body {
 
 
 button {
-  border-radius: 8px;
+  position: relative;
+  border-radius: 2px;
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
+  padding: 0.4em 1em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: var(--color4);
+  color: var(--color2);
+  border: 2px solid var(--color5);
   cursor: pointer;
-  transition: border-color 0.25s;
+  overflow: hidden;
+   transition:  0.3s ease;
+  
 }
+
+button:hover {
+  background: var(--color5);
+  color: var(--color4);
+}
+
+
+
 
 
 @media (prefers-color-scheme: light) {

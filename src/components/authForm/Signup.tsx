@@ -3,9 +3,10 @@ import useSignUpWithEmailAndPassword from '../../hooks/useSignUpWithEmailAndPass
 
 interface SignupProps {
   setIsLogin: React.Dispatch<React.SetStateAction<boolean>>;
+  onSignupSuccess: () => void;
 }
 
-const Signup: React.FC<SignupProps> = ({ setIsLogin }) => {
+const Signup: React.FC<SignupProps> = ({ setIsLogin, onSignupSuccess }) => {
   const { loading, error, signup } = useSignUpWithEmailAndPassword();
 
   const [inputs, setInputs] = useState({
@@ -18,12 +19,17 @@ const Signup: React.FC<SignupProps> = ({ setIsLogin }) => {
   const [showPassword, setShowPassword] = useState(false);
 
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault(); 
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
 
-    
-    await signup(inputs);
-  };
+  try {
+    await signup(inputs);     
+    onSignupSuccess();        
+  } catch (err) {
+    console.error(err);
+  }
+};
+
 
   return (
     <form onSubmit={handleSubmit}> 

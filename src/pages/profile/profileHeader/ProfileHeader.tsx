@@ -9,6 +9,7 @@ export default function ProfileHeader() {
   const [user] = useAuthState(auth);
   const [bio, setBio] = useState('');
   const db = getFirestore();
+  const [showUpdateProfile, setShowUpdateProfile] = useState(false);
 
   useEffect(() => {
     const fetchBio = async () => {
@@ -40,8 +41,8 @@ export default function ProfileHeader() {
             {user?.displayName || "Nomad"}
           </div>
           <div className='edit-profile-btn'>
-            <button>
-              <UpdateProfile />
+            <button onClick={() => setShowUpdateProfile(true)}>
+              Edit Profile
             </button>
           </div>
         </div>
@@ -69,6 +70,17 @@ export default function ProfileHeader() {
           </div>
         </div>
       </div>
+      {showUpdateProfile && (
+  <div className="modal-overlay">
+    <div className="modal-content">
+      <button className="close-btn" onClick={() => setShowUpdateProfile(false)}>
+        X
+      </button>
+      <UpdateProfile />
+    </div>
+  </div>
+)}
+
     </div>
   );
 }

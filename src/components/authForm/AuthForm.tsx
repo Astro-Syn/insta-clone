@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { FaGoogle } from 'react-icons/fa';
 import Login from './Login';
 import Signup from './Signup';
 import { useNavigate } from 'react-router-dom';
@@ -28,7 +27,9 @@ const AuthForm: React.FC = () => {
           {isLogin ? (
             <Login onLoginSuccess={handleLoginSuccess}/>
           ) : (
-            <Signup setIsLogin={setIsLogin} />
+            <Signup setIsLogin={setIsLogin} 
+            onSignupSuccess={handleLoginSuccess}
+            />
           )}
         </div>
 

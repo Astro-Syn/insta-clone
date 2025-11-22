@@ -43,16 +43,11 @@ export default function SideBar() {
         SideBar
         <div>
             <Link to={"/"}>
-            <button className='insta-logo'>
-                Insta Logo
+            <button className='driftergram-logo'>
+                <img src='/Images/driftergram.png' className='logo-pic'/>
             </button>
             </Link>
 
-            <Link to={"/"}>
-            <button className='insta-logo'>
-                Insta Mobile Logo
-            </button>
-            </Link>
         </div>
         <div className='sidebar-links-container'>
         {sideBarItems.map((item, index) => (

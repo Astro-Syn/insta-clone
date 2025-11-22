@@ -1,15 +1,20 @@
 import React from 'react'
 import '../suggestedUsers/SuggestedHeader.css';
-import {Link} from 'react-router-dom';
-
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth } from '../../firebase/firebase';
+import { Link } from 'react-router-dom';
 
 export default function SuggestedHeader() {
+  const [user] = useAuthState(auth);
+
   return (
     <div className='suggested-header-container'>
         <div className='profile-pic'>
-          <img src='/Images/profile-pic.jpg'/>
+          <img src={user?.photoURL || '/Images/profile-pic.jpg'}/>
         </div>
-        <p>username</p>
+        <div>
+        {user?.displayName || 'username'}
+        </div>
       
       
       <Link
