@@ -45,8 +45,9 @@ useEffect(() => {
           <div className='user-suggestion' key={user.id}>
             <SuggestedUser 
               name={user.username}
-              followers={user.followers || 0}
-                avatar={user.profilePicURL || "/Images/profile-pic.jpg"}
+              followers={user.followers?.length ?? 0}
+              avatar={user.profilePicURL || "/Images/profile-pic.jpg"}
+              userId={user.id}
             />
           </div>
         ))}

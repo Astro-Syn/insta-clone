@@ -13,6 +13,7 @@ const UpdateProfile = () => {
   const [updateProfile, updating, error] = useUpdateProfile(auth);
   const [user] = useAuthState(auth);
   const db = getFirestore();
+  
 
 
   useEffect(() => {

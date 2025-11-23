@@ -6,8 +6,11 @@ import { RiProfileLine } from "react-icons/ri";
 import { IoMdHome } from "react-icons/io";
 import { FaSearch } from "react-icons/fa";
 import useLogout from '../../hooks/useLogout';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { db, auth } from '../../firebase/firebase';
 
 export default function SideBar() {
+      const [authUser] = useAuthState(auth);
     const sideBarItems = [
         {
             text: "Home",
@@ -31,16 +34,17 @@ export default function SideBar() {
         },
          {
             text: "Profile",
-            link: '/profile',
+            link: `/profile/${authUser?.uid}`,
             icon: <RiProfileLine />,
         
         },
     ];
 
    const {handleLogout, isLoggingOut} =  useLogout();
+   
   return (
     <div className='sidebar-container'>
-        SideBar
+        
         <div>
             <Link to={"/"}>
             <button className='driftergram-logo'>

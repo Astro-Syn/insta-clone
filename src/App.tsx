@@ -20,10 +20,11 @@ function App() {
     <Routes>
 
       <Route path='/auth' element={<AuthPage />}/>
-      <Route  path='/' element={<HomePage />}/>
-      <Route path='/:username' element={<ProfilePage/>}/>
+      <Route path='/' element={<HomePage />}/>
+   
       <Route path='/profile' element={<ProfilePage />} />
       <Route path='/profile/edit' element={<UpdateProfile/>}/>
+      <Route path='/profile/:userId' element={<ProfilePage/>}/>
 
     </Routes>
     </PageLayout>
