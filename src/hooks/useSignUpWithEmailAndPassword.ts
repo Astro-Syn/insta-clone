@@ -50,7 +50,7 @@ const useSignUpWithEmailAndPassword = (): UseSignUpWithEmailAndPassword => {
           username: inputs.username,
           fullName: inputs.fullName,
           bio: "",
-          profilePicURL: "",
+          profilePicURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkBV1FC1itx8a88IL1ARs80PAyux7Z4xA2EmGHb1WkmHA5-DKKljNF59SF2qjD7ff-UofbqQ&s=10",
           followers: [],
           following: [],
           posts: [],

@@ -1,4 +1,5 @@
 .suggested-header-container {
+    position: relative;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -6,25 +7,34 @@
     height: 5vh;
     padding: 10px;
     align-items: center;
+    background-color: rgba(0, 0, 0, 0.158);
 
 }
 
-.user-info {
-    
-    font-size: large;
+.users-info {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 14px;
+    width: 60%;
 }
 
 .profile-pic img {
     width: 50px; 
     height: 50px;
-    border-radius: 50%;
+    border-radius: 5px;
 
+}
+
+.username-and-followers{
+    margin-left: 100px;
 }
 
 
 @media screen and (max-width: 900px) {
     .user-info {
         display: hidden;
-        background-color: red;
+        background-color: black;
     }
 }
