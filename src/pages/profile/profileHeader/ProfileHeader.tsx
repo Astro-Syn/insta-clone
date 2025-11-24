@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './ProfileHeader.css';
 import UpdateProfile from '../../../components/updateProfile/UpdateProfile';
+import { auth } from '../../../firebase/firebase';
 
 type ProfileUser = {
   uid: string;
@@ -32,11 +33,17 @@ export default function ProfileHeader({ user, isOwner }: ProfileHeaderProps) {
     <div className='profile-header-container'>
       <div className='profile-image'>
         <img
-          src={user.profilePicURL || 'default-image-url.jpg'}
-          alt="Profile"
-          width={100}
-          height={100}
-        />
+  src={
+    user.profilePicURL && user.profilePicURL.trim() !== ""
+      ? user.profilePicURL
+      : isOwner ? auth.currentUser?.photoURL || 'default-image-url.jpg'
+      : 'default-image-url.jpg'
+  }
+  alt="Profile"
+  width={100}
+  height={100}
+/>
+
       </div>
 
       <div className='user-info-container'>

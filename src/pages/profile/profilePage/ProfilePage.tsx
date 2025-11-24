@@ -1,5 +1,3 @@
-// src/pages/profile/profilePage/ProfilePage.tsx
-
 import { useState, useEffect } from 'react';
 import './ProfilePage.css';
 import ProfileHeader from '../profileHeader/ProfileHeader';
@@ -26,15 +24,17 @@ type ProfileUser = {
 export default function ProfilePage() {
   const { userId } = useParams<{ userId: string }>();
   const [authUser] = useAuthState(auth);
-
-  const [userData, setUserData] = useState<ProfileUser | null | undefined>(null);
+  const [userData, setUserData] = useState<ProfileUser | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [openUpload, setOpenUpload] = useState(false);
+
+  
+  const isOwner = authUser?.uid === userId;
 
   useEffect(() => {
     const loadProfile = async () => {
       if (!userId) {
-        setUserData(undefined);
+        setUserData(null);
         setIsLoading(false);
         return;
       }
@@ -45,16 +45,14 @@ export default function ProfilePage() {
 
         if (snapshot.exists()) {
           const data = snapshot.data() as ProfileUser;
-     
-          
           setUserData(data);
         } else {
-          setUserData(undefined);
+          setUserData(null);
         }
 
       } catch (err) {
         console.error('Error loading profile:', err);
-        setUserData(undefined);
+        setUserData(null);
       } finally {
         setIsLoading(false);
       }
@@ -70,8 +68,6 @@ export default function ProfilePage() {
   if (!userData) {
     return <p>User not found.</p>;
   }
-
-  const isOwner = authUser?.uid === userData.uid;
 
   return (
     <div className='profile-page'>

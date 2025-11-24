@@ -33,19 +33,45 @@ const UpdateProfile = () => {
     }
   }, [user, db]);
  
-  const handleImageUpload = async () => {
-    if (image && user?.uid) {
-      const storage = getStorage();
-      const imageRef = ref(storage, `profile-images/${user.uid}/${image.name}`);
-      try {
-        await uploadBytes(imageRef, image);
-        const downloadURL = await getDownloadURL(imageRef);
-        setPhotoURL(downloadURL); 
-      } catch (err) {
-        console.error("Error uploading image:", err);
-      }
-    }
-  };
+const handleImageUpload = async () => {
+  if (!image || !user?.uid) {
+    console.log("No image or no user!");
+    return;
+  }
+
+  console.log("UPLOAD FUNCTION STARTED");
+
+  try {
+    const storage = getStorage();
+    const imageRef = ref(storage, `profile-images/${user.uid}/${image.name}`);
+
+    await uploadBytes(imageRef, image);
+
+    const downloadURL = await getDownloadURL(imageRef);
+    console.log("Uploaded Image URL:", downloadURL);
+
+  
+    const userRef = doc(db, "users", user.uid);
+    await setDoc(
+      userRef,
+      { profilePicURL: downloadURL },
+      { merge: true }
+    );
+
+    console.log("Saved to Firestore:", downloadURL);
+
+   
+    await updateProfile({ photoURL: downloadURL });
+
+    setPhotoURL(downloadURL);
+
+    alert("Profile picture updated");
+  } catch (err) {
+    console.error("ERROR:", err);
+  }
+};
+
+
 
 
   const handleBioUpdate = async () => {
@@ -90,6 +116,8 @@ const UpdateProfile = () => {
     return <p>Updating...</p>;
   }
 
+
+  
   return (
     <div className="App">
       <input
