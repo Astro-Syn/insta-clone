@@ -42,9 +42,6 @@ export default function ProfilePost({img}: ProfilePostProps) {
             <button>Post</button>
           </div>
           </div>
-
-          
-
         </div>
       </div>
     )}

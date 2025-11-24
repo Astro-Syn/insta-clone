@@ -68,7 +68,7 @@ export default function SideBar() {
         ))}
          {/*Logout */}
             <div>
-                <button
+                <button className='logout-btn'
                 onClick={handleLogout}
                 >
                     Logout
