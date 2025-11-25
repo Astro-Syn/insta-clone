@@ -45,6 +45,7 @@ export default function SideBar() {
   return (
     <div className='sidebar-container'>
         
+        
         <div>
             <Link to={"/"}>
             <button className='driftergram-logo'>
@@ -52,6 +53,7 @@ export default function SideBar() {
             </button>
             </Link>
 
+          
         </div>
         <div className='sidebar-links-container'>
         {sideBarItems.map((item, index) => (
@@ -66,15 +68,20 @@ export default function SideBar() {
             </Link>
            
         ))}
-         {/*Logout */}
-            <div>
+         
+        </div>
+        {/*Logout */}
+            <div className='logout-btn-container'>
+                  <div className='toggle-mode-container'>
+            <img src='/Images/dark-mode.png'/>
+        </div>
+
                 <button className='logout-btn'
                 onClick={handleLogout}
                 >
                     Logout
                 </button>
             </div>
-        </div>
     </div>
   )
 }
