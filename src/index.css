@@ -56,10 +56,6 @@ button {
   
 }
 
-button:hover {
-  background: var(--color5);
-  color: var(--color4);
-}
 
 
 
