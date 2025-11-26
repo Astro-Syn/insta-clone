@@ -7,7 +7,13 @@ export const characters: Record<string, any> = {
         profilePicUrl: "/Images/deacon1.png",
         followers: [],
         following: [],
-        photos: []
+        photos: ['/Images/deacon2.png'],
+        posts: [
+            {
+                img: "/Images/deacon3.png",
+                caption: "Another day surviving"
+            }
+        ]
     },
     "boozer": {
         uid: "boozer",
@@ -17,7 +23,13 @@ export const characters: Record<string, any> = {
         profilePicUrl: "/Images/boozer1.png",
         followers: [],
         following: [],
-        photos: []
+        photos: ['/Images/boozer2.png'],
+        posts: [
+            {
+                img: "/Images/boozer2.png",
+                caption: "Another day out in the shit"
+            }
+        ]
     },
 
     "skizzo": {
@@ -28,6 +40,12 @@ export const characters: Record<string, any> = {
         profilePicUrl: "/Images/skizzo1.png",
         followers: [],
         following: [],
-        photos: []
+        photos: ['/Images/skizzo2.png'],
+        posts: [
+            {
+                img: "/Images/skizzo4.png",
+                caption: "Another day out in the shit"
+            }
+        ]
     }
 }

@@ -1,25 +1,69 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import "../feedPosts/FeedPosts.css";
 import FeedPost from './feedPost/FeedPost';
+import { db } from '../../firebase/firebase';
+import { collection, getDocs } from 'firebase/firestore';
+import { characters } from '../../data/characters';
 
 export default function FeedPosts() {
+  const [feed, setFeed] = useState<any[]>([]);
+
+  useEffect(() => {
+    const loadFeed = async () => {
+      let combinedPosts: any[] = [];
+
+      
+      const characterPosts = Object.values(characters).flatMap((char: any) =>
+        (char.posts || []).map((post: any) => ({
+          username: char.username,
+          img: post.img,
+          post: post.caption,
+          timestamp: Date.now() + Math.random() 
+        }))
+      );
+
+      combinedPosts = [...characterPosts];
+
+    
+      try {
+        const usersSnap = await getDocs(collection(db, "users"));
+        usersSnap.forEach((docSnap) => {
+          const data = docSnap.data();
+          const username = data.username;
+
+          if (data.photos && Array.isArray(data.photos)) {
+            data.photos.forEach((photoURL: string) => {
+              combinedPosts.push({
+                username,
+                img: photoURL,
+                post: data.bio || "", 
+                timestamp: data.createdAt || Math.random(),
+              });
+            });
+          }
+        });
+      } catch (err) {
+        console.error("Error fetching Firebase users:", err);
+      }
+
+      combinedPosts.sort(() => Math.random() - 0.5);
+
+      setFeed(combinedPosts);
+    };
+
+    loadFeed();
+  }, []);
+
   return (
     <div className='posts-container'>
-      <FeedPost
-      username='mad-dog_22'
-      img='/Images/majima.png'
-      post='FEELIN CRAZY TONIGHT!!!'
-      />
-      <FeedPost
-      username='loYal_Skizz00'
-      img='/Images/skizzo.jpg'
-      post = "Can't trust anyone these days ya know"
-      />
-      <FeedPost
-      username='Deacon'
-      img='/Images/deacon.png'
-      post = 'Another day'
-      />
+      {feed.map((post, i) => (
+        <FeedPost
+          key={i}
+          username={post.username}
+          img={post.img}
+          post={post.post}
+        />
+      ))}
     </div>
-  )
+  );
 }

@@ -4,6 +4,8 @@ import ProfilePost from '../profilePost/ProfilePost';
 import { db, auth, storage } from '../../../firebase/firebase';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { doc, getDoc, updateDoc, arrayUnion } from 'firebase/firestore';
+import { characters } from '../../../data/characters';
+
 
 interface ProfilePostsProps {
   userId: string;
@@ -24,26 +26,39 @@ export default function ProfilePosts({
   const [previewURL, setPreviewURL] = useState<string | null>(null);
 
   useEffect(() => {
-    const fetchPhotos = async () => {
-      if (!userId) return;
+  const fetchPhotos = async () => {
+    if (!userId) return;
 
-      try {
-        const userDocRef = doc(db, 'users', userId);
-        const snap = await getDoc(userDocRef);
+    
+    const hardcoded = Object.values(characters).find(
+      c => c.uid === userId
+    );
 
-        if (snap.exists()) {
-          const data = snap.data();
-          setPhotos(data.photos || []);
-        }
-      } catch (err) {
-        console.error('Error loading photos:', err);
-      } finally {
-        setIsLoading(false);
+    if (hardcoded) {
+      setPhotos(hardcoded.photos || []);
+      setIsLoading(false);
+      return;
+    }
+
+    
+    try {
+      const userDocRef = doc(db, 'users', userId);
+      const snap = await getDoc(userDocRef);
+
+      if (snap.exists()) {
+        const data = snap.data();
+        setPhotos(data.photos || []);
       }
-    };
+    } catch (err) {
+      console.error('Error loading photos:', err);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
-    fetchPhotos();
-  }, [userId]);
+  fetchPhotos();
+}, [userId]);
+
 
   const handleChoose = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!e.target.files?.length) return;
