@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import '../suggestedUsers/SuggestedUser.css';
 import { useNavigate } from 'react-router-dom';
+import { characters } from '../../data/characters';
 
 interface SuggestedUserProps {
   name: string;

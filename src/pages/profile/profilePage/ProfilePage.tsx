@@ -41,11 +41,15 @@ export default function ProfilePage() {
         return;
       }
 
-      if(characters[userId]) {
-        setUserData(characters[userId]);
-        setIsLoading(false)
-      }
+     const hardcoded = Object.values(characters).find(
+  c => c.uid === userId
+);
 
+if (hardcoded) {
+  setUserData(hardcoded);
+  setIsLoading(false);
+  return;
+}
       try {
         const userRef = doc(db, 'users', userId);
         const snapshot = await getDoc(userRef);

@@ -11,6 +11,7 @@ type ProfileUser = {
   fullName?: string;
   bio?: string;
   profilePicURL?: string;
+  profilePicUrl?: string; 
   followers?: string[];
   following?: string[];
   photos?: string[];
@@ -34,7 +35,7 @@ export default function ProfileHeader({ user, isOwner }: ProfileHeaderProps) {
   const postsCount = user.photos?.length ?? 0;
   const currentUid = auth.currentUser?.uid || null;
 
-  // Detect if current user follows this profile
+ 
   useEffect(() => {
     if (!user || !currentUid) return;
     setIsFollowing(user.followers?.includes(currentUid));
@@ -91,12 +92,13 @@ export default function ProfileHeader({ user, isOwner }: ProfileHeaderProps) {
       <div className='profile-image'>
         <img
           src={
-            user.profilePicURL && user.profilePicURL.trim() !== ""
-              ? user.profilePicURL
-              : isOwner
-                ? auth.currentUser?.photoURL || 'default-image-url.jpg'
-                : 'default-image-url.jpg'
-          }
+  (user.profilePicURL || user.profilePicUrl) && (user.profilePicURL || user.profilePicUrl)!.trim() !== ""
+    ? (user.profilePicURL || user.profilePicUrl)
+    : isOwner
+        ? auth.currentUser?.photoURL || 'default-image-url.jpg'
+        : 'default-image-url.jpg'
+}
+
           alt="Profile"
           width={100}
           height={100}
