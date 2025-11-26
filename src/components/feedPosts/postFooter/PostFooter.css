@@ -97,6 +97,11 @@
     color: rgb(221, 220, 220);
 }
 
+.post-comments-section {
+    position: relative;
+    background-color: red;
+}
+
 
 .input-area {
     display: flex;
@@ -104,3 +109,9 @@
     background: green;
     align-items: start;
 }
+
+.input-area input {
+    height: 100px;
+    width: 80%;
+}
+
