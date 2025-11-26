@@ -13,7 +13,7 @@ export default function FeedPosts() {
       <FeedPost
       username='loYal_Skizz00'
       img='/Images/skizzo.jpg'
-      post = 'These h03$ aint loyal, know what im saYin?!'
+      post = "Can't trust anyone these days ya know"
       />
       <FeedPost
       username='Deacon'

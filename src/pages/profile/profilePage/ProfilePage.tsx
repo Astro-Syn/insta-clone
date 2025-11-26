@@ -7,6 +7,8 @@ import { useParams } from 'react-router-dom';
 import { doc, getDoc } from 'firebase/firestore';
 import { db, auth } from '../../../firebase/firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { characters } from '../../../data/characters';
+
 
 type ProfileUser = {
   uid: string;
@@ -37,6 +39,11 @@ export default function ProfilePage() {
         setUserData(null);
         setIsLoading(false);
         return;
+      }
+
+      if(characters[userId]) {
+        setUserData(characters[userId]);
+        setIsLoading(false)
       }
 
       try {

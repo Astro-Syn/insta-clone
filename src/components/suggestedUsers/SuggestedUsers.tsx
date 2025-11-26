@@ -5,29 +5,42 @@ import SuggestedUser from './SuggestedUser';
 import { useEffect, useState } from 'react';
 import { db, auth } from '../.././firebase/firebase';
 import { collection, getDocs } from 'firebase/firestore';
+import { characters } from '../../data/characters';
 
 
 export default function SuggestedUsers() {
 
   const [suggestedUsers, setSuggestedUsers] = useState<any[]>([]);
 
+
 useEffect(() => {
   const loadUsers = async () => {
     const user = auth.currentUser;
     if (!user) return;
 
+    // 1. Load Firestore users
     const usersRef = collection(db, "users");
     const snapshot = await getDocs(usersRef);
 
-    const allUsers = snapshot.docs
+    const firebaseUsers = snapshot.docs
       .map(doc => ({ id: doc.id, ...doc.data() }))
-      .filter(u => u.id !== user.uid);  
+      .filter(u => u.id !== user.uid);
 
-    setSuggestedUsers(allUsers);
+    // 2. Convert character object into array
+    const characterUsers = Object.entries(characters).map(([id, data]) => ({
+      id,
+      ...data
+    }));
+
+    // 3. Merge lists
+    const combined = [...firebaseUsers, ...characterUsers];
+
+    setSuggestedUsers(combined);
   };
 
   loadUsers();
 }, []);
+
 
 
 
