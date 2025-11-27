@@ -3,6 +3,7 @@ import Login from './Login';
 import Signup from './Signup';
 import { useNavigate } from 'react-router-dom';
 import GoogleAuth from './GoogleAuth';
+import "./AuthForm.css";
 
 
 const AuthForm: React.FC = () => {
@@ -14,9 +15,10 @@ const AuthForm: React.FC = () => {
   }
 
   return (
+    <>
     <div className='auth-forum-container'>
       <div className='home-image'>
-        LOGIN HELLO
+        Welcome Drifter
       </div>
 
       <div className='login-forum'>
@@ -55,6 +57,7 @@ const AuthForm: React.FC = () => {
         </div>
       </div>
     </div>
+     </>
   );
 };
 

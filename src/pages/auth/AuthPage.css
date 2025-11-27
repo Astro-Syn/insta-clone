@@ -2,8 +2,27 @@
     width: 100vw;
     height: 100vh;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
+    flex-direction: column;
     align-items: center;
+    
+}
+
+.home-logo-container{
+    margin: 0;
+    width: 100vw;
+    background-image: url(/Images/days-gone-bg-xl.jpeg);
+    background-position: 10%;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10vh;
+    border-bottom: 4px solid black;
+}
+
+.home-logo{
+    width:40vw;
+    height: auto;
 }
 
 .auth-page-content img {
