@@ -15,7 +15,7 @@
     background-repeat: no-repeat;
     display: flex;
     justify-content: center;
-    margin-bottom: 10vh;
+    margin-bottom: 5vh;
     border-bottom: 4px solid black;
 }
 
@@ -29,9 +29,9 @@
 }
 
 .auth-page-content {
-    width: 45vw;
-    max-width: 850px;
-    min-height: 50vh;
+    width: 60vw;
+    max-width: 60vw;
+    min-height: 70vh;
     display: flex;
     flex-direction: row;
     gap: 20px;               

@@ -17,13 +17,9 @@ const AuthForm: React.FC = () => {
   return (
     <>
     <div className='auth-forum-container'>
-      <div className='home-image'>
-        Welcome Drifter
-      </div>
-
       <div className='login-forum'>
         <div className='input-info-section'>
-          <div className='input-bars'></div>
+         
 
           {/* Render Login or Signup */}
           {isLogin ? (

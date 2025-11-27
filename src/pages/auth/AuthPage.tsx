@@ -17,6 +17,7 @@ export default function AuthPage() {
         <div className='auth-page-content'>  
        <ImageCarousel/>
             <div className='auth-form-section'>
+               
                 <AuthForm />
             </div>
         

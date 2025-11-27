@@ -2,8 +2,7 @@ import { useState } from "react"
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase/firebase"; 
 import { useNavigate } from "react-router-dom";
-
-
+import "./Login.css";
 
 interface LoginProps {
   onLoginSuccess: () => void;
@@ -40,8 +39,11 @@ const Login: React.FC<LoginProps> = ({ onLoginSuccess }) => {
         </div>
       )}
 
-      <form onSubmit={handleSubmit}>
+      <form 
+      className='login-section'
+      onSubmit={handleSubmit}>
         <input
+          className='login-input-bar'
           placeholder="Email"
           type="email"
           value={inputs.email}
@@ -49,6 +51,7 @@ const Login: React.FC<LoginProps> = ({ onLoginSuccess }) => {
         />
 
         <input
+          className='login-input-bar'
           placeholder="Password"
           type="password"
           value={inputs.password}
