@@ -1,13 +1,31 @@
 import React, {useState} from 'react';
 import './ProfilePost.css';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { db } from '../../../firebase/firebase';
 
 type ProfilePostProps = {
   img?: string;
+  postId: string;
 }
 
 export default function ProfilePost({img}: ProfilePostProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const [comment, setComment] = useState("");
 
+  const postComment = async () => {
+    if (!comment.trim()) return;
+
+    await addDoc(
+      collection(db, "posts", postId, "comments"),
+      {
+        text: comment,
+        user: "Skizzo",
+        createdAt: serverTimestamp()
+      }
+    );
+
+    setComment("");
+  }
  
   return (
     <>
@@ -38,8 +56,12 @@ export default function ProfilePost({img}: ProfilePostProps) {
             <input
             type='text'
             placeholder="Add a comment..."
+            value={comment}
+            onChange={(e) => setComment(e.target.value)}
             />
-            <button>Post</button>
+            <button
+            onClick={postComment}
+            >Post</button>
           </div>
           </div>
         </div>
