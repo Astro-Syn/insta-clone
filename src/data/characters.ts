@@ -40,11 +40,15 @@ export const characters: Record<string, any> = {
         profilePicUrl: "/Images/skizzo1.png",
         followers: [],
         following: [],
-        photos: ['/Images/skizzo2.png'],
+        photos: ['/Images/skizzo2.png', '/Images/shit_list.png'],
         posts: [
             {
                 img: "/Images/skizzo4.png",
                 caption: "Another day out in the shit"
+            },
+            {
+                img: "/Images/shit_list.png",
+                caption: "It's no surprise I gotta keep an eye out. If you're not on here then congrats"
             }
         ]
     }

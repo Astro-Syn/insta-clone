@@ -1,0 +1,51 @@
+.followers-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5000;
+}
+
+.followers-window {
+  width: 350px;
+  background: #111;
+  border-radius: 12px;
+  padding: 20px;
+  color: white;
+  max-height: 70vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.followers-scroll {
+  overflow-y: auto;
+  flex: 1;
+  margin-top: 10px;
+}
+
+.follower-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  gap: 10px;
+  border-bottom: 1px solid #222;
+}
+
+.follower-item img {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.close-modal-btn {
+  margin-top: 10px;
+  padding: 8px;
+  background: #333;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}

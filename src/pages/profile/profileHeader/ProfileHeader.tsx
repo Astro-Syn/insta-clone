@@ -4,6 +4,7 @@ import UpdateProfile from '../../../components/updateProfile/UpdateProfile';
 import { auth } from '../../../firebase/firebase';
 import { db } from '../../../firebase/firebase';
 import {doc, updateDoc, arrayUnion, arrayRemove} from 'firebase/firestore';
+import FollowerListModal from '../followerListModal/followerListModal';
 
 type ProfileUser = {
   uid: string;
@@ -34,14 +35,15 @@ export default function ProfileHeader({ user, isOwner }: ProfileHeaderProps) {
   const followingCount = user.following?.length ?? 0;
   const postsCount = user.photos?.length ?? 0;
   const currentUid = auth.currentUser?.uid || null;
-
+  const [showFollowerList, setShowFollowerList] = useState(false);
+  const [showFollowingList, setShowFollowingList] = useState(false);
  
   useEffect(() => {
     if (!user || !currentUid) return;
     setIsFollowing(user.followers?.includes(currentUid));
   }, [user, currentUid]);
 
-  // Follow function (renamed to avoid conflict)
+  
   const handleFollow = async () => {
     if (!currentUid || loading) return;
 
@@ -131,22 +133,32 @@ export default function ProfileHeader({ user, isOwner }: ProfileHeaderProps) {
           )}
         </div>
 
-        <div className='profile-numbers-info'>
-          <div className='profile-follow-info'>
-            <p className='profile-number'>{postsCount}</p>
-            <span>Posts</span>
-          </div>
+       <div className='profile-numbers-info'>
+  <div 
+    className='profile-follow-info'
+  >
+    <p className='profile-number'>{postsCount}</p>
+    <span>Posts</span>
+  </div>
 
-          <div className='profile-follow-info'>
-            <p className='profile-number'>{followersCount}</p>
-            <span>Followers</span>
-          </div>
+  <div 
+    className='profile-follow-info'
+    onClick={() => setShowFollowerList(true)}
+    style={{ cursor: "pointer" }}
+  >
+    <p className='profile-number'>{followersCount}</p>
+    <span>Followers</span>
+  </div>
 
-          <div className='profile-follow-info'>
-            <p className='profile-number'>{followingCount}</p>
-            <span>Following</span>
-          </div>
-        </div>
+  <div 
+    className='profile-follow-info'
+    onClick={() => setShowFollowingList(true)}
+    style={{ cursor: "pointer" }}
+  >
+    <p className='profile-number'>{followingCount}</p>
+    <span>Following</span>
+  </div>
+</div>
 
         <div className='profile-description'>
           <div className='profile-name'>{fullName}</div>
@@ -159,9 +171,26 @@ export default function ProfileHeader({ user, isOwner }: ProfileHeaderProps) {
           <div className="modal-content">
             <button className="close-btn" onClick={() => setShowUpdateProfile(false)}>X</button>
             <UpdateProfile />
-          </div>
+            
+          </div>          
         </div>
       )}
+
+  {showFollowerList && (
+  <FollowerListModal
+    userIds={user.followers || []}
+    title="Followers"
+    onClose={() => setShowFollowerList(false)}
+  />
+)}
+
+{showFollowingList && (
+  <FollowerListModal
+    userIds={user.following || []}
+    title="Following"
+    onClose={() => setShowFollowingList(false)}
+  />
+)}
     </div>
   );
 }
