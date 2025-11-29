@@ -167,3 +167,8 @@
 .input-area button:active {
     transform: scale(0.95);
 }
+
+
+.u-name {
+    font-weight: bold;
+}

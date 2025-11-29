@@ -55,7 +55,7 @@ const PostFooter: React.FC<PostFooterProps> = ({ username, post }) => {
 
       <div className='post-comments-section'>
         
-        <p>{username}</p>
+        <p className='u-name'>{username}</p>
         <p>{post}</p>
 
         <span>View all 1,500 comments</span>

@@ -2,14 +2,22 @@ import React from 'react';
 import { useState } from 'react';
 import '../postHeader/PostHeader.css';
 
-export default function PostHeader() {
+interface HeaderProps {
+  username: string;
+  profilePicURL?: string;
+}
+
+export default function PostHeader({username, profilePicURL}: HeaderProps) {
   const [isFollowed, setIsFollowed] = useState(false);
   return (
     <div className='post-header-container'>
         <div className='users-name'>
-            users avatar image
-            <span>Majima</span>
-            <span>1w</span>
+            <img
+            className='feedpost-avatar'
+            src={profilePicURL || '/Images/profile-pic.jpg'}
+            />
+            <span>{username}</span>
+            <span>time frame comming soon</span>
         </div>
 
         <div className='follow-unfollow'>

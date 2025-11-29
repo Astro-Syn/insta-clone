@@ -7,10 +7,11 @@ interface userProps {
     img: string;
     username: string;
     post: string;
+   
 }
 
 
-const FeedPost: React.FC<userProps> = ({img, username, post}) => {
+const FeedPost: React.FC<userProps> = ({img, username, post, profilePicURL}) => {
   return (
     <div className='feed-post-container'>
         <PostHeader 

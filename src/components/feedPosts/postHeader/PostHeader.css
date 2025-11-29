@@ -4,3 +4,21 @@
     align-items: center;
     width: full;
 }
+
+.users-name {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+}
+
+.feedpost-avatar {
+    width: 50px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.users-name span {
+    font-weight: bold;
+    margin: 0 5px 0 5px;
+}

@@ -15,7 +15,9 @@ export default function FeedPosts() {
       
       const characterPosts = Object.values(characters).flatMap((char: any) =>
         (char.posts || []).map((post: any) => ({
+          uid: char.uid,
           username: char.username,
+          profilePicURL: char.profilePicUrl,
           img: post.img,
           post: post.caption,
           timestamp: Date.now() + Math.random() 
@@ -34,7 +36,9 @@ export default function FeedPosts() {
           if (data.photos && Array.isArray(data.photos)) {
             data.photos.forEach((photoURL: string) => {
               combinedPosts.push({
+                uid: docSnap.id, 
                 username,
+                profilePicURL: data.profilePicURL || data.profilePicUrl || "/Images/profile-pic.jpg",
                 img: photoURL,
                 post: data.bio || "", 
                 timestamp: data.createdAt || Math.random(),
@@ -62,6 +66,8 @@ export default function FeedPosts() {
           username={post.username}
           img={post.img}
           post={post.post}
+          profilePicURL={post.profilePicURL}
+          
         />
       ))}
     </div>
