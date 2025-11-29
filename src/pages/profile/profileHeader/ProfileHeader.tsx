@@ -4,7 +4,7 @@ import UpdateProfile from '../../../components/updateProfile/UpdateProfile';
 import { auth } from '../../../firebase/firebase';
 import { db } from '../../../firebase/firebase';
 import {doc, updateDoc, arrayUnion, arrayRemove} from 'firebase/firestore';
-import FollowerListModal from '../followerListModal/followerListModal';
+import FollowerListModal from '../followerListModal/FollowerListModal';
 
 type ProfileUser = {
   uid: string;
@@ -27,7 +27,6 @@ export default function ProfileHeader({ user, isOwner }: ProfileHeaderProps) {
   const [showUpdateProfile, setShowUpdateProfile] = useState(false);
   const [isFollowing, setIsFollowing] = useState(false);
   const [loading, setLoading] = useState(false);
-
   const username = user.username || 'Nomad';
   const fullName = user.fullName || username;
   const bio = user.bio || "This user hasn't added a bio yet.";
@@ -181,6 +180,7 @@ export default function ProfileHeader({ user, isOwner }: ProfileHeaderProps) {
     userIds={user.followers || []}
     title="Followers"
     onClose={() => setShowFollowerList(false)}
+    userId={user.uid || user.id}
   />
 )}
 
@@ -189,6 +189,7 @@ export default function ProfileHeader({ user, isOwner }: ProfileHeaderProps) {
     userIds={user.following || []}
     title="Following"
     onClose={() => setShowFollowingList(false)}
+    userId={user.uid || user.id}
   />
 )}
     </div>
