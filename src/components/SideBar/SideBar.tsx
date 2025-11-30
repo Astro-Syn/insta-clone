@@ -9,6 +9,7 @@ import useLogout from '../../hooks/useLogout';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { db, auth } from '../../firebase/firebase';
 
+
 export default function SideBar() {
       const [authUser] = useAuthState(auth);
     const sideBarItems = [
@@ -20,6 +21,7 @@ export default function SideBar() {
         },
          {
             text: "Search",
+            link: "/search",
             icon: <FaSearch />,
             
         },

@@ -1,0 +1,89 @@
+import React, { useState } from 'react';
+import {
+  collection,
+  query,
+  orderBy,
+  startAt,
+  endAt,
+  getDocs,
+} from "firebase/firestore";
+import { db } from "../../firebase/firebase";
+import "./Search.css";
+
+type User = {
+  id: string;
+  username: string;
+};
+
+export default function Search() {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [results, setResults] = useState<User[]>([]);
+  const [showDropdown, setShowDropdown] = useState(false);
+
+  const handleSearch = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setSearchTerm(value);
+
+    if (value.trim() === "") {
+      setResults([]);
+      setShowDropdown(false);
+      return;
+    }
+
+    const usersRef = collection(db, "users");
+    const q = query(
+      usersRef,
+      orderBy("username"),
+      startAt(value),
+      endAt(value + "\uf8ff")
+    );
+
+    const querySnapshot = await getDocs(q);
+
+    const users: User[] = querySnapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...(doc.data() as User),
+    }));
+
+    setResults(users);
+    setShowDropdown(true);
+  };
+
+  const selectUser = (username: string) => {
+    setSearchTerm(username);
+    setShowDropdown(false);
+  };
+
+  return (
+    <div className="search-container">
+      <div className="search-title-container">
+        <p>Search for user</p>
+      </div>
+
+      <div className="search-area">
+        <input
+          className="search-bar"
+          type="text"
+          value={searchTerm}
+          placeholder="Search..."
+          onChange={handleSearch}
+          onFocus={() => searchTerm && results.length > 0 && setShowDropdown(true)}
+        />
+      </div>
+
+      {showDropdown && results.length > 0 && (
+        <div className="dropdown">
+          {results.map((user) => (
+            <div
+              key={user.id}
+              className="dropdown-item"
+              onClick={() => selectUser(user.username)}
+            >
+              {user.username}
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}

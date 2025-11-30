@@ -6,6 +6,7 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import PageLayout from "./Layout/PageLayout/PageLayout";
 import ProfilePage from "./pages/profile/profilePage/ProfilePage";
 import UpdateProfile from "./components/updateProfile/UpdateProfile";
+import Search from "./pages/search/Search";
 
 
 
@@ -25,6 +26,7 @@ function App() {
       <Route path='/profile' element={<ProfilePage />} />
       <Route path='/profile/edit' element={<UpdateProfile/>}/>
       <Route path='/profile/:userId' element={<ProfilePage/>}/>
+      <Route path='/search' element={<Search/>}/>
 
     </Routes>
     </PageLayout>
