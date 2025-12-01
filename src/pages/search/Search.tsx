@@ -9,16 +9,22 @@ import {
 } from "firebase/firestore";
 import { db } from "../../firebase/firebase";
 import "./Search.css";
+import { useNavigate } from 'react-router-dom';
 
 type User = {
   id: string;
   username: string;
+  uid: string;
 };
 
 export default function Search() {
   const [searchTerm, setSearchTerm] = useState("");
   const [results, setResults] = useState<User[]>([]);
   const [showDropdown, setShowDropdown] = useState(false);
+
+  const navigate = useNavigate();
+
+ 
 
   const handleSearch = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
@@ -29,6 +35,7 @@ export default function Search() {
       setShowDropdown(false);
       return;
     }
+   
 
     const usersRef = collection(db, "users");
     const q = query(
@@ -49,9 +56,10 @@ export default function Search() {
     setShowDropdown(true);
   };
 
-  const selectUser = (username: string) => {
-    setSearchTerm(username);
+  const selectUser = (user: User) => {
+    setSearchTerm(user.username);
     setShowDropdown(false);
+    navigate(`/profile/${user.uid}`);
   };
 
   return (
@@ -61,7 +69,9 @@ export default function Search() {
       </div>
 
       <div className="search-area">
-        <input
+        <div className='search-area-wrapper'>
+
+          <input
           className="search-bar"
           type="text"
           value={searchTerm}
@@ -69,21 +79,37 @@ export default function Search() {
           onChange={handleSearch}
           onFocus={() => searchTerm && results.length > 0 && setShowDropdown(true)}
         />
-      </div>
 
-      {showDropdown && results.length > 0 && (
-        <div className="dropdown">
-          {results.map((user) => (
+
+        {showDropdown && (
+          <div className="dropdown">
+
+        {results.length > 0 ? (
+          results.map((user) => (
             <div
-              key={user.id}
-              className="dropdown-item"
-              onClick={() => selectUser(user.username)}
+            key={user.id}
+            className="dropdown-item"
+            onClick={() => selectUser(user)}
             >
-              {user.username}
-            </div>
-          ))}
+          {user.username}
         </div>
-      )}
+      ))
+    ) : (
+      <div className="dropdown-item no-results">
+        No search results found
+      </div>
+    )}
+    
+
+    </div>
+)}
+
+        </div>
+        
+      
+
+
+    </div>
     </div>
   );
 }
