@@ -7,13 +7,15 @@
     background-color: rgba(0, 0, 0, 0.658);
 }
 
-.search-area{
-    position: relative;
-    display: flex;
-    justify-content: center;
-    background-color: black;
-    width: 50%;
-    height: 50%;
+.search-area {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: start;  
+  background-color: black;
+  width: 50%;
+  height: 50%;
+  padding-top: 20px;   
 }
 
 .search-area-wrapper{

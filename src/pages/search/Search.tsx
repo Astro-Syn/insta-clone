@@ -10,6 +10,7 @@ import {
 import { db } from "../../firebase/firebase";
 import "./Search.css";
 import { useNavigate } from 'react-router-dom';
+import { characters } from '../../data/characters';
 
 type User = {
   id: string;
@@ -24,7 +25,11 @@ export default function Search() {
 
   const navigate = useNavigate();
 
- 
+  const characterList: User[] = Object.values(characters).map((char: any) => ({
+    id: char.uid, 
+    uid: char.uid,
+    username: char.username
+  }))
 
   const handleSearch = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
@@ -36,6 +41,9 @@ export default function Search() {
       return;
     }
    
+    const filteredCharacters = characterList.filter((char) =>
+    char.username.toLowerCase().startsWith(value.toLowerCase())
+  );
 
     const usersRef = collection(db, "users");
     const q = query(
@@ -52,9 +60,18 @@ export default function Search() {
       ...(doc.data() as User),
     }));
 
-    setResults(users);
+      const firebaseUsers: User[] = querySnapshot.docs.map((doc) => ({
+    id: doc.id,
+    ...(doc.data() as User),
+  }));
+
+     const combinedResults = [...filteredCharacters, ...firebaseUsers];
+
+    setResults(combinedResults);
     setShowDropdown(true);
   };
+
+  
 
   const selectUser = (user: User) => {
     setSearchTerm(user.username);
