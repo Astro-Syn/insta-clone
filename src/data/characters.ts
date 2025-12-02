@@ -81,6 +81,10 @@ export const characters: Record<string, any> = {
             {
                 img: "/Images/iron_mike1.png",
                 caption: "Community is everything"
+            },
+            {
+                img: "/Images/iron_mike5.png",
+                caption: "Me trying to explain to Deek that this is NOT how we do things around here."
             }
         ]
     },
@@ -117,26 +121,26 @@ export const characters: Record<string, any> = {
         ]
     },
     "Addy": {
-        uid: "deaconStJohn",
-        username: "Deek",
-        fullName: "Deacon St John",
-        bio: "Just another drifter making it by.",
-        profilePicUrl: "/Images/deacon1.png",
+        uid: "addy",
+        username: "Dr.Addy",
+        fullName: "Addison Walker",
+        bio: "Fulltime doctor, enjoying life with Riki <3 .",
+        profilePicUrl: "/Images/addy1.png",
         followers: [],
         following: [],
-        photos: ['/Images/deacon2.png'],
+        photos: ['/Images/addy1.png'],
         posts: [
             {
-                img: "/Images/deacon3.png",
-                caption: "Another day surviving"
+                img: "/Images/addy1.png",
+                caption: "Saved two more today. Thanks Deacon!"
             }
         ]
     },
     "Blaire": {
-        uid: "deaconStJohn",
-        username: "Deek",
-        fullName: "Deacon St John",
-        bio: "Just another drifter making it by.",
+        uid: "blaire",
+        username: "Blaire",
+        fullName: "Blaire",
+        bio: "You want ammo? I have it here. ",
         profilePicUrl: "/Images/deacon1.png",
         followers: [],
         following: [],
@@ -149,43 +153,43 @@ export const characters: Record<string, any> = {
         ]
     },
     "Copeland": {
-        uid: "deaconStJohn",
-        username: "Deek",
-        fullName: "Deacon St John",
-        bio: "Just another drifter making it by.",
-        profilePicUrl: "/Images/deacon1.png",
+        uid: "copeland",
+        username: "Copeland",
+        fullName: "Mark Copeland",
+        bio: "DONT believe the lies. The Truth shall set you free. - Radio Free Oregon",
+        profilePicUrl: "/Images/copeland.png",
         followers: [],
         following: [],
-        photos: ['/Images/deacon2.png'],
+        photos: ['/Images/copeland2.png'],
         posts: [
             {
-                img: "/Images/deacon3.png",
-                caption: "Another day surviving"
+                img: "/Images/copeland3.png",
+                caption: "Me trying to explain to Deacon what salvaging is. I don't think we see eye to eye on this."
             }
         ]
     },
     "Ada Tucker": {
-        uid: "deaconStJohn",
-        username: "Deek",
-        fullName: "Deacon St John",
-        bio: "Just another drifter making it by.",
-        profilePicUrl: "/Images/deacon1.png",
+        uid: "ada",
+        username: "Ada Tucker",
+        fullName: "Ada Tucker",
+        bio: "I used to be a matron at a womens prison. My ways worked back there and they work just as great here too.",
+        profilePicUrl: "/Images/ada1.png",
         followers: [],
         following: [],
-        photos: ['/Images/deacon2.png'],
+        photos: ['/Images/ada2.png'],
         posts: [
             {
-                img: "/Images/deacon3.png",
-                caption: "Another day surviving"
+                img: "/Images/ada2.png",
+                caption: "We all gotta work."
             }
         ]
     },
     "Alkai": {
-        uid: "deaconStJohn",
-        username: "Deek",
+        uid: "alkai",
+        username: "Alkai",
         fullName: "Deacon St John",
         bio: "Just another drifter making it by.",
-        profilePicUrl: "/Images/deacon1.png",
+        profilePicUrl: "/Images/alkai1.png",
         followers: [],
         following: [],
         photos: ['/Images/deacon2.png'],
@@ -200,7 +204,7 @@ export const characters: Record<string, any> = {
         uid: "deaconStJohn",
         username: "Deek",
         fullName: "Deacon St John",
-        bio: "Just another drifter making it by.",
+        bio: "Need parts? I got you.",
         profilePicUrl: "/Images/deacon1.png",
         followers: [],
         following: [],
@@ -232,7 +236,7 @@ export const characters: Record<string, any> = {
         uid: "deaconStJohn",
         username: "Deek",
         fullName: "Deacon St John",
-        bio: "Just another drifter making it by.",
+        bio: "Come and see my ark.",
         profilePicUrl: "/Images/deacon1.png",
         followers: [],
         following: [],
@@ -247,8 +251,8 @@ export const characters: Record<string, any> = {
     "Taylor": {
         uid: "deaconStJohn",
         username: "Deek",
-        fullName: "Deacon St John",
-        bio: "Just another drifter making it by.",
+        fullName: "Wade Taylor",
+        bio: "I don't even know what im doing here.",
         profilePicUrl: "/Images/deacon1.png",
         followers: [],
         following: [],
@@ -278,9 +282,9 @@ export const characters: Record<string, any> = {
     },
     "Weaver": {
         uid: "deaconStJohn",
-        username: "Deek",
-        fullName: "Deacon St John",
-        bio: "Just another drifter making it by.",
+        username: "Weaver",
+        fullName: "James Weaver",
+        bio: "Creator of the Grower Music lover.",
         profilePicUrl: "/Images/deacon1.png",
         followers: [],
         following: [],
@@ -288,15 +292,15 @@ export const characters: Record<string, any> = {
         posts: [
             {
                 img: "/Images/deacon3.png",
-                caption: "Another day surviving"
+                caption: "Sometimes all you need is some tunes to get you by."
             }
         ]
     },
-    "James O'Brian": {
-        uid: "deaconStJohn",
-        username: "Deek",
-        fullName: "Deacon St John",
-        bio: "Just another drifter making it by.",
+    "OBrian": {
+        uid: "obrian",
+        username: "OBrianNERO",
+        fullName: "James O'Brian",
+        bio: "NERO tech - they're mutating.",
         profilePicUrl: "/Images/deacon1.png",
         followers: [],
         following: [],
@@ -304,7 +308,7 @@ export const characters: Record<string, any> = {
         posts: [
             {
                 img: "/Images/deacon3.png",
-                caption: "Another day surviving"
+                caption: "Just making it clear, these guys are not my 'boys' "
             }
         ]
     },
@@ -312,7 +316,7 @@ export const characters: Record<string, any> = {
         uid: "deaconStJohn",
         username: "Deek",
         fullName: "Deacon St John",
-        bio: "Just another drifter making it by.",
+        bio: "Ex RIP - Im not staying at a camp. So don't even ask.",
         profilePicUrl: "/Images/deacon1.png",
         followers: [],
         following: [],
@@ -320,7 +324,7 @@ export const characters: Record<string, any> = {
         posts: [
             {
                 img: "/Images/deacon3.png",
-                caption: "Another day surviving"
+                caption: "She was a pain in my ass. But I miss my older sister."
             }
         ]
     }
