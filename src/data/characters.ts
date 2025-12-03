@@ -3,7 +3,7 @@ export const characters: Record<string, any> = {
         uid: "deaconStJohn",
         username: "Deek",
         fullName: "Deacon St John",
-        bio: "Just another drifter making it by.",
+        bio: "Just another drifter making it by. -10th Mountain Division",
         profilePicUrl: "/Images/deacon1.png",
         followers: [],
         following: [],
@@ -23,7 +23,7 @@ export const characters: Record<string, any> = {
         profilePicUrl: "/Images/boozer1.png",
         followers: [],
         following: [],
-        photos: ['/Images/boozer2.png'],
+        photos: ['/Images/boozer2.png', '/Images/joany.png'],
         posts: [
             {
                 img: "/Images/boozer2.png",
@@ -36,11 +36,11 @@ export const characters: Record<string, any> = {
         uid: "skizzo",
         username: "L0yal_Skizz0",
         fullName: "Raymond Sarkozi",
-        bio: "Can't trust anyone these days. Except for me.",
+        bio: "Can't trust anyone these days. Except for me. -Head of Security",
         profilePicUrl: "/Images/skizzo1.png",
         followers: [],
         following: [],
-        photos: ['/Images/skizzo2.png', '/Images/shit_list.png'],
+        photos: ['/Images/skizzo2.png', '/Images/shit_list.png', '/Images/skizzo.jpg', '/Images/skizzo1.png', '/Images/skizzo5.png', '/Images/skizzo3.png', '/Images/skizzo6.png', '/Images/skizzo8.png', '/Images/skizzo7.png' ],
         posts: [
             {
                 img: "/Images/skizzo4.png",
@@ -104,19 +104,19 @@ export const characters: Record<string, any> = {
             }
         ]
     },
-    "Riki": {
-        uid: "deaconStJohn",
-        username: "Deek",
-        fullName: "Deacon St John",
-        bio: "Just another drifter making it by.",
-        profilePicUrl: "/Images/deacon1.png",
+    "Rikki": {
+        uid: "rikki",
+        username: "Rikki",
+        fullName: "Rikki Patil",
+        bio: "Lost Lake <3 Engineer.",
+        profilePicUrl: "/Images/rikki1.pnf",
         followers: [],
         following: [],
-        photos: ['/Images/deacon2.png'],
+        photos: ['/Images/rikki_deacon1.png'],
         posts: [
             {
-                img: "/Images/deacon3.png",
-                caption: "Another day surviving"
+                img: "/Images/rikki_deacon1.png",
+                caption: "Gotta show him whats going on"
             }
         ]
     },
@@ -141,14 +141,14 @@ export const characters: Record<string, any> = {
         username: "Blaire",
         fullName: "Blaire",
         bio: "You want ammo? I have it here. ",
-        profilePicUrl: "/Images/deacon1.png",
+        profilePicUrl: "/Images/blaire.png",
         followers: [],
         following: [],
-        photos: ['/Images/deacon2.png'],
+        photos: ['/Images/blaire.png'],
         posts: [
             {
                 img: "/Images/deacon3.png",
-                caption: "Another day surviving"
+                caption: "Deek Deek Deeeek, whats been keeping you away so long?"
             }
         ]
     },
@@ -164,7 +164,7 @@ export const characters: Record<string, any> = {
         posts: [
             {
                 img: "/Images/copeland3.png",
-                caption: "Me trying to explain to Deacon what salvaging is. I don't think we see eye to eye on this."
+                caption: "Me trying to explain to Deacon what salvaging is. I don't think he gets it."
             }
         ]
     },
@@ -187,8 +187,8 @@ export const characters: Record<string, any> = {
     "Alkai": {
         uid: "alkai",
         username: "Alkai",
-        fullName: "Deacon St John",
-        bio: "Just another drifter making it by.",
+        fullName: "Alkai Turner",
+        bio: "Member of the Native American Wasco tribe. Currently head of security in Hot Springs",
         profilePicUrl: "/Images/alkai1.png",
         followers: [],
         following: [],
@@ -201,34 +201,34 @@ export const characters: Record<string, any> = {
         ]
     },
     "Manny": {
-        uid: "deaconStJohn",
-        username: "Deek",
-        fullName: "Deacon St John",
+        uid: "manny",
+        username: "Manny",
+        fullName: "Manny Mendez",
         bio: "Need parts? I got you.",
         profilePicUrl: "/Images/deacon1.png",
         followers: [],
         following: [],
-        photos: ['/Images/deacon2.png'],
+        photos: ['/Images/manny1.png'],
         posts: [
             {
-                img: "/Images/deacon3.png",
-                caption: "Another day surviving"
+                img: "/Images/manny2.png",
+                caption: "Salvaging for parts"
             }
         ]
     },
-    "Jezzie": {
-        uid: "deaconStJohn",
-        username: "Deek",
-        fullName: "Deacon St John",
-        bio: "Just another drifter making it by.",
-        profilePicUrl: "/Images/deacon1.png",
+    "Jezzy": {
+        uid: "jezzy",
+        username: "JezBow",
+        fullName: "Jezzy Bowman",
+        bio: "Currently at Copelands camp. Bounty collector",
+        profilePicUrl: "/Images/jezzy.png",
         followers: [],
         following: [],
-        photos: ['/Images/deacon2.png'],
+        photos: ['/Images/jezzy.png'],
         posts: [
             {
-                img: "/Images/deacon3.png",
-                caption: "Another day surviving"
+                img: "/Images/jezzy.png",
+                caption: "Got freaker ears? Hand em over"
             }
         ]
     },
