@@ -1,36 +1,40 @@
 import React from 'react';
-import "../feedPost/FeedPost.css"
+import '../feedPost/FeedPost.css';
 import PostFooter from '../postFooter/PostFooter';
 import PostHeader from '../postHeader/PostHeader';
 
-interface userProps {
-    img: string;
-    username: string;
-    post: string;
-    profilePicURL?: string;
-   
+interface FeedPostProps {
+  img: string;
+  username: string;
+  post: string;
+  profilePicURL?: string;
+  userId: string;
 }
 
-
-const FeedPost: React.FC<userProps> = ({img, username, post, profilePicURL}) => {
-
-  
+const FeedPost: React.FC<FeedPostProps> = ({
+  img,
+  username,
+  post,
+  profilePicURL,
+  userId,
+}) => {
   return (
     <div className='feed-post-container'>
-        <PostHeader 
-        
+      <PostHeader
         username={username}
-        
-        />
-        <img 
+        avatar={profilePicURL}
+        userId={userId}
+      />
+
+      <img
         className='feed-post-image'
-        src={img}/>
-        <PostFooter 
-        username={username}
-        post={post}
-        />
+        src={img}
+        alt={post}
+      />
+
+      <PostFooter username={username} post={post} />
     </div>
-  )
-}
+  );
+};
 
 export default FeedPost;

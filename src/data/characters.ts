@@ -233,65 +233,65 @@ export const characters: Record<string, any> = {
         ]
     },
     "Colonel Garret": {
-        uid: "deaconStJohn",
-        username: "Deek",
-        fullName: "Deacon St John",
-        bio: "Come and see my ark.",
-        profilePicUrl: "/Images/deacon1.png",
+        uid: "garret",
+        username: "ColonelGarret",
+        fullName: "Matthew Garret",
+        bio: "Come and see my ark and stop in for a tea. I don't mind.",
+        profilePicUrl: "/Images/garret1.png",
         followers: [],
         following: [],
-        photos: ['/Images/deacon2.png'],
+        photos: ['/Images/garret2.png'],
         posts: [
             {
-                img: "/Images/deacon3.png",
-                caption: "Another day surviving"
+                img: "/Images/garret3.png",
+                caption: "Sometimes the enemy is our felllow man."
             }
         ]
     },
     "Taylor": {
-        uid: "deaconStJohn",
-        username: "Deek",
+        uid: "taylor",
+        username: "WTaylor",
         fullName: "Wade Taylor",
         bio: "I don't even know what im doing here.",
-        profilePicUrl: "/Images/deacon1.png",
+        profilePicUrl: "/Images/taylor1.png",
         followers: [],
         following: [],
-        photos: ['/Images/deacon2.png'],
+        photos: ['/Images/taylor2.png'],
         posts: [
             {
-                img: "/Images/deacon3.png",
-                caption: "Another day surviving"
+                img: "/Images/taylor2.png",
+                caption: "Not sure what to caption this."
             }
         ]
     },
     "Captain Kouri": {
-        uid: "deaconStJohn",
-        username: "Deek",
-        fullName: "Deacon St John",
-        bio: "Just another drifter making it by.",
-        profilePicUrl: "/Images/deacon1.png",
+        uid: "kouri",
+        username: "CptnKouri",
+        fullName: "Derrick Kouri",
+        bio: "Air Force - Diamond Lake Captain.",
+        profilePicUrl: "/Images/kouri1.png",
         followers: [],
         following: [],
-        photos: ['/Images/deacon2.png'],
+        photos: ['/Images/kouri1.png'],
         posts: [
             {
-                img: "/Images/deacon3.png",
-                caption: "Another day surviving"
+                img: "/Images/kouri1.png",
+                caption: "Karie, not a day goes by where I don't think of you."
             }
         ]
     },
     "Weaver": {
-        uid: "deaconStJohn",
+        uid: "weaver",
         username: "Weaver",
         fullName: "James Weaver",
-        bio: "Creator of the Grower Music lover.",
-        profilePicUrl: "/Images/deacon1.png",
+        bio: "Creator of the Growler -  Music lover. - Seriously, don't come at me with all that captain bs",
+        profilePicUrl: "/Images/weaver1.png",
         followers: [],
         following: [],
-        photos: ['/Images/deacon2.png'],
+        photos: ['/Images/weaver2.png'],
         posts: [
             {
-                img: "/Images/deacon3.png",
+                img: "/Images/weaver2.png",
                 caption: "Sometimes all you need is some tunes to get you by."
             }
         ]
@@ -301,29 +301,29 @@ export const characters: Record<string, any> = {
         username: "OBrianNERO",
         fullName: "James O'Brian",
         bio: "NERO tech - they're mutating.",
-        profilePicUrl: "/Images/deacon1.png",
+        profilePicUrl: "/Images/obrian1.png",
         followers: [],
         following: [],
-        photos: ['/Images/deacon2.png'],
+        photos: ['/Images/obrian1.png'],
         posts: [
             {
-                img: "/Images/deacon3.png",
+                img: "/Images/obrian1.png",
                 caption: "Just making it clear, these guys are not my 'boys' "
             }
         ]
     },
     "Lisa": {
-        uid: "deaconStJohn",
-        username: "Deek",
-        fullName: "Deacon St John",
+        uid: "lisa",
+        username: "Lisa",
+        fullName: "Lisa Jackson",
         bio: "Ex RIP - Im not staying at a camp. So don't even ask.",
-        profilePicUrl: "/Images/deacon1.png",
+        profilePicUrl: "/Images/lisa1.png",
         followers: [],
         following: [],
-        photos: ['/Images/deacon2.png'],
+        photos: ['/Images/lisa1.png'],
         posts: [
             {
-                img: "/Images/deacon3.png",
+                img: "/Images/lisa1.png",
                 caption: "She was a pain in my ass. But I miss my older sister."
             }
         ]
