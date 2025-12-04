@@ -1,5 +1,7 @@
 .suggested-user-container{
     display: flex;
+    
+    
 }
 
 .user-avatar {
@@ -20,6 +22,8 @@
 .user{
     margin: 10px;
 }
+
+
 
 @media screen and (max-width: 900px) {
     .suggested-user-container {

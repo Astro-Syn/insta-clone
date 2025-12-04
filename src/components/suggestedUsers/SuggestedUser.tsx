@@ -25,14 +25,17 @@ export default function SuggestedUser({name, followers, avatar, userId}: Suggest
         <div className='username-and-followers'>
         <p className='user-name'>{name}</p>
         <p className='user-followers'>{followers} followers</p>
+
+       
         
         </div>
-        <button
+           <button
         onClick={() => setIsFollowed(!isFollowed)}
         >
 
           {isFollowed ? "Unfollow" : "Follow"}
         </button>
+      
         
       </div>
     </div>

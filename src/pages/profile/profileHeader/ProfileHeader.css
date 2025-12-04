@@ -8,8 +8,8 @@
 .profile-image img {
     width: 140px;
     height: 140px;
-    border-radius: 50%;
-    border: 1px solid white;
+    border-radius: 7px;
+    border: 2px solid white;
     margin: 20px;
 }
 
@@ -35,6 +35,10 @@
 .profile-username{
     align-self: center;
     margin-right: 20px;
+    font-family: "Odibee Sans", sans-serif;
+    font-size: 2em;
+    letter-spacing: 2px;
+
 }
 
 .profile-follow-info{

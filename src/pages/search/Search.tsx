@@ -92,7 +92,7 @@ export default function Search() {
           className="search-bar"
           type="text"
           value={searchTerm}
-          placeholder="Search..."
+          placeholder="SEARCH..."
           onChange={handleSearch}
           onFocus={() => searchTerm && results.length > 0 && setShowDropdown(true)}
         />
