@@ -1,50 +1,105 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../suggestedUsers/SuggestedUsers.css';
 import SuggestedHeader from './SuggestedHeader';
 import SuggestedUser from './SuggestedUser';
-import { useEffect, useState } from 'react';
-import { db, auth } from '../.././firebase/firebase';
-import { collection, getDocs } from 'firebase/firestore';
+import { db, auth } from '../../firebase/firebase';
+import { collection, getDocs, doc, getDoc } from 'firebase/firestore';
 import { characters } from '../../data/characters';
 
 
+function shuffleArray(array: any[]) {
+  const arr = [...array];
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+
+function weightedSort(array: any[]) {
+  return array
+    .map(user => ({
+      ...user,
+      weight: Math.random() * 0.5 + user.score 
+    }))
+    .sort((a, b) => b.weight - a.weight);
+}
+
 export default function SuggestedUsers() {
-
   const [suggestedUsers, setSuggestedUsers] = useState<any[]>([]);
+  const [currentUser, setCurrentUser] = useState<any>(null);
+
+  useEffect(() => {
+    const loadUsers = async () => {
+      const user = auth.currentUser;
+      if (!user) return;
+
+      const userSnap = await getDoc(doc(db, "users", user.uid));
+      const currentUserData = userSnap.exists() ? userSnap.data() : {};
+      setCurrentUser(currentUserData);
+
+      const followingList = currentUserData.following || [];
+
+     
+      const usersRef = collection(db, "users");
+      const snapshot = await getDocs(usersRef);
+
+      const firebaseUsers = snapshot.docs
+        .map(docSnap => {
+          const d = docSnap.data();
+          return {
+            id: docSnap.id,
+            uid: d.uid || docSnap.id,
+            username: d.username,
+            followers: d.followers || [],
+            profilePicUrl: d.profilePicURL || d.profilePicUrl,
+            score: 1 
+          };
+        })
+        .filter(u => u.uid !== user.uid); 
+
+      
+      const characterUsers = Object.values(characters).map(c => ({
+        id: c.uid,
+        uid: c.uid,
+        username: c.username,
+        followers: c.followers || [],
+        profilePicUrl: c.profilePicUrl,
+        score: 1 
+      }));
+
+     
+      let combined = [...firebaseUsers, ...characterUsers];
 
 
-useEffect(() => {
-  const loadUsers = async () => {
-    const user = auth.currentUser;
-    if (!user) return;
+      combined = combined.map(user => {
+        let score = 1;
 
-   
-    const usersRef = collection(db, "users");
-    const snapshot = await getDocs(usersRef);
+        
+        if (!followingList.includes(user.uid)) {
+          score += 1.5;
+        }
 
-    const firebaseUsers = snapshot.docs
-      .map(doc => ({ id: doc.id, ...doc.data() }))
-      .filter(u => u.id !== user.uid);
+      
+        score += (user.followers?.length || 0) * 0.05;
 
-    
-    const characterUsers = Object.entries(characters).map(([id, data]) => ({
-      id,
-      ...data
-    }));
+        return { ...user, score };
+      });
 
-   
-    const combined = [...firebaseUsers, ...characterUsers];
+      
+      const weighted = weightedSort(combined);
 
-    setSuggestedUsers(combined);
-  };
+     
+      const finalList = shuffleArray(weighted);
 
-  loadUsers();
-}, []);
+      setSuggestedUsers(finalList);
+    };
 
+    loadUsers();
+  }, []);
 
-
-
- return (
+  return (
     <div className='suggested-users-container'>
       <SuggestedHeader />
 
@@ -55,12 +110,12 @@ useEffect(() => {
 
       <div className='suggested-user-box'>
         {suggestedUsers.map(user => (
-          <div className='user-suggestion' key={user.id}>
-            <SuggestedUser 
+          <div className='user-suggestion' key={user.uid}>
+            <SuggestedUser
               name={user.username}
               followers={user.followers?.length ?? 0}
-              avatar={user.profilePicUrl || user.profilePicURL|| "/Images/profile-pic.jpg"}
-              userId={user.uid || user.id}
+              avatar={user.profilePicUrl || "/Images/profile-pic.jpg"}
+              userId={user.uid}
             />
           </div>
         ))}

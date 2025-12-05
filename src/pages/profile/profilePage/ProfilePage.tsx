@@ -9,58 +9,64 @@ import { db, auth } from '../../../firebase/firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { characters } from '../../../data/characters';
 
-
 type ProfileUser = {
   uid: string;
   username: string;
   fullName?: string;
   bio?: string;
   profilePicURL?: string;
+  profilePicUrl?: string;
   followers?: string[];
   following?: string[];
-  photos?: string[];
+  photos?: any[];
   email?: string;
   createdAt?: number;
 };
 
 export default function ProfilePage() {
-  const { userId } = useParams<{ userId: string }>();
+  const { userId: routeId } = useParams<{ userId: string }>();
   const [authUser] = useAuthState(auth);
+
+  // Map routeId to actual UID if it's a character key
+  const resolvedUserId =
+    (routeId && characters[routeId]?.uid) || routeId || null;
+
   const [userData, setUserData] = useState<ProfileUser | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [openUpload, setOpenUpload] = useState(false);
 
-  
-  const isOwner = authUser?.uid === userId;
+  const isOwner = !!authUser && resolvedUserId === authUser.uid;
 
   useEffect(() => {
     const loadProfile = async () => {
-      if (!userId) {
+      if (!resolvedUserId) {
         setUserData(null);
         setIsLoading(false);
         return;
       }
 
-     const hardcoded = Object.values(characters).find(
-  c => c.uid === userId
-);
+      // Check if this is a hardcoded character profile
+      const hardcoded = Object.values(characters).find(
+        c => c.uid === resolvedUserId
+      );
 
-if (hardcoded) {
-  setUserData(hardcoded);
-  setIsLoading(false);
-  return;
-}
+      if (hardcoded) {
+        setUserData(hardcoded as ProfileUser);
+        setIsLoading(false);
+        return;
+      }
+
       try {
-        const userRef = doc(db, 'users', userId);
+        const userRef = doc(db, 'users', resolvedUserId);
         const snapshot = await getDoc(userRef);
 
         if (snapshot.exists()) {
           const data = snapshot.data() as ProfileUser;
-          setUserData(data);
+          // Ensure uid is set properly
+          setUserData({ ...data, uid: resolvedUserId });
         } else {
           setUserData(null);
         }
-
       } catch (err) {
         console.error('Error loading profile:', err);
         setUserData(null);
@@ -70,7 +76,11 @@ if (hardcoded) {
     };
 
     loadProfile();
-  }, [userId]);
+  }, [resolvedUserId]);
+
+  const handleUserChange = (updated: ProfileUser) => {
+    setUserData(updated);
+  };
 
   if (isLoading) {
     return <p>Loading profile...</p>;
@@ -84,7 +94,11 @@ if (hardcoded) {
     <div className='profile-page'>
       <div className='profile-page-container'>
         <div className='user-header'>
-          <ProfileHeader user={userData} isOwner={isOwner} />
+          <ProfileHeader
+            user={userData}
+            isOwner={isOwner}
+            onUserChange={handleUserChange}
+          />
         </div>
 
         <div className='user-content'>

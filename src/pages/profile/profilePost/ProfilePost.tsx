@@ -73,7 +73,7 @@ export default function ProfilePost({ img, postId }: ProfilePostProps) {
         text: comment,
         user: currentUserData?.username || user?.email || "Unknown",
         uid: user?.uid,
-        avatar: currentUserData?.profilePicUrl || "/Images/profile-pic.jpg",
+        avatar: currentUserData?.profilePicUrl || currentUserData?.profilePicURL || "/Images/profile-pic.jpg",
         createdAt: serverTimestamp()
       }
     );
@@ -104,7 +104,7 @@ export default function ProfilePost({ img, postId }: ProfilePostProps) {
             </div>
 
             <div className="modal-right">
-              <h2>Comments</h2>
+              <h2 className='comments-header'>Comments</h2>
 
               <div className="comments-list">
                 {comments.map(c => (

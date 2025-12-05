@@ -1,5 +1,3 @@
-// src/pages/profile/profileTabs/ProfileTabs.tsx
-
 import React, { useState } from 'react';
 import './ProfileTabs.css';
 

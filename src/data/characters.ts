@@ -255,7 +255,7 @@ export const characters: Record<string, any> = {
         bio: "I don't even know what im doing here.",
         profilePicUrl: "/Images/taylor1.png",
         followers: [],
-        following: [],
+        following: ["garret"],
         photos: ['/Images/taylor2.png'],
         posts: [
             {
