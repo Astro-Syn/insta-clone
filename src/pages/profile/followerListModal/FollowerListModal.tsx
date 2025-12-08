@@ -17,7 +17,6 @@ type ModalUser = {
   username: string;
   fullName?: string;
   profilePicURL?: string;
-  profilePicUrl?: string;
   isHardcoded?: boolean;
 };
 
@@ -27,14 +26,13 @@ export default function FollowerListModal({ userIds, title, onClose }: Props) {
 
   useEffect(() => {
     const fetchUsers = async () => {
-      const loadedUsers: ModalUser[] = [];
+      const loaded: ModalUser[] = [];
 
       for (const uid of userIds) {
- 
         const hardcoded = Object.values(characters).find(c => c.uid === uid);
 
         if (hardcoded) {
-          loadedUsers.push({
+          loaded.push({
             uid: hardcoded.uid,
             username: hardcoded.username,
             fullName: hardcoded.fullName,
@@ -44,28 +42,23 @@ export default function FollowerListModal({ userIds, title, onClose }: Props) {
           continue;
         }
 
-       
         const snap = await getDoc(doc(db, 'users', uid));
         if (snap.exists()) {
-          const data = snap.data() as any;
-          loadedUsers.push({
+          const d = snap.data();
+          loaded.push({
             uid,
-            username: data.username,
-            fullName: data.fullName,
-            profilePicURL: data.profilePicURL || data.profilePicUrl,
+            username: d.username,
+            fullName: d.fullName,
+            profilePicURL: d.profilePicURL || d.profilePicUrl,
             isHardcoded: false
           });
         }
       }
 
-      setUsers(loadedUsers);
+      setUsers(loaded);
     };
 
-    if (userIds && userIds.length > 0) {
-      fetchUsers();
-    } else {
-      setUsers([]);
-    }
+    fetchUsers();
   }, [userIds]);
 
   return (
@@ -76,32 +69,22 @@ export default function FollowerListModal({ userIds, title, onClose }: Props) {
         <div className="followers-scroll">
           {users.length === 0 && <p>No users found.</p>}
 
-          {users.map((u) => (
+          {users.map(u => (
             <div
-              className="follower-item"
               key={u.uid}
+              className="follower-item"
               onClick={() => {
                 navigate(`/profile/${u.uid}`);
                 onClose();
               }}
-              style={{ cursor: 'pointer' }}
             >
-              <img
-                src={u.profilePicURL || u.profilePicUrl || '/Images/profile-pic.jpg'}
-              />
+              <img src={u.profilePicURL || '/Images/profile-pic.jpg'} />
               <p>@{u.username}</p>
-              {u.isHardcoded && (
-                <span style={{ fontSize: '12px', opacity: 0.6 }}>
-                  
-                </span>
-              )}
             </div>
           ))}
         </div>
 
-        <button className="close-modal-btn" onClick={onClose}>
-          Close
-        </button>
+        <button className="close-modal-btn" onClick={onClose}>Close</button>
       </div>
     </div>
   );

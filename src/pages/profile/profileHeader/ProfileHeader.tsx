@@ -24,73 +24,60 @@ interface ProfileHeaderProps {
   onUserChange?: (updated: ProfileUser) => void;
 }
 
-export default function ProfileHeader({ user, isOwner, onUserChange }: ProfileHeaderProps) {
+export default function ProfileHeader({
+  user,
+  isOwner,
+  onUserChange
+}: ProfileHeaderProps) {
   const [showUpdateProfile, setShowUpdateProfile] = useState(false);
   const [isFollowing, setIsFollowing] = useState(false);
   const [loading, setLoading] = useState(false);
   const [showFollowerList, setShowFollowerList] = useState(false);
   const [showFollowingList, setShowFollowingList] = useState(false);
 
-  const currentUid = auth.currentUser?.uid || null;
+  const currentUid = auth.currentUser?.uid ?? null;
 
-  const username = user.username || 'Nomad';
-  const fullName = user.fullName || username;
-  const bio = user.bio || "This user hasn't added a bio yet.";
-  const followersCount = (user.followers ?? []).length;
-  const followingCount = (user.following ?? []).length;
-  const postsCount = (user.photos ?? []).length;
+  const followers = user.followers ?? [];
+  const following = user.following ?? [];
 
   useEffect(() => {
-    if (!user || !currentUid) return;
-    setIsFollowing((user.followers ?? []).includes(currentUid));
-  }, [user, currentUid]);
+    if (!currentUid) return;
+    setIsFollowing(followers.includes(currentUid));
+  }, [followers, currentUid]);
 
   const handleFollow = async () => {
     if (!currentUid || loading) return;
     setLoading(true);
 
     try {
-      
       const hardcoded = Object.values(characters).find(c => c.uid === user.uid);
 
       if (hardcoded) {
-        const updatedFollowers = [...(hardcoded.followers ?? []), currentUid];
+        hardcoded.followers = [...(hardcoded.followers ?? []), currentUid];
 
-       
-        hardcoded.followers = updatedFollowers;
-
-        
-        const updatedUser: ProfileUser = {
+        onUserChange?.({
           ...user,
-          followers: updatedFollowers
-        };
+          followers: hardcoded.followers
+        });
 
-        onUserChange?.(updatedUser);
         setIsFollowing(true);
-        setLoading(false);
         return;
       }
 
-      
-      const currentUserRef = doc(db, 'users', currentUid);
-      const targetUserRef = doc(db, 'users', user.uid);
-
-      await updateDoc(currentUserRef, {
+      await updateDoc(doc(db, 'users', currentUid), {
         following: arrayUnion(user.uid)
       });
 
-      await updateDoc(targetUserRef, {
+      await updateDoc(doc(db, 'users', user.uid), {
         followers: arrayUnion(currentUid)
       });
 
-      const updatedUser: ProfileUser = {
+      onUserChange?.({
         ...user,
-        followers: [...(user.followers ?? []), currentUid]
-      };
+        followers: [...followers, currentUid]
+      });
 
-      onUserChange?.(updatedUser);
       setIsFollowing(true);
-
     } finally {
       setLoading(false);
     }
@@ -104,121 +91,103 @@ export default function ProfileHeader({ user, isOwner, onUserChange }: ProfileHe
       const hardcoded = Object.values(characters).find(c => c.uid === user.uid);
 
       if (hardcoded) {
-        const updatedFollowers = (hardcoded.followers ?? []).filter(f => f !== currentUid);
+        hardcoded.followers = (hardcoded.followers ?? []).filter(f => f !== currentUid);
 
-        hardcoded.followers = updatedFollowers;
-
-        const updatedUser: ProfileUser = {
+        onUserChange?.({
           ...user,
-          followers: updatedFollowers
-        };
+          followers: hardcoded.followers
+        });
 
-        onUserChange?.(updatedUser);
         setIsFollowing(false);
-        setLoading(false);
         return;
       }
 
-   
-      const currentUserRef = doc(db, 'users', currentUid);
-      const targetUserRef = doc(db, 'users', user.uid);
-
-      await updateDoc(currentUserRef, {
+      await updateDoc(doc(db, 'users', currentUid), {
         following: arrayRemove(user.uid)
       });
 
-      await updateDoc(targetUserRef, {
+      await updateDoc(doc(db, 'users', user.uid), {
         followers: arrayRemove(currentUid)
       });
 
-      const updatedUser: ProfileUser = {
+      onUserChange?.({
         ...user,
-        followers: (user.followers ?? []).filter(f => f !== currentUid)
-      };
+        followers: followers.filter(f => f !== currentUid)
+      });
 
-      onUserChange?.(updatedUser);
       setIsFollowing(false);
-
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className='profile-header-container'>
-      <div className='profile-image'>
+    <div className="profile-header-container">
+      <div className="profile-image">
         <img
           src={
-            (user.profilePicURL || user.profilePicUrl) &&
-            (user.profilePicURL || user.profilePicUrl)!.trim() !== ''
-              ? (user.profilePicURL || user.profilePicUrl)
-              : isOwner
-                ? auth.currentUser?.photoURL || '/Images/profile-pic.jpg'
-                : '/Images/profile-pic.jpg'
+            user.profilePicURL ||
+            user.profilePicUrl ||
+            '/Images/profile-pic.jpg'
           }
           alt="Profile"
-          width={100}
-          height={100}
         />
       </div>
 
-      <div className='user-info-container'>
-        <div className='user-and-edit-profile'>
-          <div className='profile-username'>{username}</div>
+      <div className="user-info-container">
+        <div className="user-and-edit-profile">
+          <div className="profile-username">{user.username}</div>
 
           {!isOwner && currentUid && (
             <button
+              onClick={isFollowing ? handleUnfollow : handleFollow}
               disabled={loading}
-              onClick={() => (isFollowing ? handleUnfollow() : handleFollow())}
             >
               {loading ? '...' : isFollowing ? 'Unfollow' : 'Follow'}
             </button>
           )}
 
           {isOwner && (
-            <div className='edit-profile-btn'>
-              <button onClick={() => setShowUpdateProfile(true)}>
-                Edit Profile
-              </button>
-            </div>
+            <button onClick={() => setShowUpdateProfile(true)}>
+              Edit Profile
+            </button>
           )}
         </div>
 
-        <div className='profile-numbers-info'>
-          <div className='profile-follow-info'>
-            <p className='profile-number'>{postsCount}</p>
+        <div className="profile-numbers-info">
+          <div className="profile-follow-info">
+            <p>{user.photos?.length ?? 0}</p>
             <span>Posts</span>
           </div>
 
           <div
-            className='profile-follow-info'
+            className="profile-follow-info"
             onClick={() => setShowFollowerList(true)}
-            style={{ cursor: 'pointer' }}
           >
-            <p className='profile-number'>{followersCount}</p>
+            <p>{followers.length}</p>
             <span>Followers</span>
           </div>
 
           <div
-            className='profile-follow-info'
+            className="profile-follow-info"
             onClick={() => setShowFollowingList(true)}
-            style={{ cursor: 'pointer' }}
           >
-            <p className='profile-number'>{followingCount}</p>
+            <p>{following.length}</p>
             <span>Following</span>
           </div>
         </div>
 
-        <div className='profile-description'>
-          <div className='profile-name'>{fullName}</div>
-          <div className='profile-description-text'>{bio}</div>
+        <div className="profile-description">
+          <strong>{user.fullName}</strong>
+          <p>{user.bio}</p>
         </div>
       </div>
 
-      {showUpdateProfile && isOwner && (
+     
+      {showUpdateProfile && (
         <div className="modal-overlay">
           <div className="modal-content">
-            <button className="close-btn" onClick={() => setShowUpdateProfile(false)}>X</button>
+            <button onClick={() => setShowUpdateProfile(false)}>X</button>
             <UpdateProfile />
           </div>
         </div>
@@ -226,7 +195,7 @@ export default function ProfileHeader({ user, isOwner, onUserChange }: ProfileHe
 
       {showFollowerList && (
         <FollowerListModal
-          userIds={user.followers ?? []}
+          userIds={followers}
           title="Followers"
           onClose={() => setShowFollowerList(false)}
           userId={user.uid}
@@ -235,7 +204,7 @@ export default function ProfileHeader({ user, isOwner, onUserChange }: ProfileHe
 
       {showFollowingList && (
         <FollowerListModal
-          userIds={user.following ?? []}
+          userIds={following}
           title="Following"
           onClose={() => setShowFollowingList(false)}
           userId={user.uid}

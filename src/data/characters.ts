@@ -110,7 +110,23 @@ export const characters: Record<string, any> = {
             {
                 img: "/Images/shit_list.png",
                 caption: "It's no surprise I gotta keep an eye out. If you're not on here then congrats"
-            }
+            },
+             {
+                img: "/Images/skizzo8.png",
+                caption: "What? Are you some kinda Freak expert?"
+            }, 
+             {
+                img: "/Images/skizzo9.png",
+                caption: "Got some new people coming into lost lake. Not sure how to feel bout that. Know what im sayin?"
+            }, 
+             {
+                img: "/Images/skizzo10.jpg",
+                caption: "You're lookin at head of security right here"
+            }, 
+             {
+                img: "/Images/skizzo11.jpg",
+                caption: "Im the most honest person you'll meet"
+            }, 
             
         
         ],

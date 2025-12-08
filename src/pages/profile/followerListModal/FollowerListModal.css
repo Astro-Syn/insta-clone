@@ -11,12 +11,15 @@
 .followers-window {
   width: 350px;
   background: #111;
-  border-radius: 12px;
+  border-radius: 4px;
   padding: 20px;
   color: white;
   max-height: 70vh;
   display: flex;
   flex-direction: column;
+     font-family: "Odibee Sans", sans-serif, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .followers-scroll {
@@ -31,6 +34,8 @@
   padding: 10px 0;
   gap: 10px;
   border-bottom: 1px solid #222;
+  font-family: arial;
+  text-transform: lowercase;
 }
 
 .follower-item img {
