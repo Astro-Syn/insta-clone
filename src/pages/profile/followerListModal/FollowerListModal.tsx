@@ -92,7 +92,7 @@ export default function FollowerListModal({ userIds, title, onClose }: Props) {
               <p>@{u.username}</p>
               {u.isHardcoded && (
                 <span style={{ fontSize: '12px', opacity: 0.6 }}>
-                  (Character)
+                  
                 </span>
               )}
             </div>

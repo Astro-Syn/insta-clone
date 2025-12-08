@@ -5,9 +5,42 @@ export const characters: Record<string, any> = {
         fullName: "Deacon St John",
         bio: "Just another drifter making it by. -10th Mountain Division",
         profilePicUrl: "/Images/deacon1.png",
-        followers: [],
-        following: [],
-        photos: ['/Images/deacon2.png'],
+        followers: ["boozer"],
+        following: ["boozer"],
+        photos: [
+            {
+                img: "/Images/deacon1.png",
+                caption: "Like Boozer says.. I hear a bunk calling my name"
+            },
+             {
+                img: "/Images/deacon2.png",
+                caption: "Old pic but its a good one."
+            },
+             {
+                img: "/Images/deacon3.jpg",
+                caption: "We have to look out for eachother. It's all we got."
+            },
+             {
+                img: "/Images/deacon4.jpg",
+                caption: "."
+            },
+             {
+                img: "/Images/deacon5.jpg",
+                caption: ""
+            },
+             {
+                img: "/Images/deacon6.jpg",
+                caption: ""
+            },
+             {
+                img: "/Images/deacon7.jpg",
+                caption: ""
+            },
+             {
+                img: "/Images/deacon8.jpg",
+                caption: ""
+            }
+        ],
         posts: [
             {
                 img: "/Images/deacon3.png",
@@ -21,12 +54,24 @@ export const characters: Record<string, any> = {
         fullName: "William Gray",
         bio: "Let me give you a hand with that.",
         profilePicUrl: "/Images/boozer1.png",
-        followers: [],
-        following: [],
+        followers: ["deaconStJohn"],
+        following: ["deaconStJohn"],
         photos: [
              {
                 img: "/Images/joany.png",
                 caption: "I never stopped loving you."
+            }, 
+             {
+                img: "/Images/boozer2.png",
+                caption: "It is what it is."
+            }, 
+             {
+                img: "/Images/boozer.png",
+                caption: "I hear a bunk calling my name."
+            },
+             {
+                img: "/Images/jack1.png",
+                caption: "My buddy Jack."
             }, 
         ],
         posts: [
