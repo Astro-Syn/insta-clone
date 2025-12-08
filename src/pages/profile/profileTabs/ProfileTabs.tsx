@@ -8,6 +8,7 @@ interface ProfileTabsProps {
 
 export default function ProfileTabs({ isOwner, onAddPhotos }: ProfileTabsProps) {
   const [activeTab, setActiveTab] = useState<'posts'>('posts');
+  const [caption, setCaption] = useState("");
 
   return (
     <div className='profile-tabs-container'>
@@ -28,6 +29,7 @@ export default function ProfileTabs({ isOwner, onAddPhotos }: ProfileTabsProps) 
           >
             Add Photo
           </button>
+          
         </div>
       )}
     </div>

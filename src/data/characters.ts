@@ -23,7 +23,12 @@ export const characters: Record<string, any> = {
         profilePicUrl: "/Images/boozer1.png",
         followers: [],
         following: [],
-        photos: ['/Images/boozer2.png', '/Images/joany.png'],
+        photos: [
+             {
+                img: "/Images/joany.png",
+                caption: "I never stopped loving you."
+            }, 
+        ],
         posts: [
             {
                 img: "/Images/boozer2.png",
@@ -40,7 +45,30 @@ export const characters: Record<string, any> = {
         profilePicUrl: "/Images/skizzo1.png",
         followers: [],
         following: [],
-        photos: ['/Images/skizzo2.png', '/Images/shit_list.png', '/Images/skizzo.jpg', '/Images/skizzo1.png', '/Images/skizzo5.png', '/Images/skizzo3.png', '/Images/skizzo6.png', '/Images/skizzo8.png', '/Images/skizzo7.png' ],
+        photos: [
+            {
+                img: "/Images/skizzo4.png",
+                caption: "Another day out in the shit"
+            }, 
+             {
+                img: "/Images/skizzo5.png",
+                caption: "Just curious. How much is Tucker payin for a box of TNT these days?"
+            }, 
+             {
+                img: "/Images/skizzo6.png",
+                caption: "Sometimes the only one you can trust is yourself"
+            }, 
+             {
+                img: "/Images/skizzo7.png",
+                caption: "Playin some poker ALLL NIGHT"
+            }, 
+            {
+                img: "/Images/shit_list.png",
+                caption: "It's no surprise I gotta keep an eye out. If you're not on here then congrats"
+            }
+            
+        
+        ],
         posts: [
             {
                 img: "/Images/skizzo4.png",
@@ -109,7 +137,7 @@ export const characters: Record<string, any> = {
         username: "Rikki",
         fullName: "Rikki Patil",
         bio: "Lost Lake <3 Engineer.",
-        profilePicUrl: "/Images/rikki1.pnf",
+        profilePicUrl: "/Images/rikki1.png",
         followers: [],
         following: [],
         photos: ['/Images/rikki_deacon1.png'],

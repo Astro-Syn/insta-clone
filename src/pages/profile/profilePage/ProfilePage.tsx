@@ -27,7 +27,7 @@ export default function ProfilePage() {
   const { userId: routeId } = useParams<{ userId: string }>();
   const [authUser] = useAuthState(auth);
 
-  // Map routeId to actual UID if it's a character key
+
   const resolvedUserId =
     (routeId && characters[routeId]?.uid) || routeId || null;
 
@@ -45,7 +45,7 @@ export default function ProfilePage() {
         return;
       }
 
-      // Check if this is a hardcoded character profile
+    
       const hardcoded = Object.values(characters).find(
         c => c.uid === resolvedUserId
       );

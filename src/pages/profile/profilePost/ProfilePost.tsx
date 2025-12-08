@@ -13,13 +13,15 @@ import {
 import { db } from '../../../firebase/firebase';
 import { auth } from '../../../firebase/firebase';
 import Avatar from '../../../components/avatar/Avatar';
+import { characters } from '../../../data/characters';
 
 type ProfilePostProps = {
   img?: string;
   postId: string;
+  caption?: string;
 };
 
-export default function ProfilePost({ img, postId }: ProfilePostProps) {
+export default function ProfilePost({ img, postId, caption }: ProfilePostProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [comment, setComment] = useState("");
   const [comments, setComments] = useState<any[]>([]);
@@ -89,11 +91,15 @@ export default function ProfilePost({ img, postId }: ProfilePostProps) {
         ) : (
           "Image not available"
         )}
+        
 
         <div className="image-cover">
           <span>Comments: {comments.length}</span>
         </div>
       </div>
+
+      
+
 
       {isOpen && (
         <div className="modal-overlay" onClick={() => setIsOpen(false)}>
@@ -101,6 +107,9 @@ export default function ProfilePost({ img, postId }: ProfilePostProps) {
             
             <div className="modal-left">
               <img src={img} alt="big-post" className="modal-image" />
+               <div className='image-caption'>
+              {caption}
+            </div>
             </div>
 
             <div className="modal-right">

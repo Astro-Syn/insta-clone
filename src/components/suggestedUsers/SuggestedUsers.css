@@ -9,15 +9,14 @@
     padding: 10px;
     display: flex;
     flex-direction: column;
- 
-
+    background: black;
+    border-radius: 4px;
 }
 
 .suggested-for-you {
     display: flex;
     justify-content: space-between;
-    height: 10vh;
-   
+    height: 3vh;
 }
 
 .suggested-user-box{

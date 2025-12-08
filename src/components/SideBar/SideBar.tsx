@@ -27,13 +27,11 @@ export default function SideBar() {
         },
          {
             text: "Notifications",
+            link: "/notifications",
             icon: <IoMdNotifications />,
             
         },
-         {
-            text: "Create",
-            
-        },
+         
          {
             text: "Profile",
             link: `/profile/${authUser?.uid}`,

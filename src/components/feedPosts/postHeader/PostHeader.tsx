@@ -28,7 +28,7 @@ export default function PostHeader({ username, avatar, userId }: HeaderProps) {
           {username}
         </span>
 
-        <span>time frame coming soon</span>
+        
       </div>
 
       <div className='follow-unfollow'>

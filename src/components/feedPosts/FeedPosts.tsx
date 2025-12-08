@@ -5,6 +5,7 @@ import { db } from '../../firebase/firebase';
 import { collection, getDocs } from 'firebase/firestore';
 import { characters } from '../../data/characters';
 
+
 type FeedItem = {
   uid: string;
   username: string;
@@ -25,7 +26,7 @@ export default function FeedPosts() {
       const characterPosts: FeedItem[] = Object.values(characters).flatMap(
         (char: any) =>
           (char.posts || []).map((post: any) => ({
-            uid: char.uid, // ensure characters have uid in characters data
+            uid: char.uid, 
             username: char.username,
             profilePicURL: char.profilePicUrl || char.profilePicURL,
             img: post.img,
@@ -74,6 +75,7 @@ export default function FeedPosts() {
 
   return (
     <div className='posts-container'>
+     
       {feed.map((post, i) => (
         <FeedPost
           key={i}
@@ -84,6 +86,8 @@ export default function FeedPosts() {
           userId={post.uid}
         />
       ))}
+
+      
     </div>
   );
 }
