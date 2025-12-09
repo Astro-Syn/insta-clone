@@ -149,7 +149,12 @@ export const characters: Record<string, any> = {
         profilePicUrl: "/Images/carlos1.png",
         followers: [],
         following: [],
-        photos: ['/Images/carlos2.png'],
+        photos: [
+            {
+                img: "/Images/carlos2.png",
+                caption: "Back when things were different."
+            }
+        ],
         posts: [
             {
                 img: "/Images/carlos2.png",
@@ -165,7 +170,24 @@ export const characters: Record<string, any> = {
         profilePicUrl: "/Images/iron_mike3.png",
         followers: [],
         following: [],
-        photos: ['/Images/iron_mike2.png'],
+        photos: [
+             {
+                img: "/Images/iron_mike1.png",
+                caption: "Community is everything"
+            },
+            {
+                img: "/Images/iron_mike5.png",
+                caption: "Me trying to explain to Deek that this is NOT how we do things around here."
+            },
+             {
+                img: "/Images/iron_mike3.png",
+                caption: "If you think i'm riding this to Shermans camp you gotta be out of your damn mind."
+            },
+            {
+                img: "/Images/iron_mike4.png",
+                caption: "We've all done things. "
+            }
+        ],
         posts: [
             {
                 img: "/Images/iron_mike1.png",
@@ -182,10 +204,15 @@ export const characters: Record<string, any> = {
         username: "sarahResearch",
         fullName: "Sarah Irene Witaker",
         bio: "Trying to make the world a better place",
-        profilePicUrl: "/Images/deacon1.png",
+        profilePicUrl: "/Images/sarah2.png",
         followers: [],
         following: [],
-        photos: ['/Images/deacon2.png'],
+        photos: [
+            {
+                img: "/Images/sarah1.jpg",
+                caption: "Community college salvaging"
+            }
+        ],
         posts: [
             {
                 img: "/Images/deacon3.png",
@@ -199,9 +226,14 @@ export const characters: Record<string, any> = {
         fullName: "Rikki Patil",
         bio: "Lost Lake <3 Engineer.",
         profilePicUrl: "/Images/rikki1.png",
-        followers: [],
-        following: [],
-        photos: ['/Images/rikki_deacon1.png'],
+        followers: ['addy'],
+        following: ['addy'],
+        photos: [
+              {
+                img: "/Images/rikki_deacon1.png",
+                caption: "Gotta show him whats going on"
+            }
+        ],
         posts: [
             {
                 img: "/Images/rikki_deacon1.png",
@@ -215,9 +247,14 @@ export const characters: Record<string, any> = {
         fullName: "Addison Walker",
         bio: "Fulltime doctor, enjoying life with Riki <3 .",
         profilePicUrl: "/Images/addy1.png",
-        followers: [],
-        following: [],
-        photos: ['/Images/addy1.png'],
+        followers: ['rikki'],
+        following: ['rikki'],
+        photos: [
+              {
+                img: "/Images/addy1.png",
+                caption: "Saved two more today. Thanks Deacon!"
+            }
+        ],
         posts: [
             {
                 img: "/Images/addy1.png",
@@ -233,7 +270,12 @@ export const characters: Record<string, any> = {
         profilePicUrl: "/Images/blaire.png",
         followers: [],
         following: [],
-        photos: ['/Images/blaire.png'],
+        photos: [
+            {
+                img: "/Images/deacon3.png",
+                caption: "Deek Deek Deeeek, whats been keeping you away so long?"
+            }
+        ],
         posts: [
             {
                 img: "/Images/deacon3.png",
@@ -249,7 +291,25 @@ export const characters: Record<string, any> = {
         profilePicUrl: "/Images/copeland.png",
         followers: [],
         following: [],
-        photos: ['/Images/copeland2.png'],
+        photos: [
+             {
+                img: "/Images/copeland3.png",
+                caption: "Me trying to explain to Deacon what salvaging is. I don't think he gets it."
+            },
+            {
+                img: '/Images/copelands-camp.jpg',
+                caption: "Nice view from my camp. That it is."
+            },
+            {
+                img: '/Images/copelands-camp2.jpg',
+                caption: "I grew up round these parts."
+            },
+            {
+                img: '/Images/copelands-camp3.jpg',
+                caption: "New episode on Radio free Oregon. Check it out."
+            }
+
+        ],
         posts: [
             {
                 img: "/Images/copeland3.png",
@@ -329,10 +389,15 @@ export const characters: Record<string, any> = {
         profilePicUrl: "/Images/garret1.png",
         followers: [],
         following: [],
-        photos: ['/Images/garret2.png'],
+        photos: [
+            {
+                img: "/Images/garret2.png",
+                caption: "Sometimes the enemy is our felllow man."
+            }
+        ],
         posts: [
             {
-                img: "/Images/garret3.png",
+                img: "/Images/garret2.png",
                 caption: "Sometimes the enemy is our felllow man."
             }
         ]
@@ -345,7 +410,12 @@ export const characters: Record<string, any> = {
         profilePicUrl: "/Images/taylor1.png",
         followers: [],
         following: ["garret"],
-        photos: ['/Images/taylor2.png'],
+        photos: [
+            {
+                img: "/Images/taylor2.png",
+                caption: "Not sure what to caption this."
+            }
+        ],
         posts: [
             {
                 img: "/Images/taylor2.png",
@@ -361,7 +431,12 @@ export const characters: Record<string, any> = {
         profilePicUrl: "/Images/kouri1.png",
         followers: [],
         following: [],
-        photos: ['/Images/kouri1.png'],
+        photos: [
+             {
+                img: "/Images/kouri1.png",
+                caption: "Karie, not a day goes by where I don't think of you."
+            }
+        ],
         posts: [
             {
                 img: "/Images/kouri1.png",
@@ -377,7 +452,12 @@ export const characters: Record<string, any> = {
         profilePicUrl: "/Images/weaver1.png",
         followers: [],
         following: [],
-        photos: ['/Images/weaver2.png'],
+        photos: [
+             {
+                img: "/Images/weaver2.png",
+                caption: "Sometimes all you need is some tunes to get you by."
+            }
+        ],
         posts: [
             {
                 img: "/Images/weaver2.png",
@@ -393,7 +473,12 @@ export const characters: Record<string, any> = {
         profilePicUrl: "/Images/obrian1.png",
         followers: [],
         following: [],
-        photos: ['/Images/obrian1.png'],
+        photos: [
+             {
+                img: "/Images/obrian1.png",
+                caption: "Just making it clear, these guys are not my 'boys' "
+            }
+        ],
         posts: [
             {
                 img: "/Images/obrian1.png",
@@ -409,7 +494,12 @@ export const characters: Record<string, any> = {
         profilePicUrl: "/Images/lisa1.png",
         followers: [],
         following: [],
-        photos: ['/Images/lisa1.png'],
+        photos: [
+             {
+                img: "/Images/lisa1.png",
+                caption: "She was a pain in my ass. But I miss my older sister."
+            }
+        ],
         posts: [
             {
                 img: "/Images/lisa1.png",

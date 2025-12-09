@@ -46,80 +46,94 @@ export default function ProfileHeader({
   }, [followers, currentUid]);
 
   const handleFollow = async () => {
-    if (!currentUid || loading) return;
-    setLoading(true);
+  if (!currentUid || loading) return;
+  setLoading(true);
 
-    try {
-      const hardcoded = Object.values(characters).find(c => c.uid === user.uid);
+  try {
+    const hardcoded = Object.values(characters).find(c => c.uid === user.uid);
 
-      if (hardcoded) {
-        hardcoded.followers = [...(hardcoded.followers ?? []), currentUid];
+    if (hardcoded) {
+      
+      hardcoded.followers = [...(hardcoded.followers ?? []), currentUid];
 
-        onUserChange?.({
-          ...user,
-          followers: hardcoded.followers
-        });
-
-        setIsFollowing(true);
-        return;
-      }
-
+     
       await updateDoc(doc(db, 'users', currentUid), {
         following: arrayUnion(user.uid)
       });
 
-      await updateDoc(doc(db, 'users', user.uid), {
-        followers: arrayUnion(currentUid)
-      });
-
+    
       onUserChange?.({
         ...user,
-        followers: [...followers, currentUid]
+        followers: hardcoded.followers
       });
 
       setIsFollowing(true);
-    } finally {
-      setLoading(false);
+      return;
     }
-  };
 
-  const handleUnfollow = async () => {
-    if (!currentUid || loading) return;
-    setLoading(true);
+   
+    await updateDoc(doc(db, 'users', currentUid), {
+      following: arrayUnion(user.uid)
+    });
 
-    try {
-      const hardcoded = Object.values(characters).find(c => c.uid === user.uid);
+    await updateDoc(doc(db, 'users', user.uid), {
+      followers: arrayUnion(currentUid)
+    });
 
-      if (hardcoded) {
-        hardcoded.followers = (hardcoded.followers ?? []).filter(f => f !== currentUid);
+    onUserChange?.({
+      ...user,
+      followers: [...(user.followers ?? []), currentUid]
+    });
 
-        onUserChange?.({
-          ...user,
-          followers: hardcoded.followers
-        });
+    setIsFollowing(true);
+  } finally {
+    setLoading(false);
+  }
+};
 
-        setIsFollowing(false);
-        return;
-      }
+const handleUnfollow = async () => {
+  if (!currentUid || loading) return;
+  setLoading(true);
 
+  try {
+    const hardcoded = Object.values(characters).find(c => c.uid === user.uid);
+
+    if (hardcoded) {
+      hardcoded.followers = (hardcoded.followers ?? []).filter(f => f !== currentUid);
+
+   
       await updateDoc(doc(db, 'users', currentUid), {
         following: arrayRemove(user.uid)
       });
 
-      await updateDoc(doc(db, 'users', user.uid), {
-        followers: arrayRemove(currentUid)
-      });
-
       onUserChange?.({
         ...user,
-        followers: followers.filter(f => f !== currentUid)
+        followers: hardcoded.followers
       });
 
       setIsFollowing(false);
-    } finally {
-      setLoading(false);
+      return;
     }
-  };
+
+    await updateDoc(doc(db, 'users', currentUid), {
+      following: arrayRemove(user.uid)
+    });
+
+    await updateDoc(doc(db, 'users', user.uid), {
+      followers: arrayRemove(currentUid)
+    });
+
+    onUserChange?.({
+      ...user,
+      followers: (user.followers ?? []).filter(f => f !== currentUid)
+    });
+
+    setIsFollowing(false);
+  } finally {
+    setLoading(false);
+  }
+};
+
 
   return (
     <div className="profile-header-container">

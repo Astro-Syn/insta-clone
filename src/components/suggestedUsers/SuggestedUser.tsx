@@ -14,7 +14,7 @@ interface SuggestedUserProps {
 
 export default function SuggestedUser({
   name,
-  followers,
+  
   avatar,
   userId
 }: SuggestedUserProps) {

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { db } from '../../../firebase/firebase';
-import { doc, getDoc } from 'firebase/firestore';
 import './FollowerListModal.css';
 import { useNavigate } from 'react-router-dom';
+import { db } from '../../../firebase/firebase';
+import { doc, getDoc } from 'firebase/firestore';
 import { characters } from '../../../data/characters';
 
 interface Props {
@@ -15,60 +15,59 @@ interface Props {
 type ModalUser = {
   uid: string;
   username: string;
-  fullName?: string;
   profilePicURL?: string;
-  isHardcoded?: boolean;
 };
 
-export default function FollowerListModal({ userIds, title, onClose }: Props) {
+export default function FollowerListModal({
+  userIds,
+  title,
+  onClose
+}: Props) {
   const [users, setUsers] = useState<ModalUser[]>([]);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchUsers = async () => {
-      const loaded: ModalUser[] = [];
+    const fetch = async () => {
+      const result: ModalUser[] = [];
 
       for (const uid of userIds) {
         const hardcoded = Object.values(characters).find(c => c.uid === uid);
 
         if (hardcoded) {
-          loaded.push({
+          result.push({
             uid: hardcoded.uid,
             username: hardcoded.username,
-            fullName: hardcoded.fullName,
-            profilePicURL: hardcoded.profilePicUrl,
-            isHardcoded: true
+            profilePicURL: hardcoded.profilePicUrl
           });
           continue;
         }
 
         const snap = await getDoc(doc(db, 'users', uid));
         if (snap.exists()) {
-          const d = snap.data();
-          loaded.push({
+          const data = snap.data();
+          result.push({
             uid,
-            username: d.username,
-            fullName: d.fullName,
-            profilePicURL: d.profilePicURL || d.profilePicUrl,
-            isHardcoded: false
+            username: data.username,
+            profilePicURL: data.profilePicURL || data.profilePicUrl
           });
         }
       }
 
-      setUsers(loaded);
+      setUsers(result);
     };
 
-    fetchUsers();
+    fetch();
   }, [userIds]);
 
   return (
     <div className="followers-overlay" onClick={onClose}>
-      <div className="followers-window" onClick={e => e.stopPropagation()}>
+      <div
+        className="followers-window"
+        onClick={e => e.stopPropagation()}
+      >
         <h2>{title}</h2>
 
         <div className="followers-scroll">
-          {users.length === 0 && <p>No users found.</p>}
-
           {users.map(u => (
             <div
               key={u.uid}
@@ -84,7 +83,7 @@ export default function FollowerListModal({ userIds, title, onClose }: Props) {
           ))}
         </div>
 
-        <button className="close-modal-btn" onClick={onClose}>Close</button>
+        <button onClick={onClose}>Close</button>
       </div>
     </div>
   );
