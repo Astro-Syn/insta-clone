@@ -8,8 +8,7 @@ import ProfilePage from "./pages/profile/profilePage/ProfilePage";
 import UpdateProfile from "./components/updateProfile/UpdateProfile";
 import Search from "./pages/search/Search";
 import Notifications from "./pages/notifications/Notifications";
-
-
+import './themeStyles/themes.css';
 
 function App() {
   

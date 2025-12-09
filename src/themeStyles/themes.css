@@ -1,0 +1,35 @@
+:root {
+  --bg: black;
+  --panel: gray;
+  --text: white;
+  --bg-image: none;
+}
+
+html[data-theme="lost-lake"] {
+  --bg: rgb(77, 169, 255);
+  --panel: rgba(3, 14, 22, 0.9);
+  --text: white;
+  --bg-image: url("/Images/deacon3.jpg");
+}
+
+html[data-theme="night"] {
+  --bg: rgb(2, 0, 19);
+  --panel: rgba(2, 46, 17, 0.88);
+  --text: white;
+  --bg-image: url("/Images/deacon3.jpg");
+}
+
+html[data-theme="daylight"] {
+  --bg: rgb(255, 223, 181);
+  --panel: rgb(27, 21, 7);
+  --text: white;
+  --bg-image: url("/Images/deacon3.jpg");
+}
+
+body {
+  background-color: var(--bg);
+  background-image: var(--bg-image);
+  background-size: cover;
+  background-position: center;
+  color: var(--text);
+}

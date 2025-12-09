@@ -2,11 +2,13 @@ import React from 'react';
 import '../home/HomePage.css';
 import FeedPosts from '../../components/feedPosts/FeedPosts';
 import SuggestedUsers from '../../components/suggestedUsers/SuggestedUsers';
+import ThemeSwitcher from '../../components/themeSwitcher/ThemeSwitcher';
 
 
 export default function HomePage() {
   return (
     <div className='home-container'>
+      <ThemeSwitcher/>
       <div className='home-contents'>
         <div className='scroll-feed'>
           <FeedPosts/>
