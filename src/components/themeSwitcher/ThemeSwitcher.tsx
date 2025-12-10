@@ -6,12 +6,29 @@ export default function ThemeSwitcher() {
   const { theme, nextTheme } = useTheme();
 
   return (
-    <button 
+    <div className='theme-switch-box'>
+        <button 
     className='theme-switcher'
     onClick={nextTheme}
     title={`Current theme: ${theme}`}
     >
       {theme}
     </button>
+     <button 
+    className='theme-switcher'
+    onClick={nextTheme}
+    title={`Current theme: ${theme}`}
+    >
+      {theme}
+    </button>
+     <button 
+    className='theme-switcher'
+    onClick={nextTheme}
+    title={`Current theme: ${theme}`}
+    >
+      {theme}
+    </button>
+    </div>
+    
   )
 }

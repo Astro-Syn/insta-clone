@@ -6,24 +6,24 @@
 }
 
 html[data-theme="lost-lake"] {
-  --bg: rgb(77, 169, 255);
+  --bg: rgba(77, 169, 255, 0.404);
   --panel: rgba(3, 14, 22, 0.9);
   --text: white;
-  --bg-image: url("/Images/deacon3.jpg");
+  --bg-image: url("/Images/lost-lake.jpg");
 }
 
 html[data-theme="night"] {
-  --bg: rgb(2, 0, 19);
+  --bg: rgba(2, 0, 19, 0.61);
   --panel: rgba(2, 46, 17, 0.88);
   --text: white;
   --bg-image: url("/Images/deacon3.jpg");
 }
 
 html[data-theme="daylight"] {
-  --bg: rgb(255, 223, 181);
+  --bg: rgba(255, 223, 181, 0.363);
   --panel: rgb(27, 21, 7);
   --text: white;
-  --bg-image: url("/Images/deacon3.jpg");
+  --bg-image: url("/Images/deacon-chase.jpg");
 }
 
 body {

@@ -1,4 +1,18 @@
+.theme-switch-box {
+  position: fixed;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 200px;
+  height: 200px;
+  background: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
 .theme-switcher {
+ 
   background: var(--panel);
   color: var(--text);
   border: 1px solid var(--border);

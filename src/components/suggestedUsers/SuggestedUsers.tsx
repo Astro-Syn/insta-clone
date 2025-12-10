@@ -113,7 +113,7 @@ export default function SuggestedUsers() {
           <div className='user-suggestion' key={user.uid}>
             <SuggestedUser
               name={user.username}
-            
+              followers={user.followers?.length ?? 0}
               avatar={user.profilePicUrl || "/Images/profile-pic.jpg"}
               userId={user.uid}
             />
