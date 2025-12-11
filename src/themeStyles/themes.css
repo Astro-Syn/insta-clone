@@ -3,27 +3,55 @@
   --panel: gray;
   --text: white;
   --bg-image: none;
+  --sidebar-bg: white;
+  --sidebar-color: black;
+  --sidebar-border: black;
+  --sidebar-menu-bg: none;
+  --suggested-users-bg: gray;
+  --theme-title-bg: gray;
+  --theme-title-text-col: black;
+  --feed-card-col: grey;
 }
 
 html[data-theme="lost-lake"] {
   --bg: rgba(77, 169, 255, 0.404);
   --panel: rgba(3, 14, 22, 0.9);
+    --sidebar-color: black;
+    --sidebar-menu-bg: rgba(128, 243, 237, 0.459);
   --text: white;
   --bg-image: url("/Images/lost-lake.jpg");
+  --theme-title-bg: rgba(79, 199, 255, 0.897);
+  --sidebar-bg: url('/Images/lost_lake.png');
+  --feed-card-col: rgb(3, 7, 26);
+  
 }
 
 html[data-theme="night"] {
   --bg: rgba(2, 0, 19, 0.61);
   --panel: rgba(2, 46, 17, 0.88);
   --text: white;
+    --sidebar-color: white;
   --bg-image: url("/Images/deacon3.jpg");
+    --theme-title-bg: rgba(1, 8, 10, 0.973);
+   --theme-title-text-col: white;
+    --sidebar-menu-bg: rgba(2, 12, 12, 0.404);
+    --sidebar-bg: black;
+    --feed-card-col: rgb(0, 0, 0);
+    
 }
 
 html[data-theme="daylight"] {
-  --bg: rgba(255, 223, 181, 0.363);
+  --bg: rgba(20, 13, 4, 0.363);
   --panel: rgb(27, 21, 7);
   --text: white;
+    --sidebar-color: black;
+    --sidebar-menu-bg: gray;
   --bg-image: url("/Images/deacon-chase.jpg");
+  --theme-title-bg: rgb(252, 225, 153);
+  --theme-title-text-col: black;
+     --sidebar-menu-bg: url('/Images/deacon-chase.jpg');
+  --sidebar-bg: rgb(22, 8, 0);
+  --feed-card-col: rgb(17, 7, 0);
 }
 
 body {

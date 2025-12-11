@@ -8,6 +8,7 @@ import { FaSearch } from "react-icons/fa";
 import useLogout from '../../hooks/useLogout';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { db, auth } from '../../firebase/firebase';
+import ThemeSwitcher from '../themeSwitcher/ThemeSwitcher';
 
 
 export default function SideBar() {
@@ -70,12 +71,14 @@ export default function SideBar() {
         ))}
          
         </div>
+      
+
+        <div className='toggle-theme-container'>
+                  <ThemeSwitcher/>
+        </div>
         {/*Logout */}
             <div className='logout-btn-container'>
-                  <div className='toggle-mode-container'>
-            <img src='/Images/dark-mode.png'/>
-        </div>
-
+                
                 <button className='logout-btn'
                 onClick={handleLogout}
                 >

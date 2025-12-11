@@ -1,29 +1,75 @@
 .theme-switch-box {
-  position: fixed;
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 200px;
-  height: 200px;
+  height: 60px;
   background: black;
   color: white;
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.theme-buttons {
+  display: flex;
+  flex-direction: row;
 }
 
 .theme-switcher {
- 
   background: var(--panel);
   color: var(--text);
   border: 1px solid var(--border);
-  padding: 6px 12px;
-  border-radius: 8px;
+  border-radius: 4px;
   cursor: pointer;
-  font-size: 14px;
   transition: background 0.2s, color 0.2s;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.theme-names{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+   font-family: "Odibee Sans", sans-serif, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   font-size: 1.5em;
+   text-transform: uppercase;
+   letter-spacing: 1px;
+  margin-top: 10px;
+  background: var(--theme-title-bg);
+  border-bottom: 3px solid white;
+  border-top: 3px solid white;
+  width: 100%;
+  height: 60px;
+  position: relative;
+  color: var(--theme-title-text-col);
+
+}
+
+.theme-label {
+  display: block;
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: all 0.35s ease;
+}
+
+.theme-label.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.theme-switcher img {
+  height: 27px;
 }
 
 .theme-switcher:hover {
   background: var(--accent);
   color: white;
+}
+
+
+.theme-switcher.active {
+  outline: 2px solid white;
+  transform: scale(1.1);
+  background: rgba(175, 170, 170, 0.082);
 }

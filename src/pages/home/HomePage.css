@@ -8,8 +8,8 @@
   background-attachment: fixed;
     width: 88vw;
     overflow-x: hidden;
-    border-left: 4px solid var(--color1);
-    border-right: 4px solid var(--color1);
+    border-left: 4px solid var(--color4);
+    border-right: 4px solid var(--color4);
    position: relative;
    z-index: 1;
 }
@@ -19,8 +19,8 @@
 .home-contents {
     display: flex;
     flex-direction: row;
-    gap: 30px;
-    justify-content: center;
+    gap: 70px;
+   justify-content: space-between;
     align-items: center;
     padding: 10px;
     z-index: 4;
@@ -30,19 +30,18 @@
 
 .scroll-feed{
     position: relative;
-    margin-left: 40px;
     margin: 0;
-     z-index: 4;
-    flex: 3;
+    z-index: 4;
+    flex: none;
     overflow-x: hidden;
-    background: var(--bg);
+    width: 50%;
     backdrop-filter: blur(20px);
 }
 
 
-
 .suggested-users {
-    flex: 2;
+    flex: none;
+    margin-right: 50em;
 }
 
 @media screen and (max-width: 900px){

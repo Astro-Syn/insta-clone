@@ -21,9 +21,7 @@ export default function HomePage() {
         <div className='suggested-users'>
           <SuggestedUsers/>
         </div>
-        <div className='theme-switcher-container'>
-            <ThemeSwitcher/>
-        </div>
+       
          
       </div>
     </div>
