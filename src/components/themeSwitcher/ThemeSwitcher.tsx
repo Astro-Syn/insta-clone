@@ -16,7 +16,7 @@ export default function ThemeSwitcher() {
     <div className='theme-switch-box'>
         
         <div className='theme-buttons'>
-          <button 
+      <button 
       className={`theme-switcher ${theme === 'night' ? "active" : ""}`}
       onClick={() => setTheme("night")}
       title='Night'
