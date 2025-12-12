@@ -5,15 +5,18 @@
     gap: 4px;
     margin-bottom: 2px;
     transition: 0.5s;
+    
 }
 
 .likes {
     font-weight: bold;
+    
 }
 
 .like-section{
     display: flex;
     justify-content: space-between;
+    
 }
 
 .post-footer-like-status {
@@ -28,6 +31,8 @@
     display: flex;
     align-items: center;
     align-self: end;
+ 
+    
 }
 
 
@@ -37,6 +42,9 @@
     z-index: 3;
     transition: transform 0.35s ease, color 0.3s ease;
     font-size: 2em;
+  
+    
+    
 }
 
 
@@ -63,11 +71,15 @@
     transition: opacity 0.3s ease, transform 0.3s ease;
     pointer-events: none;
     z-index: 3;
+    
+    
 }
 
 .post-footer-like-status:hover .like-label {
     opacity: 1;
     transform: translateX(-50%) translateY(-5px);
+    
+   
 }
 
 
@@ -77,7 +89,7 @@
     inset: -3px;
     border-radius: 7px;
     opacity: 0.5;
-    background: var(--color5);
+    background: var(--like-heart-bg);
     transform: rotate(45deg);
     transition: 0.4s ease;
     z-index: 0;
@@ -85,11 +97,13 @@
 
 .post-footer-like-status:hover::after {
     transform: rotate(0deg);
+    background: var(--like-heart-bg-after);
 }
 
 
 .liked-heart {
     color: var(--color4);
+    
 }  
 
 .unlike-heart {
@@ -137,7 +151,7 @@
     padding: 10px 12px;
     background: rgba(255,255,255,0.05);
     border: 1px solid rgba(255,255,255,0.15);
-    border-radius: 20px;
+    border-radius: 8px;
     outline: none;
     color: white;
     transition: 0.25s ease;

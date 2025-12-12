@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import '../SideBar/SideBar.css';
 import { IoMdNotifications } from "react-icons/io";
 import { RiProfileLine } from "react-icons/ri";
+import { FaRegEnvelope } from "react-icons/fa";
+
 import { IoMdHome } from "react-icons/io";
 import { FaSearch } from "react-icons/fa";
 import useLogout from '../../hooks/useLogout';
@@ -31,6 +33,12 @@ export default function SideBar() {
             link: "/notifications",
             icon: <IoMdNotifications />,
             
+        },
+
+        {
+            text: "Messaging",
+            link: "/messaging",
+            icon: <FaRegEnvelope/>
         },
          
          {

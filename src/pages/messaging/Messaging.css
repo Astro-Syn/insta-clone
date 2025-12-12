@@ -1,0 +1,28 @@
+.messages-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.messaging-content{
+    margin-top: 1%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--messages-bg);
+    width: 50vw;
+    height: 50vh;
+    border-radius: 5px;
+}
+
+.messages-title {
+    font-family: "Odibee Sans", sans-serif;
+    font-size: 2.8em;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.messages-box {
+    border: 3px solid white;
+}
