@@ -10,39 +10,37 @@
 .home-logo-container{
     margin: 0;
     width: 100vw;
-    background-image: url(/Images/days-gone-bg-xl.jpeg);
-    background-position: 10%;
-    background-repeat: no-repeat;
+    background: rgba(0, 0, 0, 0.959);
     display: flex;
     justify-content: center;
     margin-bottom: 5vh;
-    border-bottom: 4px solid black;
+    border-bottom: 4px solid white;
+    padding: 10px;
 }
 
 .home-logo{
-    width:40vw;
+    width:30vw;
     height: auto;
 }
 
 .auth-page-content img {
     border-radius: 10px;
+    
 }
 
 .auth-page-content {
-    width: 60vw;
+    width: 50vw;
     max-width: 60vw;
-    min-height: 70vh;
+    max-height: 50vh;
     display: flex;
-    flex-direction: row;
-    gap: 20px;               
+    flex-direction: row;               
     align-items: center;
-    justify-content: space-around;
-    padding: 20px 30px;
-    border-radius: 15px;
-    background: rgba(15, 15, 15, 0.65); 
+    justify-content: space-between;
+    border-radius: 7px;
+    background: rgba(15, 15, 15, 0.932); 
     backdrop-filter: blur(6px);
     box-shadow: 0 8px 35px rgba(0, 0, 0, 0.45);
-    border: 1px solid rgba(255,255,255,0.15);
+    border: 3px solid white;
 }
 
 .auth-page-content img {
@@ -50,6 +48,8 @@
     height: 50vh;
     width: 30vw;
 }
+
+
 
 @media (max-width: 900px) {
     .auth-page-content {
@@ -63,3 +63,4 @@
         width: 55vw;
     }
 }
+

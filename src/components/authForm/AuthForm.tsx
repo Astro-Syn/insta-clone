@@ -18,10 +18,13 @@ const AuthForm: React.FC = () => {
     <>
     <div className='auth-forum-container'>
       <div className='login-forum'>
+        <div className='welcome-text'>
+              <p>Welcome Drifter</p>
+              </div>
         <div className='input-info-section'>
-         
+           
 
-          {/* Render Login or Signup */}
+          
           {isLogin ? (
             <Login onLoginSuccess={handleLoginSuccess}/>
           ) : (

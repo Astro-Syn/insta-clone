@@ -120,12 +120,15 @@ const handleImageUpload = async () => {
   
   return (
     <div className="edit-profile-popup">
+      <div className='update-profile-title-container'>
+        <p>Update Profile</p>
+      </div>
 
       <div className='photo-and-text-container'>
 
-              <div className='edit-image-container'>
-      {photoURL && <img src={photoURL} alt="Profile" width={100} />}
-         <input
+      <div className='edit-image-container'>
+        {photoURL && <img src={photoURL} alt="Profile" width={200} />}
+        <input
         type="file"
         accept="image/*"
         onChange={(e) => setImage(e.target.files?.[0] ?? null)} 
@@ -136,21 +139,27 @@ const handleImageUpload = async () => {
       </div>
 
       <div className='edit-text-container'>
-
+        <div className='display-name-container'>
+          <p>Display Name</p>
         <input
         type="text"
         placeholder="Display Name"
         value={displayName}
         onChange={(e) => setDisplayName(e.target.value)}
       />
+        </div>
+        
 
-
+    <div className='bio-container'>
+      <p>Update Bio</p>
          <input
         type="text"
         placeholder="Bio"
         value={bio}
         onChange={(e) => setBio(e.target.value)}
       />
+    </div>
+     
 
       </div>
 

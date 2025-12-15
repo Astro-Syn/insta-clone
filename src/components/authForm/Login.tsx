@@ -58,7 +58,7 @@ const Login: React.FC<LoginProps> = ({ onLoginSuccess }) => {
           onChange={(e) => setInputs({...inputs, password:e.target.value})}
         />
 
-        <button type="submit">Log in</button>
+        <button className='login-btn' type="submit">Log in</button>
         
       </form>
     </>

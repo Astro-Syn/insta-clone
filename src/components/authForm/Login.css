@@ -1,9 +1,15 @@
 .login-section {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; 
+    justify-content: flex-start;
+    width: 90%;
 }
 
 .login-input-bar {
-    width: 300px;
+    width: 100%;
+}
+
+.login-btn {
+    width: 50%;
+    align-self: center;
 }
