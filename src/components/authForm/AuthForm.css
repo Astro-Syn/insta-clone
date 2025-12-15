@@ -25,6 +25,12 @@
 
 }
 
+.login-sec-container {
+    display: flex;
+    flex-direction: column;
+    width: 20vw;
+
+}
 input {
     position: relative;
     margin: 10px;
@@ -36,7 +42,13 @@ input {
     font-size: 14px;
 }
 
-
+.bottom-section-signin {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 100px;
+ 
+}
 
 .or-box {
     display: flex;
@@ -44,7 +56,7 @@ input {
     justify-content: space-between;
     align-items: center;
     width: 90%;
-    margin-top: 20px;
+   
 }
 
 .or-box p{
@@ -61,6 +73,7 @@ input {
 .google-login-box {
     cursor: pointer;
 }
+
 
 
 .account-question {

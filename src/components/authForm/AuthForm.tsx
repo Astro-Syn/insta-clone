@@ -21,9 +21,9 @@ const AuthForm: React.FC = () => {
         <div className='welcome-text'>
               <p>Welcome Drifter</p>
               </div>
-        <div className='input-info-section'>
-           
 
+              <div className='login-sec-container'>
+                    <div className='input-info-section'>
           
           {isLogin ? (
             <Login onLoginSuccess={handleLoginSuccess}/>
@@ -34,14 +34,13 @@ const AuthForm: React.FC = () => {
           )}
         </div>
 
-        <div className='or-box'>
+       <div className='bottom-section-signin'>
+              <div className='or-box'>
           <div></div>
           <p>OR</p>
           <div></div>
         </div>
-
-       <GoogleAuth />
-
+           <GoogleAuth />
         <div className='account-question'>
           <p>
             {isLogin ? "Don't have an account?" : "Already have an account?"}
@@ -54,6 +53,14 @@ const AuthForm: React.FC = () => {
             {isLogin ? "Sign Up" : "Log In"}
           </button>
         </div>
+        </div> 
+              </div>
+        
+    
+
+      
+
+        
       </div>
     </div>
      </>
