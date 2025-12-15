@@ -57,10 +57,11 @@ export default function Notifications() {
 
   return (
     <div className="notif-container">
-      <div className="notif-content">
-        <div className="notif-title-container">
+       <div className="notif-title-container">
           <p>Notifications</p>
         </div>
+      <div className="notif-content">
+       
 
         <div className="notif-area">
           {notifications.length === 0 && (

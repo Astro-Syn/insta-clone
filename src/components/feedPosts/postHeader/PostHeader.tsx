@@ -32,7 +32,7 @@ export default function PostHeader({ username, avatar, userId }: HeaderProps) {
       </div>
 
       <div className='follow-unfollow'>
-        <button onClick={() => setIsFollowed(prev => !prev)}>
+        <button className='follow-btn' onClick={() => setIsFollowed(prev => !prev)}>
           {isFollowed ? 'Unfollow' : 'Follow'}
         </button>
       </div>

@@ -3,18 +3,21 @@
     margin-bottom: 10px;
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: var(--profile-text-col);
 }
 
 .profile-image img {
-    width: 140px;
-    height: 140px;
+    width: 200px;
+    height: 200px;
     border-radius: 7px;
     border: 2px solid white;
     margin: 20px;
 }
 
 .user-info-container{
-    margin-left: 20px;
+    margin-left: 40px;
 }
 
 .user-and-edit-profile{
@@ -36,15 +39,17 @@
     align-self: center;
     margin-right: 20px;
     font-family: "Odibee Sans", sans-serif;
-    font-size: 2em;
+    font-size: 3em;
     letter-spacing: 2px;
-
+    margin-right: 15%;
+    color: var(--profile-text-col);
 }
 
 .profile-follow-info{
     display: flex;
     align-items: center;
     margin-right: 10px;
+    font-size: large;
 }
 
 .profile-number {
@@ -54,3 +59,34 @@
 .profile-name{
     font-weight: bold;
 }
+
+.edit-profile-btn {
+      background: var(--follow-btn-bg);
+  color: var(--follow-btn-text);
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+}
+
+.edit-profile-btn:hover {
+      background: rgba(54, 54, 54, 0.644);
+}
+
+.edit-profile-btn:active {
+    background: black;
+}
+
+.x-btn-edit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    padding: 15px;
+    font-size: 1.4em;
+    border-radius: 5px;
+    border: 2px solid gray;
+    background: red;
+    color: white;
+}
+

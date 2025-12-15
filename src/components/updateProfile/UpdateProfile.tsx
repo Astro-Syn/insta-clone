@@ -4,6 +4,7 @@ import { auth } from '../../firebase/firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { getFirestore, doc, setDoc, getDoc } from 'firebase/firestore';
+import './UpdateProfile.css';
 
 const UpdateProfile = () => {
   const [displayName, setDisplayName] = useState('');
@@ -73,7 +74,6 @@ const handleImageUpload = async () => {
 
 
 
-
   const handleBioUpdate = async () => {
     if (user?.uid) {
       const userRef = doc(db, "users", user.uid);
@@ -119,26 +119,48 @@ const handleImageUpload = async () => {
 
   
   return (
-    <div className="App">
-      <input
+    <div className="edit-profile-popup">
+
+      <div className='photo-and-text-container'>
+
+              <div className='edit-image-container'>
+      {photoURL && <img src={photoURL} alt="Profile" width={100} />}
+         <input
+        type="file"
+        accept="image/*"
+        onChange={(e) => setImage(e.target.files?.[0] ?? null)} 
+      />
+
+      <button onClick={handleImageUpload}>Upload Image</button>
+
+      </div>
+
+      <div className='edit-text-container'>
+
+        <input
         type="text"
         placeholder="Display Name"
         value={displayName}
         onChange={(e) => setDisplayName(e.target.value)}
       />
-      <input
-        type="file"
-        accept="image/*"
-        onChange={(e) => setImage(e.target.files?.[0] ?? null)} 
-      />
-      <input
+
+
+         <input
         type="text"
         placeholder="Bio"
         value={bio}
         onChange={(e) => setBio(e.target.value)}
       />
-      <button onClick={handleImageUpload}>Upload Image</button>
-      {photoURL && <img src={photoURL} alt="Profile" width={100} />}
+
+      </div>
+
+      </div>
+
+      
+     
+     
+      
+      
       <button onClick={handleProfileUpdate}>Update Profile</button>
     </div>
   );

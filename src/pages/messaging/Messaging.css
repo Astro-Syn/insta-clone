@@ -1,24 +1,27 @@
 .messages-container {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-}
-
-.messaging-content{
-    margin-top: 1%;
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: var(--messages-bg);
-    width: 50vw;
-    height: 50vh;
-    border-radius: 5px;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.658);
+}
+
+.messaging-content{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: start;  
+  background-color: black;
+  width: 40%;
+  height: 50%;
+  padding-top: 20px;   
 }
 
 .messages-title {
     font-family: "Odibee Sans", sans-serif;
-    font-size: 2.8em;
+    font-size: 2.9em;
     letter-spacing: 1px;
     text-transform: uppercase;
 }

@@ -6,6 +6,7 @@
     background-color: var(--color1);
     width: 100vw;
     height: 100vh;
+    background: var(--bg);
 }
 
 .profile-page-container{
@@ -14,6 +15,9 @@
     flex-direction: column;
     height: 90vh;
     width: 60vw;
+    border: 1px solid white;
+    border-radius: 5px;
+    background: var(--theme-title-bg);
 }
 
 
@@ -22,5 +26,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: var(--color1);
+   
+    
 }

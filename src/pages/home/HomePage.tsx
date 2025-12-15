@@ -1,8 +1,7 @@
-import React from 'react';
 import '../home/HomePage.css';
 import FeedPosts from '../../components/feedPosts/FeedPosts';
 import SuggestedUsers from '../../components/suggestedUsers/SuggestedUsers';
-import ThemeSwitcher from '../../components/themeSwitcher/ThemeSwitcher';
+
 
 
 export default function HomePage() {
@@ -21,7 +20,6 @@ export default function HomePage() {
         <div className='suggested-users'>
           <SuggestedUsers/>
         </div>
-       
          
       </div>
     </div>

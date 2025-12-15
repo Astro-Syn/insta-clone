@@ -36,8 +36,7 @@ body {
   margin: 0;
   display: flex;
   min-width: 320px;
-  min-height: 100vh;
-  
+  min-height: 100vh;  
  
 }
 
@@ -59,24 +58,27 @@ button {
   
 }
 
+
 button:hover {
   background: var(--color5);
   color: var(--color4);
 }
 
-
-
-
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.follow-btn {
+  background: var(--follow-btn-bg);
+  color: var(--follow-btn-text);
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
 }
+
+.follow-btn:hover {
+  background: rgba(54, 54, 54, 0.644);
+}
+
+.follow-btn:active {
+  background: black;
+}
+
+
+

@@ -1,0 +1,13 @@
+.edit-profile-popup {
+    width: 50vw;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.photo-and-text-container {
+    display: flex;
+    flex-direction: row;
+}
+

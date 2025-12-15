@@ -4,7 +4,6 @@ import '../SideBar/SideBar.css';
 import { IoMdNotifications } from "react-icons/io";
 import { RiProfileLine } from "react-icons/ri";
 import { FaRegEnvelope } from "react-icons/fa";
-
 import { IoMdHome } from "react-icons/io";
 import { FaSearch } from "react-icons/fa";
 import useLogout from '../../hooks/useLogout';

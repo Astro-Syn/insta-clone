@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+
 import './ProfileTabs.css';
 
 interface ProfileTabsProps {
@@ -7,20 +7,11 @@ interface ProfileTabsProps {
 }
 
 export default function ProfileTabs({ isOwner, onAddPhotos }: ProfileTabsProps) {
-  const [activeTab, setActiveTab] = useState<'posts'>('posts');
-  const [caption, setCaption] = useState("");
 
   return (
     <div className='profile-tabs-container'>
-      <div className='profile-tabs-left'>
-        <button
-          className={`profile-tab-btn ${activeTab === 'posts' ? 'active' : ''}`}
-          onClick={() => setActiveTab('posts')}
-        >
-          Posts
-        </button>
-      </div>
-
+      
+     
       {isOwner && (
         <div className='profile-tabs-right'>
           <button
@@ -29,7 +20,9 @@ export default function ProfileTabs({ isOwner, onAddPhotos }: ProfileTabsProps) 
           >
             Add Photo
           </button>
-          
+            <div className='posts-title-container'>
+        <p>Posts</p>
+       </div>
         </div>
       )}
     </div>

@@ -162,7 +162,7 @@ const handleUnfollow = async () => {
           )}
 
           {isOwner && (
-            <button onClick={() => setShowUpdateProfile(true)}>
+            <button className='edit-profile-btn' onClick={() => setShowUpdateProfile(true)}>
               Edit Profile
             </button>
           )}
@@ -201,7 +201,9 @@ const handleUnfollow = async () => {
       {showUpdateProfile && (
         <div className="modal-overlay">
           <div className="modal-content">
-            <button onClick={() => setShowUpdateProfile(false)}>X</button>
+            <button 
+            className='x-btn-edit'
+            onClick={() => setShowUpdateProfile(false)}>✖</button>
             <UpdateProfile />
           </div>
         </div>

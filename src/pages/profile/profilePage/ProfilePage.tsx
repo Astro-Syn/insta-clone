@@ -62,7 +62,7 @@ export default function ProfilePage() {
 
         if (snapshot.exists()) {
           const data = snapshot.data() as ProfileUser;
-          // Ensure uid is set properly
+          
           setUserData({ ...data, uid: resolvedUserId });
         } else {
           setUserData(null);

@@ -40,9 +40,9 @@ export default function Messaging() {
     }
   return (
     <div className='messages-container'>
-        
+        <h2 className='messages-title'>Messages</h2>
         <div className='messaging-content'>
-            <h2 className='messages-title'>Messages</h2>
+            
                 {conversations.length === 0 && (
             <p className='no-messages'>No conversations yet.</p>
         )}

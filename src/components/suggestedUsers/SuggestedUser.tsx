@@ -97,7 +97,7 @@ export default function SuggestedUser({
          
         </div>
 
-        <button onClick={handleFollow} disabled={loading}>
+        <button  className='follow-btn' onClick={handleFollow} disabled={loading}>
           {loading ? '…' : isFollowed ? 'Unfollow' : 'Follow'}
         </button>
       </div>
