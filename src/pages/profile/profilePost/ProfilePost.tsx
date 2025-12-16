@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import './ProfilePost.css';
 import {
   collection,
@@ -14,6 +14,8 @@ import { db } from '../../../firebase/firebase';
 import { auth } from '../../../firebase/firebase';
 import Avatar from '../../../components/avatar/Avatar';
 import { characters } from '../../../data/characters';
+import LikeButton from '../../../components/likebtn/LikeButton';
+
 
 type ProfilePostProps = {
   img?: string;
@@ -107,6 +109,7 @@ export default function ProfilePost({ img, postId, caption }: ProfilePostProps) 
             
             <div className="modal-left">
               <img src={img} alt="big-post" className="modal-image" />
+               <LikeButton postId={postId}/>
                <div className='image-caption'>
               {caption}
             </div>

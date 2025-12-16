@@ -1,0 +1,13 @@
+.like-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: gray;
+  transition: transform 0.15s ease;
+}
+
+.like-btn.liked {
+  color: crimson;
+  transform: scale(1.1);
+}
