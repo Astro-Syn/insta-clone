@@ -1,97 +1,105 @@
-.auth-forum-container{
-    display: flex;
-    flex-direction: column;
-    width: 20vw;
-    height: 80vh;  
-}
-
-.login-forum{
-    margin-top: 10vh;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 60vh;
-  
-}
-
-.input-info-section {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    width: 85%;
-    height: 100%;
-
-}
-
-.login-sec-container {
-    display: flex;
-    flex-direction: column;
-    width: 20vw;
-
-}
-input {
-    position: relative;
-    margin: 10px;
-    height: 3em;
-    max-width: 90%;
-    border-radius: 7px;
-    border: none;
-    padding: 2px;
-    font-size: 14px;
-}
-
-.bottom-section-signin {
+.auth-forum-container {
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 100px;
- 
-}
-
-.or-box {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 90%;
-   
-}
-
-.or-box p{
-    margin: 10px;
-    font-weight: bold;
-}
-
-.or-box div {
-    height: 1px;
-    background: white;
-    width: 30%;
-}
-
-.google-login-box {
-    cursor: pointer;
-}
-
-
-
-.account-question {
+    max-width: 600px;
+    height: 700px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-radius: 10px;
-}
-
-.account-question button {
-    font-weight: bold;
-    margin: 10px;
+    box-sizing: border-box;
+    padding: 10px;
+    
 }
 
 .welcome-text {
-    margin-top: 10%;
-    font-size: 2.5em;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-family: "Odibee Sans", sans-serif;
+  font-size: 2.5em;
+  font-family: "Odibee Sans", sans-serif;
+  text-transform: uppercase;
+  margin-top: 0;
+}
+
+.welcome-text p {
+    margin: 0;
+}
+
+
+.auth-slider-wrapper {
+  flex: 0.8;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(15px);
+ 
+}
+
+
+.auth-slider {
+  display: flex;
+  width: 200%;
+  transition: transform 0.45s ease;
+}
+
+.auth-slider.show-login {
+  transform: translateX(0%);
+}
+
+.auth-slider.show-signup {
+  transform: translateX(-50%);
+}
+
+
+.auth-panel {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+input {
+  width: 90%;
+  height: 30px;
+  margin-bottom: 12px;
+  padding: 5px;
+  border-radius: 8px;
+  border: none;
+  background: rgba(0, 0, 0, 0.85);
+  color: white;
+}
+
+
+button {
+  width: 100%;
+  height: 35px;
+  border-radius: 8px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
+.bottom-section-signin {
+  margin-top: 20px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  gap: 20%;
+
+  justify-content: center;
+}
+
+.alt-signin-btns {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.swap-button {
+  background: none;
+  color: white;
+  border: none;
+  text-decoration: underline;
+  cursor: pointer;
 }

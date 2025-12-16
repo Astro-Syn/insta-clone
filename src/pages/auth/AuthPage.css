@@ -5,8 +5,20 @@
     justify-content: flex-start;
     flex-direction: column;
     align-items: center;    
+    background-image: url('/Images/deacon-chase.jpg');
+    background-repeat: no-repeat;
+    background-position: 30%;
+  position: relative;
+  overflow: hidden;
 }
 
+.auth-page-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(12, 11, 11, 0.658); 
+  z-index: 0;
+}
 .home-logo-container{
     margin: 0;
     width: 100vw;
@@ -16,6 +28,7 @@
     margin-bottom: 5vh;
     border-bottom: 4px solid white;
     padding: 10px;
+    z-index: 10;
 }
 
 .home-logo{
@@ -25,30 +38,31 @@
 
 .auth-page-content img {
     border-radius: 10px;
+   
     
 }
 
 .auth-page-content {
     width: 50vw;
-    max-width: 60vw;
+    min-height: 420px;
     max-height: 50vh;
     display: flex;
-    flex-direction: row;               
-    align-items: center;
+    align-items: stretch;
     justify-content: space-between;
     border-radius: 7px;
-    background: rgba(15, 15, 15, 0.932); 
+    background: rgba(15, 15, 15, 0.932);
     backdrop-filter: blur(6px);
     box-shadow: 0 8px 35px rgba(0, 0, 0, 0.45);
     border: 3px solid white;
+    overflow: hidden;
 }
+
 
 .auth-page-content img {
-    border-radius: 10px;
-    height: 50vh;
-    width: 30vw;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
-
 
 
 @media (max-width: 900px) {

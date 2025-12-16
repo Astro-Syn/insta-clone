@@ -14,8 +14,11 @@ export default function AuthPage() {
         className='home-logo'
         src='/Images/driftergram.png'/>
       </div>
-        <div className='auth-page-content'>  
-       <ImageCarousel/>
+        <div className='auth-page-content'>
+        <div className='carousel-container'>
+          <ImageCarousel/>
+        </div>  
+       
             <div className='auth-form-section'>
              
                 <AuthForm />

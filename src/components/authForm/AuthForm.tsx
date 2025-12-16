@@ -1,69 +1,58 @@
-import React, { useState } from 'react';
-import Login from './Login';
-import Signup from './Signup';
-import { useNavigate } from 'react-router-dom';
-import GoogleAuth from './GoogleAuth';
+import React, { useState } from "react";
+import Login from "./Login";
+import Signup from "./Signup";
+import GoogleAuth from "./GoogleAuth";
 import "./AuthForm.css";
 
-
 const AuthForm: React.FC = () => {
-  const [isLogin, setIsLogin] = useState<boolean>(true);
-  const navigate = useNavigate();
-
-  const handleLoginSuccess = () => {
-    navigate('/');
-  }
+  const [isLogin, setIsLogin] = useState(true);
 
   return (
-    <>
-    <div className='auth-forum-container'>
-      <div className='login-forum'>
-        <div className='welcome-text'>
-              <p>Welcome Drifter</p>
-              </div>
+    <div className="auth-forum-container">
+      <div className="welcome-text">
+        <p>Welcome Drifter</p>
+      </div>
 
-              <div className='login-sec-container'>
-                    <div className='input-info-section'>
-          
-          {isLogin ? (
-            <Login onLoginSuccess={handleLoginSuccess}/>
-          ) : (
-            <Signup setIsLogin={setIsLogin} 
-            onSignupSuccess={handleLoginSuccess}
-            />
-          )}
-        </div>
-
-       <div className='bottom-section-signin'>
-              <div className='or-box'>
-          <div></div>
-          <p>OR</p>
-          <div></div>
-        </div>
-           <GoogleAuth />
-        <div className='account-question'>
-          <p>
-            {isLogin ? "Don't have an account?" : "Already have an account?"}
-          </p>
-
-          <button 
-            className='swap-button'
+      <button
+            className="swap-button"
             onClick={() => setIsLogin(!isLogin)}
           >
             {isLogin ? "Sign Up" : "Log In"}
           </button>
+
+      <div className="auth-slider-wrapper">
+        <div
+          className={`auth-slider ${isLogin ? "show-login" : "show-signup"}`}
+        >
+          <div className="auth-panel">
+            <Login onLoginSuccess={() => {}} />
+          </div>
+
+          <div className="auth-panel">
+            <Signup
+              setIsLogin={setIsLogin}
+              onSignupSuccess={() => {}}
+            />
+          </div>
         </div>
-        </div> 
-              </div>
-        
-    
+      </div>
 
-      
+      <div className="bottom-section-signin">
+        <div className="or-box">
+          <p>OR</p>
+        </div>
 
+      <div className='alt-signin-btns'>
+        <GoogleAuth /> 
+
+        <button className='guest-btn'>
+          Guest
+        </button>
+      </div>
         
+       
       </div>
     </div>
-     </>
   );
 };
 

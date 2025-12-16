@@ -1,5 +1,6 @@
 import { useState } from "react";
 import useSignUpWithEmailAndPassword from '../../hooks/useSignUpWithEmailAndPassword';
+import "./Signup.css";
 
 interface SignupProps {
   setIsLogin: React.Dispatch<React.SetStateAction<boolean>>;
@@ -32,7 +33,11 @@ const handleSubmit = async (e: React.FormEvent) => {
 
 
   return (
-    <form onSubmit={handleSubmit}> 
+    <div className='signup-container'>
+      <div className='signup-txt'>
+        <p>Signup</p>
+      </div>
+      <form onSubmit={handleSubmit}> 
       <input
         placeholder="Email"
         type="email"
@@ -59,11 +64,14 @@ const handleSubmit = async (e: React.FormEvent) => {
           onChange={(e) => setInputs({ ...inputs, password: e.target.value })}
         />
 
-        <div>
-          <button type="button" onClick={() => setShowPassword(!showPassword)}>
+      <div className='btm-btn-container'>
+
+      
+        
+          <button className='signup-bottom-btn' type="button" onClick={() => setShowPassword(!showPassword)}>
             {showPassword ? "Hide Password" : "View Password"}
           </button>
-        </div>
+        
 
        
         {error && <p style={{ color: "red" }}>{error.message}</p>}
@@ -71,20 +79,16 @@ const handleSubmit = async (e: React.FormEvent) => {
      
         {loading && <p>Loading...</p>}
 
-        <button type="submit" disabled={loading}>
+        <button className='signup-bottom-btn' type="submit" disabled={loading}>
           {loading ? "Signing Up..." : "Sign Up"}
         </button>
       </div>
-
-      <div>
-        <p>
-          Already have an account?
-          <button type="button" onClick={() => setIsLogin(true)}>
-            Log In
-          </button>
-        </p>
-      </div>
+    </div>
+     
     </form>
+
+    </div>
+    
   );
 };
 
