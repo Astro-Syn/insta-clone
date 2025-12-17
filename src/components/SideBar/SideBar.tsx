@@ -28,8 +28,8 @@ export default function SideBar() {
             
         },
          {
-            text: "Notifications",
-            link: "/notifications",
+            text: "Activity",
+            link: "/activity",
             icon: <IoMdNotifications />,
             
         },

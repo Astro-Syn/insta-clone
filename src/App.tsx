@@ -1,4 +1,4 @@
-import React from "react";
+
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import HomePage from "./pages/home/HomePage";
 import AuthPage from "./pages/auth/AuthPage";
@@ -7,7 +7,7 @@ import PageLayout from "./Layout/PageLayout/PageLayout";
 import ProfilePage from "./pages/profile/profilePage/ProfilePage";
 import UpdateProfile from "./components/updateProfile/UpdateProfile";
 import Search from "./pages/search/Search";
-import Notifications from "./pages/notifications/Notifications";
+import Activity from "./pages/activity/Activity";
 import './themeStyles/themes.css';
 import Messaging from "./pages/messaging/Messaging";
 
@@ -29,7 +29,7 @@ function App() {
       <Route path='/profile/edit' element={<UpdateProfile/>}/>
       <Route path='/profile/:userId' element={<ProfilePage/>}/>
       <Route path='/search' element={<Search/>}/>
-      <Route path='/notifications' element={<Notifications/>}/>
+      <Route path='/activity' element={<Activity/>}/>
 
     </Routes>
     </PageLayout>
