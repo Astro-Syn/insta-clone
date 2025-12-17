@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import {
   doc,
   getDoc,
@@ -7,7 +7,9 @@ import {
   updateDoc,
   increment,
   onSnapshot,
-  collection
+  collection,
+  addDoc,
+  serverTimestamp
 } from "firebase/firestore";
 import { auth, db } from "../../firebase/firebase";
 import './LikeButton.css';
@@ -48,13 +50,24 @@ export default function LikeButton({ postId }: LikeButtonProps) {
     const likeRef = doc(db, "posts", postId, "likes", user.uid);
 
     if (liked) {
+      
       await deleteDoc(likeRef);
       await updateDoc(postRef, { likesCount: increment(-1) });
       setLiked(false);
     } else {
-      await setDoc(likeRef, { createdAt: Date.now() });
+      
+      await setDoc(likeRef, { createdAt: serverTimestamp() });
       await updateDoc(postRef, { likesCount: increment(1) });
       setLiked(true);
+
+      await addDoc(
+        collection(db, "users", user.uid, "activity"),
+        {
+          type: "like",
+          postId,
+          createdAt: serverTimestamp()
+        }
+      );
     }
   };
 

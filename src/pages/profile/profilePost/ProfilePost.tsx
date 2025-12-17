@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import './ProfilePost.css';
+import { useState, useEffect } from "react";
+import "./ProfilePost.css";
 import {
   collection,
   addDoc,
@@ -9,11 +9,11 @@ import {
   serverTimestamp,
   doc,
   getDoc
-} from 'firebase/firestore';
-import { db } from '../../../firebase/firebase';
-import { auth } from '../../../firebase/firebase';
-import Avatar from '../../../components/avatar/Avatar';
-import LikeButton from '../../../components/likebtn/LikeButton';
+} from "firebase/firestore";
+import { db } from "../../../firebase/firebase";
+import { auth } from "../../../firebase/firebase";
+import Avatar from "../../../components/avatar/Avatar";
+import LikeButton from "../../../components/likebtn/LikeButton";
 
 type ProfilePostProps = {
   img?: string;
@@ -39,7 +39,7 @@ export default function ProfilePost({
 
   if (!postId) return null;
 
-
+  
   useEffect(() => {
     const fetchUser = async () => {
       const authUser = auth.currentUser;
@@ -72,22 +72,34 @@ export default function ProfilePost({
     return () => unsub();
   }, [postId]);
 
-
+  
   const postComment = async () => {
     if (!comment.trim()) return;
 
     const authUser = auth.currentUser;
+    if (!authUser) return;
 
+   
     await addDoc(
       collection(db, "posts", postId, "comments"),
       {
         text: comment,
-        user: currentUserData?.username || authUser?.email || "Unknown",
-        uid: authUser?.uid,
+        user: currentUserData?.username || authUser.email || "Unknown",
+        uid: authUser.uid,
         avatar:
           currentUserData?.profilePicUrl ||
           currentUserData?.profilePicURL ||
           "/Images/profile-pic.jpg",
+        createdAt: serverTimestamp()
+      }
+    );
+
+   
+    await addDoc(
+      collection(db, "users", authUser.uid, "activity"),
+      {
+        type: "comment",
+        postId,
         createdAt: serverTimestamp()
       }
     );
@@ -103,6 +115,7 @@ export default function ProfilePost({
         ) : (
           "Image not available"
         )}
+
         <div className="image-cover">
           <span>Comments: {comments.length}</span>
         </div>
@@ -117,8 +130,7 @@ export default function ProfilePost({
 
             <div className="modal-right">
               <div className="username-box">
-                <p>{user.username}</p>
-                
+                <p>@{user.username}</p>
               </div>
 
               <div className="image-caption">

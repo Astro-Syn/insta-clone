@@ -1,93 +1,91 @@
-import React, { useEffect, useState } from 'react';
-import '../feedPosts/FeedPosts.css';
-import FeedPost from './feedPost/FeedPost';
-import { db } from '../../firebase/firebase';
-import { collection, getDocs } from 'firebase/firestore';
-import { characters } from '../../data/characters';
-
+import { useEffect, useState } from "react";
+import "../feedPosts/FeedPosts.css";
+import FeedPost from "./feedPost/FeedPost";
+import { db } from "../../firebase/firebase";
+import {
+  collection,
+  query,
+  orderBy,
+  onSnapshot
+} from "firebase/firestore";
+import { characters } from "../../data/characters";
 
 type FeedItem = {
+  id: string;
   uid: string;
   username: string;
   profilePicURL?: string;
   img: string;
-  post: string;
-  timestamp: number;
+  caption: string;
+  createdAt: number;
+  isNPC?: boolean;
 };
 
 export default function FeedPosts() {
   const [feed, setFeed] = useState<FeedItem[]>([]);
 
   useEffect(() => {
-    const loadFeed = async () => {
-      let combinedPosts: FeedItem[] = [];
+   
+    const q = query(
+      collection(db, "posts"),
+      orderBy("createdAt", "desc")
+    );
 
-  
-      const characterPosts: FeedItem[] = Object.values(characters).flatMap(
+    const unsub = onSnapshot(q, snap => {
+      const firebasePosts: FeedItem[] = snap.docs.map(doc => {
+        const data = doc.data();
+        return {
+          id: doc.id,
+          uid: data.uid,
+          username: data.username,
+          profilePicURL: data.profilePicURL,
+          img: data.img,
+          caption: data.caption,
+          createdAt: data.createdAt?.toMillis?.() || Date.now(),
+          isNPC: false
+        };
+      });
+
+      
+      const npcPosts: FeedItem[] = Object.values(characters).flatMap(
         (char: any) =>
-          (char.posts || []).map((post: any) => ({
-            uid: char.uid, 
+          (char.posts || []).map((post: any, index: number) => ({
+            id: `npc-${char.uid}-${index}`,
+            uid: char.uid,
             username: char.username,
-            profilePicURL: char.profilePicUrl || char.profilePicURL,
+            profilePicURL: char.profilePicUrl,
             img: post.img,
-            post: post.caption,
-            timestamp: Date.now() + Math.random(),
+            caption: post.caption || "",
+            createdAt: Date.now() - Math.random() * 100000000,
+            isNPC: true
           }))
       );
 
-      combinedPosts = [...characterPosts];
+      
+      const merged = [...firebasePosts, ...npcPosts].sort(
+        () => Math.random() - 0.5
+      );
 
-   
-      try {
-        const usersSnap = await getDocs(collection(db, 'users'));
-        usersSnap.forEach(docSnap => {
-          const data = docSnap.data();
-          const username = data.username || 'Nomad';
+      setFeed(merged);
+    });
 
-          if (data.photos && Array.isArray(data.photos)) {
-            data.photos.forEach((photoURL: string) => {
-              combinedPosts.push({
-                uid: docSnap.id,
-                username,
-                profilePicURL:
-                  data.profilePicURL ||
-                  data.profilePicUrl ||
-                  '/Images/profile-pic.jpg',
-                img: photoURL,
-                post: data.bio || '',
-                timestamp: data.createdAt || Math.random(),
-              });
-            });
-          }
-        });
-      } catch (err) {
-        console.error('Error fetching Firebase users:', err);
-      }
-
-    
-      combinedPosts.sort(() => Math.random() - 0.5);
-
-      setFeed(combinedPosts);
-    };
-
-    loadFeed();
+    return () => unsub();
   }, []);
 
   return (
-    <div className='posts-container'>
-     
-      {feed.map((post, i) => (
+    <div className="posts-container">
+      {feed.map(post => (
         <FeedPost
-          key={i}
-          username={post.username}
+          key={post.id}
+          postId={post.id}
           img={post.img}
-          post={post.post}
+          caption={post.caption}
+          username={post.username}
           profilePicURL={post.profilePicURL}
           userId={post.uid}
+          isNPC={post.isNPC}
         />
       ))}
-
-      
     </div>
   );
 }
