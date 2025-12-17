@@ -29,7 +29,7 @@ html[data-theme="lost-lake"] {
   --sidebar-menu-bg: rgba(128, 243, 237, 0.459);
   --text: white;
   --bg-image: url("/Images/lost-lake.jpg");
-  --theme-title-bg: rgba(79, 199, 255, 0.897);
+  --theme-title-bg: rgba(2, 35, 51, 0.938);
   --sidebar-bg: black;
   --feed-card-col: rgb(3, 7, 26);
   --suggested-users-col1:  rgb(0, 3, 5);
@@ -51,7 +51,7 @@ html[data-theme="night"] {
     --bg-image: url("/Images/deacon3.jpg");
     --theme-title-bg: rgba(1, 8, 10, 0.973);
     --theme-title-text-col: white;
-    --sidebar-menu-bg: rgba(2, 13, 20, 0.404);
+    --sidebar-menu-bg: rgba(1, 7, 14, 0.582);
     --sidebar-bg: black;
     --feed-card-col: rgba(0, 0, 0, 0.671);
     --suggested-users-col1:  rgb(0, 3, 12);
@@ -70,8 +70,8 @@ html[data-theme="daylight"] {
     --sidebar-color: black;
     --sidebar-menu-bg: gray;
   --bg-image: url("/Images/deacon-chase.jpg");
-  --theme-title-bg: rgb(252, 225, 153);
-  --theme-title-text-col: black;
+  --theme-title-bg: rgb(19, 14, 2);
+  --theme-title-text-col: rgb(236, 233, 229);
   --sidebar-menu-bg: url('/Images/deacon-chase.jpg');
   --sidebar-bg: rgb(22, 8, 0);
   --feed-card-col: rgb(17, 7, 0);
@@ -80,7 +80,7 @@ html[data-theme="daylight"] {
   --like-heart-bg: black;
   --follow-btn-bg: rgba(0, 0, 0, 0.842);
   --follow-btn-text: rgb(255, 245, 243);
-    --profile-text-col: rgb(5, 4, 3);
+    --profile-text-col: rgb(252, 228, 204);
 }
 
 body {
