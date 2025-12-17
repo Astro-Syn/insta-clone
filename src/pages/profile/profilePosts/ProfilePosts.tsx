@@ -28,17 +28,40 @@ export default function ProfilePosts({
 }: ProfilePostsProps) {
   const [isLoading, setIsLoading] = useState(true);
   const [photos, setPhotos] = useState<NormalizedPost[]>([]);
+  const [profileUser, setProfileUser] = useState<any>(null);
+
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [previewURL, setPreviewURL] = useState<string | null>(null);
   const [caption, setCaption] = useState("");
 
- 
+
+  useEffect(() => {
+    const fetchProfileUser = async () => {
+      if (!userId) return;
+
+     
+      const hardcoded = Object.values(characters).find(c => c.uid === userId);
+      if (hardcoded) {
+        setProfileUser(hardcoded);
+        return;
+      }
+
+
+      const snap = await getDoc(doc(db, "users", userId));
+      if (snap.exists()) {
+        setProfileUser({ uid: userId, ...snap.data() });
+      }
+    };
+
+    fetchProfileUser();
+  }, [userId]);
+
+
   useEffect(() => {
     const fetchPhotos = async () => {
       if (!userId) return;
       setIsLoading(true);
 
-      
       const hardcoded = Object.values(characters).find(c => c.uid === userId);
 
       if (hardcoded) {
@@ -56,14 +79,10 @@ export default function ProfilePosts({
         return;
       }
 
-      
       try {
-        const docRef = doc(db, "users", userId);
-        const snap = await getDoc(docRef);
-
+        const snap = await getDoc(doc(db, "users", userId));
         if (snap.exists()) {
           const data = snap.data();
-
           const normalized = (data.photos || []).map(
             (post: any, index: number) => ({
               id: post.id || `fb-${userId}-${index}`,
@@ -88,7 +107,7 @@ export default function ProfilePosts({
     fetchPhotos();
   }, [userId]);
 
- 
+  
   const handleChoose = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!e.target.files?.length) return;
     const file = e.target.files[0];
@@ -96,7 +115,6 @@ export default function ProfilePosts({
     setPreviewURL(URL.createObjectURL(file));
   };
 
-  
   const handlePost = async () => {
     if (!selectedFile) return;
 
@@ -115,9 +133,7 @@ export default function ProfilePosts({
         createdAt: Date.now()
       };
 
-      const userDocRef = doc(db, "users", user.uid);
-
-      await updateDoc(userDocRef, {
+      await updateDoc(doc(db, "users", user.uid), {
         photos: arrayUnion(newPost)
       });
 
@@ -126,20 +142,20 @@ export default function ProfilePosts({
       setPreviewURL(null);
       setCaption("");
       setShowUpload(false);
-
     } catch (err) {
       console.error("Upload error:", err);
     }
   };
 
+  if (!profileUser) {
+    return <div className="profile-posts-container">Loading…</div>;
+  }
+
   return (
     <div className="profile-posts-container">
-
-      
       {showUpload && isOwner && (
         <div className="upload-modal">
           <div className="upload-modal-content">
-
             <label className="upload-btn">
               Choose Image
               <input type="file" accept="image/*" onChange={handleChoose} />
@@ -170,7 +186,6 @@ export default function ProfilePosts({
         </div>
       )}
 
-     
       {isLoading && [0, 1, 2, 3].map(i => (
         <div className="image-holder loading-box" key={i}></div>
       ))}
@@ -181,6 +196,7 @@ export default function ProfilePosts({
           postId={post.id}
           img={post.img}
           caption={post.caption}
+          user={profileUser}
         />
       ))}
     </div>

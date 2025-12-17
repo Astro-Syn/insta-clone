@@ -13,17 +13,25 @@ import {
 import { db } from '../../../firebase/firebase';
 import { auth } from '../../../firebase/firebase';
 import Avatar from '../../../components/avatar/Avatar';
-import { characters } from '../../../data/characters';
 import LikeButton from '../../../components/likebtn/LikeButton';
-
 
 type ProfilePostProps = {
   img?: string;
   postId: string;
   caption?: string;
+  user: {
+    uid: string;
+    username: string;
+    profilePicUrl?: string;
+  };
 };
 
-export default function ProfilePost({ img, postId, caption }: ProfilePostProps) {
+export default function ProfilePost({
+  img,
+  postId,
+  caption,
+  user
+}: ProfilePostProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [comment, setComment] = useState("");
   const [comments, setComments] = useState<any[]>([]);
@@ -34,21 +42,19 @@ export default function ProfilePost({ img, postId, caption }: ProfilePostProps) 
 
   useEffect(() => {
     const fetchUser = async () => {
-      const user = auth.currentUser;
-      if (!user) return;
+      const authUser = auth.currentUser;
+      if (!authUser) return;
 
-      const refUser = doc(db, "users", user.uid);
-      const snapUser = await getDoc(refUser);
-
-      if (snapUser.exists()) {
-        setCurrentUserData(snapUser.data());
+      const snap = await getDoc(doc(db, "users", authUser.uid));
+      if (snap.exists()) {
+        setCurrentUserData(snap.data());
       }
     };
 
     fetchUser();
   }, []);
 
-  
+ 
   useEffect(() => {
     const q = query(
       collection(db, "posts", postId, "comments"),
@@ -66,18 +72,22 @@ export default function ProfilePost({ img, postId, caption }: ProfilePostProps) 
     return () => unsub();
   }, [postId]);
 
+
   const postComment = async () => {
     if (!comment.trim()) return;
 
-    const user = auth.currentUser;
+    const authUser = auth.currentUser;
 
     await addDoc(
       collection(db, "posts", postId, "comments"),
       {
         text: comment,
-        user: currentUserData?.username || user?.email || "Unknown",
-        uid: user?.uid,
-        avatar: currentUserData?.profilePicUrl || currentUserData?.profilePicURL || "/Images/profile-pic.jpg",
+        user: currentUserData?.username || authUser?.email || "Unknown",
+        uid: authUser?.uid,
+        avatar:
+          currentUserData?.profilePicUrl ||
+          currentUserData?.profilePicURL ||
+          "/Images/profile-pic.jpg",
         createdAt: serverTimestamp()
       }
     );
@@ -93,41 +103,42 @@ export default function ProfilePost({ img, postId, caption }: ProfilePostProps) 
         ) : (
           "Image not available"
         )}
-        
-
         <div className="image-cover">
           <span>Comments: {comments.length}</span>
         </div>
       </div>
 
-      
-
-
       {isOpen && (
         <div className="modal-overlay" onClick={() => setIsOpen(false)}>
           <div className="modal-content" onClick={e => e.stopPropagation()}>
-            
             <div className="modal-left">
               <img src={img} alt="big-post" className="modal-image" />
-               <LikeButton postId={postId}/>
-               <div className='image-caption'>
-              {caption}
-            </div>
             </div>
 
             <div className="modal-right">
-              <h2 className='comments-header'>Comments</h2>
+              <div className="username-box">
+                <p>{user.username}</p>
+                
+              </div>
+
+              <div className="image-caption">
+                {caption}
+              </div>
+
+              <div className="post-options-buttons">
+                <LikeButton postId={postId} />
+              </div>
+
+              <h2 className="comments-header">Comments</h2>
 
               <div className="comments-list">
                 {comments.map(c => (
                   <div key={c.id} className="comment-item">
-                    
-                    <Avatar 
+                    <Avatar
                       src={c.avatar}
                       size={35}
                       alt={c.user}
                     />
-
                     <strong>{c.user}:</strong> {c.text}
                   </div>
                 ))}
@@ -142,9 +153,7 @@ export default function ProfilePost({ img, postId, caption }: ProfilePostProps) 
                 />
                 <button onClick={postComment}>Post</button>
               </div>
-
             </div>
-
           </div>
         </div>
       )}

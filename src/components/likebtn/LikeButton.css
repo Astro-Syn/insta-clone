@@ -3,8 +3,8 @@
   border: none;
   cursor: pointer;
   font-size: 16px;
-  color: gray;
   transition: transform 0.15s ease;
+  color: white;
 }
 
 .like-btn.liked {

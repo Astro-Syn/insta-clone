@@ -10,6 +10,7 @@ import {
   collection
 } from "firebase/firestore";
 import { auth, db } from "../../firebase/firebase";
+import './LikeButton.css';
 
 interface LikeButtonProps {
   postId: string;
@@ -62,7 +63,7 @@ export default function LikeButton({ postId }: LikeButtonProps) {
       className={`like-btn ${liked ? "liked" : ""}`}
       onClick={toggleLike}
     >
-      ❤️ {likesCount}
+      ❤︎ {likesCount}
     </button>
   );
 }
