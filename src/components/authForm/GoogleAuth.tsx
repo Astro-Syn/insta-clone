@@ -3,6 +3,7 @@ import { auth } from "../../firebase/firebase";
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { FaGoogle } from 'react-icons/fa';
+import './GoogleAuth.css';
 
 
 const GoogleAuth = () => {
@@ -25,7 +26,9 @@ const GoogleAuth = () => {
     <div>
       {error && <p className='error-popup'>{error}</p>}
 
-      <button onClick={handleGoogleLogin}>
+      <button 
+      className='google-btn'
+      onClick={handleGoogleLogin}>
         <FaGoogle/> Sign in with Google
       </button>
       

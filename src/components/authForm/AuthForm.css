@@ -28,7 +28,6 @@
   height: 100%;
   overflow: hidden;
   border-radius: 6px;
-  background: rgba(0, 0, 0, 0.65);
   backdrop-filter: blur(15px);
  
 }
@@ -38,6 +37,7 @@
   display: flex;
   width: 200%;
   transition: transform 0.45s ease;
+
 }
 
 .auth-slider.show-login {
@@ -54,6 +54,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+
 }
 
 
@@ -61,37 +62,141 @@ input {
   width: 90%;
   height: 30px;
   margin-bottom: 12px;
+  margin-left: 10px;
   padding: 5px;
-  border-radius: 8px;
+  border-radius: 3px;
   border: none;
   background: rgba(0, 0, 0, 0.85);
   color: white;
+  border: 1px solid rgba(255, 255, 255, 0.856);
+  font-size: 1em;
 }
-
-
-
 
 
 .bottom-section-signin {
   margin-top: 20px;
   width: 100%;
-  text-align: center;
   display: flex;
+  align-items: center;
   flex-direction: row;
   gap: 20%;
   justify-content: center;
+  position: relative;
 }
 
 .alt-signin-btns {
+    margin-left: 30px;
     display: flex;
     flex-direction: row;
     gap: 20px;
+    
+}
+
+.guest-btn {
+    border: 2px solid white;
+      font-family: "Odibee Sans", sans-serif, arial;
+  letter-spacing: 1px;
+  font-size: 1.4em;
+  background: black;
+  color: white;
 }
 
 .swap-button {
-  background: none;
+  position: relative;
+  background: black;
+  border: 2px solid white;
   color: white;
-  border: none;
-  text-decoration: underline;
   cursor: pointer;
+  width: 300px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  overflow: hidden;
+  font-family: "Odibee Sans", sans-serif, arial;
+  letter-spacing: 1px;
+  font-size: 1.4em;
+}
+
+
+.swap-button .label {
+    position: relative;
+    z-index: 2;
+    width: 50%;
+    text-align: center;
+    color: rgba(184, 184, 184, 0.555);
+    font-weight: bold;
+    pointer-events: none;
+}
+
+.swap-button .slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: white;
+  border-radius: 1px;
+  transition: transform 0.35s ease;
+  z-index: 1;
+}
+
+.swap-button.login .slider {
+  transform: translateX(0%);
+}
+
+.swap-button.signup .slider {
+  transform: translateX(100%);
+}
+
+
+.swap-button.login .label.left,
+.swap-button.signup .label.right {
+  color: black;
+}
+
+.or-box {
+  position: absolute;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.78);
+  font-family: "Odibee Sans", sans-serif, arial;
+  letter-spacing: 1px;
+  font-size: 4em;
+  z-index: 2;
+  height: 90px;
+  color: black;
+
+  transform-origin: center;
+  animation: wiggle 2.2s ease-in-out infinite;
+}
+
+@keyframes wiggle {
+  0% {
+    transform: rotate(-30deg) scale(1);
+  }
+
+  25% {
+    transform: rotate(-32deg) scale(1.03);
+  }
+
+  50% {
+    transform: rotate(-28deg) scale(0.98);
+  }
+
+  75% {
+    transform: rotate(-31deg) scale(1.01);
+  }
+
+  100% {
+    transform: rotate(-30deg) scale(1);
+  }
+}
+
+
+
+.or-box p {
+    padding: 0;
+    margin: 0;
 }

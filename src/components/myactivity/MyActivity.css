@@ -24,9 +24,6 @@
   
 }
 
-.activity-item:hover {
-  background: rgba(255,255,255,0.05);
-}
 
 .activity-text-line p {
   margin: 0;
@@ -42,4 +39,9 @@
   text-align: center;
   opacity: 0.6;
   margin-top: 20px;
+}
+
+.comment-type {
+    display: flex;
+    justify-content: space-between;
 }

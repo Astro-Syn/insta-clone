@@ -5,7 +5,7 @@ export const characters: Record<string, any> = {
         fullName: "Deacon St John",
         bio: "Just another drifter making it by. -10th Mountain Division",
         profilePicUrl: "/Images/deacon1.png",
-        followers: ["boozer"],
+        followers: ["boozer", "copeland"],
         following: ["boozer"],
         photos: [
             {

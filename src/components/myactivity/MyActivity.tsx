@@ -7,7 +7,7 @@ import {
   orderBy,
   onSnapshot
 } from "firebase/firestore";
-import { useNavigate } from "react-router-dom";
+
 
 type ActivityItem = {
   id: string;
@@ -21,7 +21,7 @@ type ActivityItem = {
 
 function MyActivity() {
   const [activity, setActivity] = useState<ActivityItem[]>([]);
-  const navigate = useNavigate();
+
 
   useEffect(() => {
     const user = auth.currentUser;
@@ -44,15 +44,7 @@ function MyActivity() {
     return () => unsub();
   }, []);
 
-  const handleClick = (item: ActivityItem) => {
-    if (item.type === "follow" && item.targetUid) {
-      navigate(`/profile/${item.targetUid}`);
-    }
-
-    if ((item.type === "like" || item.type === "comment") && item.postId) {
-      navigate(`/post/${item.postId}`);
-    }
-  };
+  
 
   return (
     <div className="my-activity-container">
@@ -69,15 +61,15 @@ function MyActivity() {
           <div
             key={item.id}
             className="activity-item"
-            onClick={() => handleClick(item)}
+            
           >
             <div className="activity-text-line">
               {item.type === "like" && (
-                <p>You liked a post</p>
+                <div className='comment-type'><p>You liked a post</p><img src='/Images/like-icon2.png'/></div>
               )}
 
               {item.type === "comment" && (
-                <p>You commented on a post</p>
+                <div className='comment-type'><p>You commented on a post</p><img src='/Images/comment-icon.png'/></div>
               )}
 
               {item.type === "upload" && (

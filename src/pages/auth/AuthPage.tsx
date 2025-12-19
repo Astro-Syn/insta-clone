@@ -25,6 +25,9 @@ export default function AuthPage() {
             </div>
         
         </div>
+        <div className='mongrels-img-container'>
+          <img src='/Images/mongrel-patch.png'/>
+        </div>
         
     </div>
   )

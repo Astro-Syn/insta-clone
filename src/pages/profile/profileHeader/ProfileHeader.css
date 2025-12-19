@@ -141,3 +141,8 @@
 .bio-container input {
     width: 100%;
 }
+
+.profile-message-icon {
+    width: 40px;
+    height: auto;
+}

@@ -43,33 +43,50 @@ export default function LikeButton({ postId }: LikeButtonProps) {
     });
   }, [postId]);
 
-  const toggleLike = async () => {
-    if (!user) return;
+const toggleLike = async () => {
+  if (!user) return;
 
-    const postRef = doc(db, "posts", postId);
-    const likeRef = doc(db, "posts", postId, "likes", user.uid);
+  const likeRef = doc(db, "posts", postId, "likes", user.uid);
 
-    if (liked) {
-      
-      await deleteDoc(likeRef);
-      await updateDoc(postRef, { likesCount: increment(-1) });
-      setLiked(false);
-    } else {
-      
-      await setDoc(likeRef, { createdAt: serverTimestamp() });
-      await updateDoc(postRef, { likesCount: increment(1) });
-      setLiked(true);
+  if (liked) {
+    // UNLIKE
+    await deleteDoc(likeRef);
+    setLiked(false);
+  } else {
+    // LIKE
+    await setDoc(likeRef, {
+      createdAt: serverTimestamp()
+    });
 
-      await addDoc(
-        collection(db, "users", user.uid, "activity"),
-        {
-          type: "like",
-          postId,
-          createdAt: serverTimestamp()
+    setLiked(true);
+
+  
+    try {
+      const postRef = doc(db, "posts", postId);
+      const postSnap = await getDoc(postRef);
+
+      if (postSnap.exists()) {
+        const postData = postSnap.data();
+
+        if (postData?.uid && postData?.username) {
+          await addDoc(
+            collection(db, "users", user.uid, "activity"),
+            {
+              type: "like",
+              postId,
+              targetUid: postData.uid,
+              targetUsername: postData.username,
+              createdAt: serverTimestamp()
+            }
+          );
         }
-      );
+      }
+    } catch (err) {
+      console.warn("Activity logging skipped:", err);
     }
   };
+};
+
 
   return (
     <button

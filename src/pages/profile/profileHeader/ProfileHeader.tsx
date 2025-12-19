@@ -5,6 +5,8 @@ import { auth, db } from '../../../firebase/firebase';
 import { doc, updateDoc, arrayUnion, arrayRemove } from 'firebase/firestore';
 import FollowerListModal from '../followerListModal/FollowerListModal';
 import { characters } from '../../../data/characters';
+import { MdOutlineMessage } from "react-icons/md";
+import MessagePopup from '../../../components/messagepopup/MessagePopup';
 
 type ProfileUser = {
   uid: string;
@@ -24,6 +26,8 @@ interface ProfileHeaderProps {
   onUserChange?: (updated: ProfileUser) => void;
 }
 
+
+
 export default function ProfileHeader({
   user,
   isOwner,
@@ -34,6 +38,8 @@ export default function ProfileHeader({
   const [loading, setLoading] = useState(false);
   const [showFollowerList, setShowFollowerList] = useState(false);
   const [showFollowingList, setShowFollowingList] = useState(false);
+
+  const [showMessagePopup, setShowMessagePopup] = useState(false);
 
   const currentUid = auth.currentUser?.uid ?? null;
 
@@ -135,6 +141,8 @@ const handleUnfollow = async () => {
 };
 
 
+
+
   return (
     <div className="profile-header-container">
       <div className="profile-image">
@@ -166,6 +174,20 @@ const handleUnfollow = async () => {
               Edit Profile
             </button>
           )}
+        </div>
+
+
+        <div className='message-box-area'>
+          <MdOutlineMessage 
+          onClick={() => setShowMessagePopup(true)}
+          className='profile-message-icon'
+          />
+
+          {showMessagePopup && (
+            <MessagePopup onClose={() => setShowMessagePopup(false)} />
+          )}
+          
+
         </div>
 
         <div className="profile-numbers-info">

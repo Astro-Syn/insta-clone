@@ -23,28 +23,29 @@
 }
 
 html[data-theme="lost-lake"] {
-  --bg: rgba(77, 169, 255, 0.404);
-  --panel: rgba(3, 14, 22, 0.9);
-  --sidebar-color: black;
-  --sidebar-menu-bg: rgba(128, 243, 237, 0.459);
+  --bg: rgba(0, 9, 18, 0.548);
+  --panel: rgba(0, 9, 18, 0.973);
+  --sidebar-color: rgba(0, 9, 18, 0.973);
+  --sidebar-menu-bg: rgba(128, 243, 218, 0.534);
   --text: white;
   --bg-image: url("/Images/lost-lake.jpg");
-  --theme-title-bg: rgba(2, 35, 51, 0.938);
-  --sidebar-bg: black;
-  --feed-card-col: rgb(3, 7, 26);
-  --suggested-users-col1:  rgb(0, 3, 5);
-  --suggested-users-col2: rgba(2, 0, 18, 0.973);
+  --theme-title-bg: rgba(0, 9, 18, 0.973);
+  --sidebar-bg: rgba(0, 9, 18, 0.973);
+  --feed-card-col: rgba(0, 9, 18, 0.973);
+  --suggested-users-col1:  rgba(0, 9, 18, 0.973);
+  --suggested-users-col2: rgba(0, 9, 18, 0.973);
    --suggested-users-header: rgba(0, 0, 0, 0.89);
    --like-heart-bg: black;
     --follow-btn-bg: rgba(0, 0, 0, 0.959);
     --follow-btn-text: white;
      --profile-text-col: rgb(255, 250, 240);
+     --theme-title-text-col: rgb(255, 255, 255);
    
   
 }
 
 html[data-theme="night"] {
-  --bg: rgba(2, 0, 19, 0.61);
+  --bg: rgba(2, 0, 19, 0.719);
   --panel: rgba(1, 5, 15, 0.88);
   --text: white;
     --sidebar-color: white;
@@ -70,7 +71,7 @@ html[data-theme="daylight"] {
     --sidebar-color: black;
     --sidebar-menu-bg: gray;
   --bg-image: url("/Images/deacon-chase.jpg");
-  --theme-title-bg: rgb(19, 14, 2);
+  --theme-title-bg: rgb(13, 0, 0);
   --theme-title-text-col: rgb(236, 233, 229);
   --sidebar-menu-bg: url('/Images/deacon-chase.jpg');
   --sidebar-bg: rgb(22, 8, 0);

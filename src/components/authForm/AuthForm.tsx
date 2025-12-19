@@ -13,12 +13,15 @@ const AuthForm: React.FC = () => {
         <p>Welcome Drifter</p>
       </div>
 
-      <button
-            className="swap-button"
-            onClick={() => setIsLogin(!isLogin)}
-          >
-            {isLogin ? "Sign Up" : "Log In"}
-          </button>
+          <button
+        className={`swap-button ${isLogin ? "login" : "signup"}`}
+        onClick={() => setIsLogin(!isLogin)}
+      >
+        <span className="label left">Log In</span>
+        <span className="label right">Sign Up</span>
+        <span className="slider" />
+      </button>
+
 
       <div className="auth-slider-wrapper">
         <div
@@ -46,11 +49,9 @@ const AuthForm: React.FC = () => {
         <GoogleAuth /> 
 
         <button className='guest-btn'>
-          Guest
+          Continue as Guest
         </button>
-      </div>
-        
-       
+      </div>       
       </div>
     </div>
   );

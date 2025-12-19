@@ -1,6 +1,7 @@
 import { useState } from "react";
 import useSignUpWithEmailAndPassword from '../../hooks/useSignUpWithEmailAndPassword';
 import "./Signup.css";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 interface SignupProps {
   setIsLogin: React.Dispatch<React.SetStateAction<boolean>>;
@@ -56,24 +57,29 @@ const handleSubmit = async (e: React.FormEvent) => {
         value={inputs.fullName}
         onChange={(e) => setInputs({ ...inputs, fullName: e.target.value })}
       />
-      <div>
-        <input
+      <div className='password-section'>
+         <input
           placeholder="Password"
           type={showPassword ? "text" : "password"}
           value={inputs.password}
           onChange={(e) => setInputs({ ...inputs, password: e.target.value })}
         />
 
+         <button className='signup-password-btn' type="button" onClick={() => setShowPassword(!showPassword)}
+          > {showPassword ? <FaEyeSlash /> : <FaEye />}
+
+          <span>
+            {showPassword ? " Hide Password"  : " View Password"}
+          </span>
+            
+          </button>
+      </div>
+     
+
       <div className='btm-btn-container'>
 
-      
-        
-          <button className='signup-bottom-btn' type="button" onClick={() => setShowPassword(!showPassword)}>
-            {showPassword ? "Hide Password" : "View Password"}
-          </button>
-        
-
-       
+         
+               
         {error && <p style={{ color: "red" }}>{error.message}</p>}
 
      
@@ -83,7 +89,7 @@ const handleSubmit = async (e: React.FormEvent) => {
           {loading ? "Signing Up..." : "Sign Up"}
         </button>
       </div>
-    </div>
+    
      
     </form>
 
