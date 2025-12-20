@@ -13,6 +13,13 @@ import {
 import { auth, db } from "../../firebase/firebase";
 import "./Conversation.css";
 
+type UserPreview = {
+  uid: string;
+  username: string;
+  profilePicUrl?: string;
+}
+
+
 type Message = {
   id: string;
   senderId: string;
@@ -25,6 +32,33 @@ export default function Conversation() {
   const user = auth.currentUser;
   const [messages, setMessages] = useState<Message[]>([]);
   const [text, setText] = useState("");
+  const [otherUser, setOtherUser] = useState<UserPreview | null>(null);
+
+
+  useEffect(() => {
+  if (!conversationId || !user) return;
+
+  const fetchOtherUser = async () => {
+    const convoSnap = await getDoc(doc(db, "conversations", conversationId));
+    if (!convoSnap.exists()) return;
+
+    const data = convoSnap.data();
+    const otherUid = data.participants.find((uid: string) => uid !== user.uid);
+    if (!otherUid) return;
+
+    const userSnap = await getDoc(doc(db, "users", otherUid));
+    if (userSnap.exists()) {
+      setOtherUser({
+        uid: otherUid,
+        ...(userSnap.data() as any)
+      });
+    }
+  };
+
+  fetchOtherUser();
+}, [conversationId, user]);
+
+
 
   useEffect(() => {
     if (!conversationId) return;
@@ -74,25 +108,53 @@ export default function Conversation() {
 
   return (
     <div className="conversation-container">
-      <div className="messages-list">
-        {messages.map(msg => (
-          <div
-            key={msg.id}
-            className={`message ${msg.senderId === user?.uid ? "sent" : "received"}`}
-          >
-            {msg.text}
-          </div>
-        ))}
-      </div>
+      <div className="conversation-area">
 
-      <div className="message-input">
-        <input
-          value={text}
-          onChange={e => setText(e.target.value)}
-          placeholder="Type a message..."
-        />
-        <button onClick={sendMessage}>Send</button>
+
+  <div className="conversation-header">
+    <img
+      src={otherUser?.profilePicUrl || "/Images/profile-pic.jpg"}
+      className="conversation-header-avatar"
+    />
+    <p className="conversation-header-username">
+      {otherUser?.username || "User"}
+    </p>
+  </div>
+
+ 
+  <div className="messages-list">
+    {messages.map(msg => (
+      <div
+        key={msg.id}
+        className={`message-row ${
+          msg.senderId === user?.uid ? "sent" : "received"
+        }`}
+      >
+        {msg.senderId !== user?.uid && (
+          <img
+            src={otherUser?.profilePicUrl || "/Images/profile-pic.jpg"}
+            className="message-avatar"
+          />
+        )}
+
+        <div className="message-bubble">
+          {msg.text}
+        </div>
       </div>
+    ))}
+  </div>
+
+ 
+  <div className="message-input">
+    <input
+      value={text}
+      onChange={e => setText(e.target.value)}
+      placeholder="Type a message..."
+    />
+    <button onClick={sendMessage}>Send</button>
+  </div>
+</div>
+
     </div>
   );
 }

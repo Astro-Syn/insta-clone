@@ -141,8 +141,6 @@ const handleUnfollow = async () => {
 };
 
 
-
-
   return (
     <div className="profile-header-container">
       <div className="profile-image">
@@ -184,7 +182,10 @@ const handleUnfollow = async () => {
           />
 
           {showMessagePopup && (
-            <MessagePopup onClose={() => setShowMessagePopup(false)} />
+            <MessagePopup 
+            targetUid={user.uid}
+            targetUsername={user.username}
+            onClose={() => setShowMessagePopup(false)} />
           )}
           
 
