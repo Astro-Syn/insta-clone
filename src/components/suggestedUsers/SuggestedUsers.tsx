@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import '../suggestedUsers/SuggestedUsers.css';
-import SuggestedHeader from './SuggestedHeader';
+
 import SuggestedUser from './SuggestedUser';
 import { db, auth } from '../../firebase/firebase';
 import { collection, getDocs, doc, getDoc } from 'firebase/firestore';
@@ -101,7 +101,7 @@ export default function SuggestedUsers() {
 
   return (
     <div className='suggested-users-container'>
-      <SuggestedHeader />
+    
 
       <div className='suggested-for-you'>
         <p>Suggested for you</p>

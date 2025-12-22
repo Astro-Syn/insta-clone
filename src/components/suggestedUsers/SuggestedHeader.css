@@ -7,10 +7,13 @@
     height: 5vh;
     padding: 10px;
     align-items: center;
-    background-color: rgba(2, 0, 0, 0.692);
+    background-color: black;
     font-family: "Odibee Sans", sans-serif, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 1.5em;
     letter-spacing: 1px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    width: 10vw;
 
 }
 
