@@ -1,10 +1,15 @@
 .profile-posts-container {
-    margin-top: 20px;
-    width: 70%;
+    max-width: 90%;
+    min-height: 900px;
+    max-height: 900px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
-    
+    background: rgba(0, 0, 0, 0.247);
+    overflow-y: scroll;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 10px;
 }
 
 .image-holder{

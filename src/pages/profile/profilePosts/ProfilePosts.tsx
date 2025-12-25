@@ -153,6 +153,7 @@ export default function ProfilePosts({
 
   return (
     <div className="profile-posts-container">
+      
       {showUpload && isOwner && (
         <div className="upload-modal">
           <div className="upload-modal-content">
@@ -185,7 +186,7 @@ export default function ProfilePosts({
           </div>
         </div>
       )}
-
+        
       {isLoading && [0, 1, 2, 3].map(i => (
         <div className="image-holder loading-box" key={i}></div>
       ))}

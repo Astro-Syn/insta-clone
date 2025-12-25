@@ -106,7 +106,7 @@ export default function ProfilePage() {
             isOwner={isOwner}
             onAddPhotos={() => setOpenUpload(true)}
           />
-
+          <div className='gallery-text'>Gallery</div>
           <ProfilePosts
             userId={userData.uid}
             isOwner={isOwner}

@@ -7,6 +7,11 @@ export const characters: Record<string, any> = {
         profilePicUrl: "/Images/deacon1.png",
         followers: ["boozer", "copeland"],
         following: ["boozer"],
+        background: [
+            {
+                earlyLife: "Used to be in the army"
+            }
+        ],
         photos: [
             {
                 img: "/Images/deacon1.png",
