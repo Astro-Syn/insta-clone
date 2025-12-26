@@ -1,29 +1,25 @@
+import { useState } from 'react';
 import '../home/HomePage.css';
 import FeedPosts from '../../components/feedPosts/FeedPosts';
 import SuggestedUsers from '../../components/suggestedUsers/SuggestedUsers';
-import '../../components/topbar/TopBar';
 import { TopBar } from '../../components/topbar/TopBar';
 
-
-
 export default function HomePage() {
+  const [feedMode, setFeedMode] = useState<'regular' | 'daysgone'>('regular');
+
   return (
     <div className='home-container'>
-     <TopBar/>
+      <TopBar feedMode={feedMode} setFeedMode={setFeedMode} />
+
       <div className='home-contents'>
         <div className='scroll-feed'>
-          <FeedPosts/>
-         
-          
+          <FeedPosts feedMode={feedMode} />
         </div>
-        <div>
-          
-        </div>
+
         <div className='suggested-users'>
-          <SuggestedUsers/>
+          <SuggestedUsers />
         </div>
-         
       </div>
     </div>
-  )
+  );
 }
