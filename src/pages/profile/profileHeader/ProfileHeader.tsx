@@ -18,6 +18,10 @@ type ProfileUser = {
   followers?: string[];
   following?: string[];
   photos?: any[];
+  background?: {
+    earlyLife: string;
+  }[];
+  earlyLife: string;
 };
 
 interface ProfileHeaderProps {
@@ -25,7 +29,6 @@ interface ProfileHeaderProps {
   isOwner: boolean;
   onUserChange?: (updated: ProfileUser) => void;
 }
-
 
 
 export default function ProfileHeader({
@@ -40,11 +43,20 @@ export default function ProfileHeader({
   const [showFollowingList, setShowFollowingList] = useState(false);
 
   const [showMessagePopup, setShowMessagePopup] = useState(false);
+  const [showEarlyLife, setShowEarlyLife] = useState(false);
 
   const currentUid = auth.currentUser?.uid ?? null;
 
   const followers = user.followers ?? [];
   const following = user.following ?? [];
+
+  const isHardcodedCharacter = Object.values(characters).some(
+  c => c.uid === user.uid
+);
+
+
+  const canMessage = 
+  !isHardcodedCharacter && currentUid !== null && currentUid !== user.uid;
 
   useEffect(() => {
     if (!currentUid) return;
@@ -174,8 +186,8 @@ const handleUnfollow = async () => {
           )}
         </div>
 
-
-        <div className='message-box-area'>
+          {canMessage && (
+            <div className='message-box-area'>
           <MdOutlineMessage 
           onClick={() => setShowMessagePopup(true)}
           className='profile-message-icon'
@@ -188,8 +200,9 @@ const handleUnfollow = async () => {
             onClose={() => setShowMessagePopup(false)} />
           )}
           
-
         </div>
+          )}
+        
 
         <div className="profile-numbers-info">
           <div className="profile-follow-info">
@@ -217,6 +230,51 @@ const handleUnfollow = async () => {
         <div className="profile-description">
           <strong>{user.fullName}</strong>
           <p>{user.bio}</p>
+        </div>
+
+          {isHardcodedCharacter && (
+             <div className='additional-info-section'>
+            <h2 className='additional-info-title'>
+              Additional Info
+            </h2>
+               <h2 
+            className='early-life-title'
+            onClick={() => setShowEarlyLife(true)}
+            >Early Life</h2>
+          </div>
+          )}
+         
+          
+           
+        
+        <div className='early-life-area'>
+          {showEarlyLife && (
+  <div 
+    className="modal-overlay"
+    onClick={() => setShowEarlyLife(false)}
+  >
+    <div 
+      className="modal-content early-life-modal"
+      onClick={(e) => e.stopPropagation()}
+    >
+      <button 
+        className="x-btn-edit"
+        onClick={() => setShowEarlyLife(false)}
+      >
+        ✖
+      </button>
+
+      <p className='early-life-box-title'>Early Life</p>
+
+      <div className="early-life-modal-text">
+        {user.background?.[0]?.earlyLife}
+      </div>
+    </div>
+  </div>
+)}
+
+          
+          
         </div>
       </div>
 

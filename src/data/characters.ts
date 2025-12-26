@@ -9,7 +9,7 @@ export const characters: Record<string, any> = {
         following: ["boozer"],
         background: [
             {
-                earlyLife: "Used to be in the army"
+                earlyLife: "Deacon St. John married the love of his life, Sarah, in a church. The wedding was small to the point of absurdity. Boozer was the only guest. The priest probably thought they were crazy. Deacon didn’t care. He meant every word of his vows. Before the world ended, Deacon rode with the Mongrels Motorcycle Club at Lost Lake. Jack ran the club, and under him the MC became the closest thing Deacon ever had to a real family. It gave him purpose, loyalty, and a place to belong. He has no regrets about that life. Deacon’s father died before everything fell apart. Losing him taught Deacon early that nothing lasts. People leave. Things break. All you can do is hold on while you can, and keep moving when you can’t."
             }
         ],
         photos: [
@@ -61,6 +61,11 @@ export const characters: Record<string, any> = {
         profilePicUrl: "/Images/boozer1.png",
         followers: ["deaconStJohn"],
         following: ["deaconStJohn"],
+        background: [
+            {
+                earlyLife: "Boozer married Joany and loved her until the end. She died in a tragic motorcycle accident. The Mongrels Motorcycle Club covered it up. That was how things were handled back then. He rode with the MC alongside his brother, Deacon St. John. Not related by blood, but closer than most families ever get. Brothers to the end, no exceptions. Back then, Boozer had two arms. A whole body. A life that hadn’t been broken yet. It was a good time. Maybe the last good one."
+            }
+        ],
         photos: [
              {
                 img: "/Images/joany.png",
@@ -95,6 +100,11 @@ export const characters: Record<string, any> = {
         profilePicUrl: "/Images/skizzo1.png",
         followers: [],
         following: [],
+          background: [
+            {
+                earlyLife: "Skizzo was originally from California. He graduated college with honors and  worked at a firm after finishing school. He claimed he ran drugs and guns from California up into Oregon. That he knew routes, contacts, and how to move things without being noticed. Whether that was truth or rumor depended on who you asked."
+            }
+        ],
         photos: [
             {
                 img: "/Images/skizzo4.png",
@@ -154,6 +164,11 @@ export const characters: Record<string, any> = {
         profilePicUrl: "/Images/carlos1.png",
         followers: [],
         following: [],
+        background: [
+            {
+                earlyLife: "Carlos once rode with the Mongrels Motorcycle Club alongside Deacon St. John and Boozer. Back then, his name was Jesse Williamson. He was one of them. Until he wasn’t. He was kicked out of the MC after killing a fellow member over drugs. The punishment was final and deliberate. His back tattoo was burned off, a message meant to erase him from the club and everything it stood for. Jesse didn’t forget. He took the name Carlos and carried the memory with him like an open wound. From that moment on, he held a deep, festering grudge against Deacon and Boozer."
+            }
+        ],
         photos: [
             {
                 img: "/Images/carlos2.png",
@@ -175,6 +190,11 @@ export const characters: Record<string, any> = {
         profilePicUrl: "/Images/iron_mike3.png",
         followers: [],
         following: [],
+                background: [
+            {
+                earlyLife: "Mike grew up around Hood River County, Oregon. As a child, he explored the Northern Caves with his father. Long before the Mongrels Motorcycle Club, Mike met Jack. The two knew each other early on and even went fishing together. Mike married a woman named Elizabeth. He never liked kids, so the couple never had any of their own. Elizabeth was later diagnosed with cancer and eventually passed away. Mike loved her until the very end. Literally."
+            }
+        ],
         photos: [
              {
                 img: "/Images/iron_mike1.png",
@@ -212,6 +232,11 @@ export const characters: Record<string, any> = {
         profilePicUrl: "/Images/sarah2.png",
         followers: [],
         following: [],
+            background: [
+            {
+                earlyLife: "Sarah Irene Whitaker was from Seattle, Washington. She worked as a research scientist at Cloverdale, a bioengineering company. Before the outbreak, she married Deacon St. John.Sarah was born into a middle-class household and excelled academically. She graduated with two PhDs, driven, intelligent, and deeply committed to her work long before the world collapsed."
+            }
+        ],
         photos: [
             {
                 img: "/Images/sarah1.jpg",
@@ -233,6 +258,11 @@ export const characters: Record<string, any> = {
         profilePicUrl: "/Images/rikki1.png",
         followers: ['addy'],
         following: ['addy'],
+            background: [
+            {
+                earlyLife: "Rikki Patil grew up in a small town outside of Portland, Oregon. She worked on cars with her father and her two older brothers, learning early how things fit together and how to fix what was broken. That upbringing shaped her future. Rikki went on to pursue a career in engineering, driven by curiosity, skill, and a need to understand how the world works under the hood.."
+            }
+        ],
         photos: [
               {
                 img: "/Images/rikki_deacon1.png",
@@ -254,6 +284,11 @@ export const characters: Record<string, any> = {
         profilePicUrl: "/Images/addy1.png",
         followers: ['rikki'],
         following: ['rikki'],
+            background: [
+            {
+                earlyLife: "Mike grew up around Hood River County, Oregon. As a child, he explored the Northern Caves with his father. Long before the Mongrels Motorcycle Club, Mike met Jack. The two knew each other early on and even went fishing together. Mike married a woman named Elizabeth. He never liked kids, so the couple never had any of their own. Elizabeth was later diagnosed with cancer and eventually passed away. Mike loved her until the very end. Literally."
+            }
+        ],
         photos: [
               {
                 img: "/Images/addy1.png",
@@ -296,6 +331,11 @@ export const characters: Record<string, any> = {
         profilePicUrl: "/Images/copeland.png",
         followers: [],
         following: [],
+            background: [
+            {
+                earlyLife: "Mark Copeland distrusted the government from an early age. That resentment shaped much of who he became. As a boy, he spent long days hunting with his father, learning self-reliance and how to live off the land. Before the outbreak, Mark had a son named Christopher. The two bonded during hunting season."
+            }
+        ],
         photos: [
              {
                 img: "/Images/copeland3.png",
@@ -330,6 +370,11 @@ export const characters: Record<string, any> = {
         profilePicUrl: "/Images/ada1.png",
         followers: [],
         following: [],
+            background: [
+            {
+                earlyLife: "Ada Tucker worked as the head of the female ward at a penitentiary. She believed firmly that everyone had to work to earn their keep, a philosophy that shaped her views long before the world collapsed. She was married to Henry Tucker, and the two lived together in Marion Forks. Henry took his own life early on, before the outbreak reached full force. The loss hardened Ada further, reinforcing her belief in discipline, order, and survival through labor. Ada and Lisa were neighbors before everything fell apart, their lives briefly overlapping in a world that no longer exists."
+            }
+        ],
         photos: ['/Images/ada2.png'],
         posts: [
             {
@@ -346,6 +391,11 @@ export const characters: Record<string, any> = {
         profilePicUrl: "/Images/alkai1.png",
         followers: [],
         following: [],
+            background: [
+            {
+                earlyLife: "Alkai Turner was a member of the Wasco tribe. From an early age, he showed a strong talent for art, expressing himself through careful observation and detail."
+            }
+        ],
         photos: ['/Images/deacon2.png'],
         posts: [
             {
@@ -362,6 +412,11 @@ export const characters: Record<string, any> = {
         profilePicUrl: "/Images/deacon1.png",
         followers: [],
         following: [],
+            background: [
+            {
+                earlyLife: "Manny Mendez worked in his uncle’s garage when he was younger, where he learned how to repair vehicles and keep them running under less-than-ideal conditions. Later, he opened his own mechanic shop in Farewell, specializing in motorcycle repair. Long before the outbreak, Manny was already known as someone who could fix just about anything with an engine and two wheels."
+            }
+        ],
         photos: ['/Images/manny1.png'],
         posts: [
             {
@@ -394,6 +449,11 @@ export const characters: Record<string, any> = {
         profilePicUrl: "/Images/garret1.png",
         followers: [],
         following: [],
+            background: [
+            {
+                earlyLife: "Matthew Garret served in the United States military decades before the Freaker outbreak. After leaving the service, he became deeply religious, convinced that the world was headed toward an inevitable collapse. Garret believed he had received a divine vision, one that charged him with safeguarding what he saw as humanity’s righteousness. He went on to form a religious movement known as God’s Army, spending years warning his followers of the coming apocalypse. In the decades leading up to the outbreak, he drew them into the wilderness, urging preparation, isolation, and absolute faith in his leadership."
+            }
+        ],
         photos: [
             {
                 img: "/Images/garret2.png",
@@ -415,6 +475,11 @@ export const characters: Record<string, any> = {
         profilePicUrl: "/Images/taylor1.png",
         followers: [],
         following: ["garret"],
+        background: [
+            {
+                earlyLife: "He learned to shoot while hunting with his father near Klamath Falls, skills that stayed with him long after childhood. Later in life, Taylor developed a drug addiction that derailed whatever stability he once had. Despite that, he survived the initial outbreak of the Freaker apocalypse, spending roughly two years drifting from place to place before finally settling."
+            }
+        ],
         photos: [
             {
                 img: "/Images/taylor2.png",
@@ -436,6 +501,11 @@ export const characters: Record<string, any> = {
         profilePicUrl: "/Images/kouri1.png",
         followers: [],
         following: [],
+            background: [
+            {
+                earlyLife: "Derrick Kouri grew up in the western United States and later enlisted in the United States Air Force. He served for a decade with the Strategic Air Command, where discipline, structure, and long-term planning defined his career. He married a woman named Karie, and the two shared twelve years of marriage together. They had two daughters and, by all accounts, lived a stable and happy family life before the world began to unravel. At the onset of the outbreak, Kouri was on assignment along the West Coast. For a brief window of time, he continued to receive hourly situation reports from across the country, maintaining situational awareness until SATCOM systems failed and national communication collapsed.Kouri was later stationed at the Silver Lake refugee camp. When the camp was overrun, he escaped with a small number of survivors. With nowhere else to turn, he eventually aligned himself with the Deschutes County Militia, carrying his military experience into a far more brutal kind of command."
+            }
+        ],
         photos: [
              {
                 img: "/Images/kouri1.png",
@@ -457,6 +527,11 @@ export const characters: Record<string, any> = {
         profilePicUrl: "/Images/weaver1.png",
         followers: [],
         following: [],
+            background: [
+            {
+                earlyLife: "James Weaver grew up in Portland, raised in a rough neighborhood that offered little in the way of opportunity. Despite that, he proved to be exceptionally intelligent and academically driven. His aptitude earned him a scholarship to MIT, where he went on to obtain a PhD in chemistry. Before the outbreak, Weaver returned to Portland and worked as a chemical engineer at a local firm, applying his expertise in a world that still believed in systems, safety, and long-term planning."
+            }
+        ],
         photos: [
              {
                 img: "/Images/weaver2.png",
@@ -499,6 +574,11 @@ export const characters: Record<string, any> = {
         profilePicUrl: "/Images/lisa1.png",
         followers: [],
         following: [],
+            background: [
+            {
+                earlyLife: "Lisa Jackson grew up in Marion Forks with her parents and her older sister. Before the outbreak, she lived on the same street as Ada Tucker, part of a quiet neighborhood that felt safe at the time. Lisa had a deep fascination with rocks, a simple interest that became a bond between her and her father. They spent hours collecting and talking, sharing something steady and uncomplicated in a world that hadn’t yet come apart. Her closest friend was Tommy Strickland, another neighborhood kid."
+            }
+        ],
         photos: [
              {
                 img: "/Images/lisa1.png",

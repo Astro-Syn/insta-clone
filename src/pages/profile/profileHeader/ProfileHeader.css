@@ -39,7 +39,6 @@
     font-family: "Odibee Sans", sans-serif;
     font-size: 3em;
     letter-spacing: 2px;
-    
     color: var(--profile-text-col);
 }
 
@@ -143,4 +142,40 @@
 .profile-message-icon {
     width: 40px;
     height: auto;
+}
+
+.early-life-title {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.early-life-modal {
+  max-width: 500px;
+  max-height: 80vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid white;
+  border-radius: 5px;
+  padding: 15px;
+}
+
+.early-life-modal-text {
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+.early-life-box-title {
+    font-family: "Odibee Sans", sans-serif, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 2em;
+}
+
+.additional-info-title {
+    font-family: "Odibee Sans", sans-serif, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 2em;
 }
