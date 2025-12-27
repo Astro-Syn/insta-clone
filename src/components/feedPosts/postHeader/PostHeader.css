@@ -19,6 +19,8 @@
 }
 
 .users-name span {
-    font-weight: bold;
-    margin: 0 5px 0 5px;
+    margin: 0 15px 0 15px;
+    font-family: "Odibee Sans", sans-serif, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    letter-spacing: 3px;
+    font-size: 1.3em;
 }

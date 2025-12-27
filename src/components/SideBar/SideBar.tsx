@@ -72,7 +72,7 @@ export default function SideBar() {
             
             >
                 {item.icon}
-                {item.text}
+                <span className='item-text'>{item.text}</span>
             </Link>
            
         ))}

@@ -21,13 +21,13 @@
 
 .messages-title {
     font-family: "Odibee Sans", sans-serif;
-    font-size: 2.9em;
-    letter-spacing: 1px;
+    font-size: 3.6em;
+  letter-spacing: 2px;
     text-transform: uppercase;
 }
 
 .messages-box {
-    border: 3px solid white;
+    border-radius: 5px;
     display: flex;
     gap: 20px;
 }

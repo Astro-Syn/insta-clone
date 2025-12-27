@@ -1,23 +1,27 @@
 .profile-header-container{
-    border-bottom: 1px solid white;
+    position: relative;
     margin-bottom: 10px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     color: var(--profile-text-col);
+    height: 100%;
 }
 
 .profile-image img {
     width: 400px;
     height: 400px;
-    border-radius: 7px;
-    border: 2px solid white;
-    margin: 20px;
+    border-radius: 5px;
+    border: 1px solid white;
 }
 
 .user-info-container{
     margin-left: 40px;
+    background: rgba(0, 0, 0, 0.507);
+    border-radius: 5px;
+    padding: 10px;
+    height: 50%;
 }
 
 .user-and-edit-profile{
@@ -58,7 +62,7 @@
 }
 
 .edit-profile-btn {
-      background: var(--follow-btn-bg);
+  background: var(--follow-btn-bg);
   color: var(--follow-btn-text);
   border: none;
   border-radius: 4px;
@@ -146,7 +150,11 @@
 
 .early-life-title {
   cursor: pointer;
-  text-decoration: underline;
+  font-family: "Odibee Sans", sans-serif, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 1.3em;
+  
 }
 
 .early-life-modal {
@@ -159,6 +167,20 @@
   border: 2px solid white;
   border-radius: 5px;
   padding: 15px;
+  transform: scale(0.85);
+  opacity: 0;
+  animation: popIn 0.25s ease-out forwards;
+}
+
+@keyframes popIn {
+    from {
+        transform: scale(0.85);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
 .early-life-modal-text {
@@ -179,3 +201,4 @@
     text-transform: uppercase;
     font-size: 2em;
 }
+

@@ -5,11 +5,10 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
-    background: rgba(0, 0, 0, 0.247);
+    background: rgba(0, 0, 0, 0.61);
     overflow-y: scroll;
-    border: 1px solid white;
     border-radius: 5px;
-    padding: 10px;
+    padding: 20px;
 }
 
 .image-holder{

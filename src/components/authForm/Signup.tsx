@@ -67,7 +67,6 @@ const handleSubmit = async (e: React.FormEvent) => {
 
          <button className='signup-password-btn' type="button" onClick={() => setShowPassword(!showPassword)}
           > {showPassword ? <FaEyeSlash /> : <FaEye />}
-
           <span>
             {showPassword ? " Hide Password"  : " View Password"}
           </span>

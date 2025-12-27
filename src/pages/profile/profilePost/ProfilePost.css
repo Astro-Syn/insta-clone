@@ -4,12 +4,18 @@
     height: 300px;
     border-radius: 5px;
     overflow: hidden;
+    padding: 5px;
+    transition: 0.2s ease-in;
 }
 
 .post-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.post:hover {
+    transform: scale(1.05);
 }
 
 .image-cover{

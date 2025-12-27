@@ -22,6 +22,7 @@ export default function PostHeader({ username, avatar, userId }: HeaderProps) {
         />
 
         <span
+        className='feed-username'
           onClick={() => navigate(`/profile/${userId}`)}
           style={{ cursor: 'pointer' }}
         >

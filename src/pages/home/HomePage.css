@@ -1,5 +1,5 @@
 .home-container {
-  background-color: var(--bg);
+  background-color: rgba(0, 0, 0, 0.658);
   background-image: var(--bg-image);
   background-repeat: no-repeat;
   background-size: cover;
@@ -7,12 +7,18 @@
   background-attachment: fixed;
     width: 100vw;
     overflow-x: hidden;
-    border-left: 4px solid var(--color4);
-    border-right: 4px solid var(--color4);
    position: relative;
    z-index: 1;
+   
 }
 
+.home-container::after {
+    content: "";
+    background-color: rgba(0, 0, 0, 0.658);
+    position: absolute;
+    
+    inset: 0;
+}
 
 .home-contents {
     display: flex;
@@ -23,6 +29,7 @@
     padding: 10px;
     z-index: 4;
     position: relative;
+    
 }
 
 
