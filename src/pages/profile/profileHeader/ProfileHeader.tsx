@@ -237,7 +237,7 @@ const handleUnfollow = async () => {
             <h2 className='additional-info-title'>
               Additional Info
             </h2>
-               <h2 
+          <h2 
             className='early-life-title'
             onClick={() => setShowEarlyLife(true)}
             >Early Life</h2>

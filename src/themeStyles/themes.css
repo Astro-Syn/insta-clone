@@ -1,18 +1,18 @@
 :root {
   --bg: black;
-  --panel: gray;
+  --panel: rgb(0, 7, 6);
   --text: white;
-  --bg-image: none;
-  --sidebar-bg: white;
-  --sidebar-color: black;
-  --sidebar-border: black;
+  --bg-image: url(/Images/deacon9.jpg);
+  --sidebar-bg: rgb(0, 7, 6);
+  --sidebar-color: rgb(252, 246, 242);
+  --sidebar-border: white;
   --sidebar-menu-bg: none;
-  --suggested-users-bg: gray;
-  --theme-title-bg: gray;
-  --theme-title-text-col: black;
-  --feed-card-col: grey;
+  --suggested-users-bg: rgb(0, 7, 6);
+  --theme-title-bg: rgb(0, 7, 6);
+  --theme-title-text-col: rgb(255, 249, 244);
+  --feed-card-col: rgb(3, 0, 0);
   --suggested-users-col1: black;
-  --suggested-users-col2: gray;
+  --suggested-users-col2: rgb(3, 0, 0);
   --suggested-users-header: white;
     --like-heart-bg: black;
     --like-heart-bg-after: black;
@@ -20,7 +20,7 @@
     --follow-btn-bg: black;
     --follow-btn-text: white;
     --profile-text-col: black;
-    --sidebar-border: black;
+    --sidebar-border: rgb(0, 2, 2);
 }
 
 html[data-theme="lost-lake"] {

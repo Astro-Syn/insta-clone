@@ -22,7 +22,7 @@
 .messages-title {
     font-family: "Odibee Sans", sans-serif;
     font-size: 3.6em;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
     text-transform: uppercase;
 }
 
@@ -40,11 +40,17 @@
     border-bottom: 1px solid gray;
     width: 100%;
     margin: 0px 30px 0px 30px;
+    transition: 0.3s ease-in;
+}
+
+.conversation-item:hover {
+    background: gray;
 }
 
 .conversation-avatar {
     border-radius: 5px;
     max-width: 70px;
+    margin-right: 30px;
 }
 
 .conversation-text{

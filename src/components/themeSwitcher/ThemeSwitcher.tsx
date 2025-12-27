@@ -15,7 +15,7 @@ export default function ThemeSwitcher() {
   return (
     <div className='theme-switch-box'>
         
-        <div className='theme-buttons'>
+    <div className='theme-buttons'>
       <button 
       className={`theme-switcher ${theme === 'night' ? "active" : ""}`}
       onClick={() => setTheme("night")}
@@ -38,6 +38,14 @@ export default function ThemeSwitcher() {
     title="Daylight"    
     >
       <img src='/Images/icon_landscape.png' alt="Daylight"/>
+    </button>
+
+    <button 
+    className={`theme-switcher ${theme === 'woods' ? "active" : ""}`}
+    onClick={() => setTheme("woods")}
+    title="Woods"    
+    >
+      <img src='/Images/woods-icon.png' alt="Woods"/>
     </button>
         </div>
     

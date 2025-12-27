@@ -5,10 +5,11 @@
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-    width: 100vw;
-    overflow-x: hidden;
-   position: relative;
-   z-index: 1;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+  z-index: 1;
    
 }
 
@@ -16,7 +17,6 @@
     content: "";
     background-color: rgba(0, 0, 0, 0.658);
     position: absolute;
-    
     inset: 0;
 }
 

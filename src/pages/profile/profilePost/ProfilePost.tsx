@@ -158,6 +158,7 @@ export default function ProfilePost({
 
               <div className="comments-box-section">
                 <input
+                className='comment-box'
                   type="text"
                   placeholder="Add a comment..."
                   value={comment}

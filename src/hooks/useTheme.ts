@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 
-
-const themes = ["lost-lake", "night", "daylight"] as const;
+const themes = ["lost-lake", "night", "daylight", "woods"] as const;
 type Theme = typeof themes[number];
 
 export function useTheme() {

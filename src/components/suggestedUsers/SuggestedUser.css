@@ -1,36 +1,55 @@
-.suggested-user-container{
+.suggested-user-container {
     display: flex;
-    
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 10px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
+
+
 .user-avatar {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     border-radius: 5px;
-    margin: 10px;
+    margin-right: 10px;
     cursor: pointer;
+    flex-shrink: 0;
     z-index: 1;
 }
 
 .users-info {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 90%;
     align-items: center;
+    justify-content: space-between;
+    flex: 1; 
 }
 
-.user{
-    margin: 10px;
+
+.username-and-followers {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 }
+
+
 
 .user-name {
-     font-family: "Odibee Sans", sans-serif, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-     font-size: 1.8em;
-     letter-spacing: 1px;
-     cursor: pointer;
+    font-family: "Odibee Sans", sans-serif, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.2em;
+    letter-spacing: 1px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: 0.2s ease-in;
 }
 
 
+.user-name:hover {
+    letter-spacing: 2px;
+}
 
-
+.follow-btn {
+    margin-left: 10px;
+    flex-shrink: 0;
+}

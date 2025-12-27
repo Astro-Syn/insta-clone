@@ -7,14 +7,21 @@
     height: 5vh;
     padding: 10px;
     align-items: center;
-    background-color: black;
+    background-color: var(--sidebar-bg);
     font-family: "Odibee Sans", sans-serif, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 1.5em;
     letter-spacing: 1px;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
     width: 10vw;
+    z-index: 1;
+}
 
+.suggested-header-container::before {
+    position: absolute;
+    content: "";
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.699), rgba(255, 255, 255, 0));
+    inset: 0;
 }
 
 .users-info {
@@ -35,6 +42,15 @@
 
 .username-and-followers{
     margin-left: 100px;
+}
+
+.logout-text {
+    display: flex;
+    z-index: 2;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+
 }
 
 

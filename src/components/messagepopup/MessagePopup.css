@@ -11,7 +11,7 @@
 .message-popup-container {
   background: #111;
   color: white;
-  width: 380px;
+  width: 390px;
   max-width: 90vw;
   border-radius: 10px;
   padding: 20px;
@@ -33,7 +33,7 @@
 @keyframes popupIn {
     from {
         opacity: 0;
-        transform: scale(0.95);
+        transform: scale(0.70);
     }
      to {
         opacity: 1;

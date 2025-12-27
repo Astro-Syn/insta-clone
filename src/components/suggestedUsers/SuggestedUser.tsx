@@ -94,13 +94,13 @@ export default function SuggestedUser({
       <div className="users-info">
         <div className="username-and-followers">
           <p className="user-name">{name}</p>
-         
         </div>
-
-        <button  className='follow-btn' onClick={handleFollow} disabled={loading}>
-          {loading ? '…' : isFollowed ? 'Unfollow' : 'Follow'}
-        </button>
       </div>
+       <button  className='follow-btn' 
+                 onClick={handleFollow} 
+                 disabled={loading}>
+          {loading ? '…' : isFollowed ? 'Unfollow' : 'Follow'}
+         </button>
     </div>
   );
 }

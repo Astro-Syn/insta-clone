@@ -9,10 +9,13 @@ export default function SuggestedHeader() {
 
   return (
     <div className='suggested-header-container'>
+      <div className='logout-text'>
+
+      
         <div className='profile-pic'>
           <img src={user?.photoURL || '/Images/profile-pic.jpg'}/>
         </div>
-        <div>
+        <div className='logout-username'>
         {user?.displayName || 'username'}
         </div>
       
@@ -22,6 +25,7 @@ export default function SuggestedHeader() {
       >
         Log out
       </Link>
+      </div>
     </div>
   )
 }

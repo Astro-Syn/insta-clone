@@ -89,7 +89,7 @@
 }
 
 .sidebar-items::before {
-  bottom: 5px;
+  bottom: 2px;
   transform-origin: left;
 }
 
@@ -100,6 +100,10 @@
 
 .sidebar-items:hover::before {
   transform: scaleX(1);
+}
+
+.sidebar-items:after {
+    font-size: 1.7em;
 }
 
 .logout-btn-container{

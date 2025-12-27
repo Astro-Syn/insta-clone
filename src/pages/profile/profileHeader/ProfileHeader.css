@@ -26,10 +26,11 @@
 
 .user-and-edit-profile{
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
     height: 20%;
+    gap: 10%;
 }
 
 .profile-numbers-info{
@@ -111,7 +112,7 @@
     font-size: 1.4em;
     border-radius: 5px;
     border: 2px solid gray;
-    background: red;
+    background: rgba(255, 0, 0, 0.288);
     color: white;
 }
 
@@ -164,17 +165,18 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 2px solid white;
+  border: 1px solid white;
   border-radius: 5px;
   padding: 15px;
-  transform: scale(0.85);
+  transform: scale(0.80);
   opacity: 0;
   animation: popIn 0.25s ease-out forwards;
+  background: var(--theme-title-bg);
 }
 
 @keyframes popIn {
     from {
-        transform: scale(0.85);
+        transform: scale(0.80);
         opacity: 0;
     }
     to {
@@ -192,7 +194,7 @@
     font-family: "Odibee Sans", sans-serif, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     letter-spacing: 1px;
     text-transform: uppercase;
-    font-size: 2em;
+    font-size: 2.2em;
 }
 
 .additional-info-title {
