@@ -1,5 +1,12 @@
 import { useEffect, useState } from "react";
-import { collection, onSnapshot, query, where, getDoc, doc } from "firebase/firestore";
+import {
+  collection,
+  onSnapshot,
+  query,
+  where,
+  getDoc,
+  doc
+} from "firebase/firestore";
 import { Link } from "react-router-dom";
 import { auth, db } from "../../firebase/firebase";
 import "./Messaging.css";
@@ -38,21 +45,26 @@ export default function Messaging() {
           (uid: string) => uid !== user.uid
         );
 
-        let otherUserData = null;
+        let otherUserData: Conversation["otherUser"] | undefined;
 
         if (otherUid) {
           const userSnap = await getDoc(doc(db, "users", otherUid));
           if (userSnap.exists()) {
+            const u = userSnap.data();
+
             otherUserData = {
               uid: otherUid,
-              ...(userSnap.data() as any)
+              username: u.username,
+              profilePicUrl: u.profilePicURL || u.profilePicUrl
             };
           }
         }
 
         convos.push({
           id: docSnap.id,
-          ...data,
+          participants: data.participants,
+          lastMessage: data.lastMessage,
+          lastUpdated: data.lastUpdated,
           otherUser: otherUserData
         });
       }
@@ -88,10 +100,13 @@ export default function Messaging() {
                 "/Images/profile-pic.jpg"
               }
               className="conversation-avatar"
+              alt="User avatar"
             />
 
             <div className="conversation-text">
-              <strong className='msg-username-text'>{convo.otherUser?.username || "User"}</strong>
+              <strong className="msg-username-text">
+                {convo.otherUser?.username || "User"}
+              </strong>
               <p>{convo.lastMessage || "Start the conversation"}</p>
             </div>
           </Link>
