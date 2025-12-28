@@ -2,42 +2,53 @@ import { useState, useEffect } from 'react';
 import '../suggestedUsers/SuggestedUser.css';
 import { useNavigate } from 'react-router-dom';
 import { auth, db } from '../../firebase/firebase';
-import { doc, updateDoc, arrayUnion, arrayRemove } from 'firebase/firestore';
+import {
+  doc,
+  updateDoc,
+  arrayUnion,
+  arrayRemove
+} from 'firebase/firestore';
 import { characters } from '../../data/characters';
 
 interface SuggestedUserProps {
   name: string;
   avatar: string;
-  followers: number;
   userId: string;
+  following: string[];
 }
 
 export default function SuggestedUser({
   name,
-  
   avatar,
-  userId
+  userId,
+  following
 }: SuggestedUserProps) {
   const navigate = useNavigate();
-  const currentUid = auth.currentUser?.uid;
+  const currentUid = auth.currentUser?.uid ?? null;
 
   const [isFollowed, setIsFollowed] = useState(false);
   const [loading, setLoading] = useState(false);
 
-
+  
   useEffect(() => {
     if (!currentUid) return;
 
     const hardcoded = Object.values(characters).find(c => c.uid === userId);
     if (hardcoded) {
-      setIsFollowed((hardcoded.followers ?? []).includes(currentUid));
+      const storedNpcFollows =
+        JSON.parse(localStorage.getItem("npcFollows") || "{}");
+
+      setIsFollowed(storedNpcFollows[userId]?.includes(currentUid));
+      return;
     }
-  }, [currentUid, userId]);
+
+    setIsFollowed(following.includes(userId));
+  }, [following, currentUid, userId]);
 
   const handleFollow = async (
     e: React.MouseEvent<HTMLButtonElement>
   ) => {
-    e.stopPropagation(); 
+    e.stopPropagation();
     if (!currentUid || loading) return;
 
     setLoading(true);
@@ -45,18 +56,21 @@ export default function SuggestedUser({
     try {
       
       const hardcoded = Object.values(characters).find(c => c.uid === userId);
-
       if (hardcoded) {
-        hardcoded.followers = isFollowed
-          ? (hardcoded.followers ?? []).filter(f => f !== currentUid)
-          : [...(hardcoded.followers ?? []), currentUid];
+        const stored =
+          JSON.parse(localStorage.getItem("npcFollows") || {});
+        const current = stored[userId] || [];
 
+        stored[userId] = isFollowed
+          ? current.filter((f: string) => f !== currentUid)
+          : [...current, currentUid];
+
+        localStorage.setItem("npcFollows", JSON.stringify(stored));
         setIsFollowed(!isFollowed);
-        setLoading(false);
         return;
       }
 
-   
+     
       const currentUserRef = doc(db, 'users', currentUid);
       const targetUserRef = doc(db, 'users', userId);
 
@@ -64,7 +78,6 @@ export default function SuggestedUser({
         await updateDoc(currentUserRef, {
           following: arrayRemove(userId)
         });
-
         await updateDoc(targetUserRef, {
           followers: arrayRemove(currentUid)
         });
@@ -72,13 +85,12 @@ export default function SuggestedUser({
         await updateDoc(currentUserRef, {
           following: arrayUnion(userId)
         });
-
         await updateDoc(targetUserRef, {
           followers: arrayUnion(currentUid)
         });
       }
 
-      setIsFollowed(!isFollowed);
+      
     } finally {
       setLoading(false);
     }
@@ -96,11 +108,14 @@ export default function SuggestedUser({
           <p className="user-name">{name}</p>
         </div>
       </div>
-       <button  className='follow-btn' 
-                 onClick={handleFollow} 
-                 disabled={loading}>
-          {loading ? '…' : isFollowed ? 'Unfollow' : 'Follow'}
-         </button>
+
+      <button
+        className="follow-btn"
+        onClick={handleFollow}
+        disabled={loading}
+      >
+        {loading ? '…' : isFollowed ? 'Unfollow' : 'Follow'}
+      </button>
     </div>
   );
 }

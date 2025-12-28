@@ -167,7 +167,6 @@ input {
   z-index: 2;
   height: 90px;
   color: black;
-
   transform-origin: center;
   animation: wiggle 2.2s ease-in-out infinite;
 }

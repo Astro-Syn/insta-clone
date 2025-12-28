@@ -13,7 +13,7 @@ export const characters: Record<string, any> = {
             }
         ],
         photos: [
-            {
+            { 
                 img: "/Images/deacon1.png",
                 caption: "Like Boozer says.. I hear a bunk calling my name"
             },

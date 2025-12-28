@@ -8,6 +8,8 @@ import {
   onSnapshot
 } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
+import { addDoc, serverTimestamp } from "firebase/firestore";
+
 
 type Notification = {
   id: string;

@@ -17,7 +17,7 @@ export default function HomePage() {
         </div>
 
         <div className='suggested-users'>
-          <SuggestedUsers />
+          <SuggestedUsers feedMode={feedMode} />
         </div>
       </div>
     </div>
