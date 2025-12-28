@@ -44,7 +44,7 @@
 }
 
 .conversation-item:hover {
-    background: gray;
+    background: rgba(128, 128, 128, 0.034);
 }
 
 .conversation-avatar {

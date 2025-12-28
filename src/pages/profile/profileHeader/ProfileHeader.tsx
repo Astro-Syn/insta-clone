@@ -206,7 +206,7 @@ const handleUnfollow = async () => {
 
         <div className="profile-numbers-info">
           <div className="profile-follow-info">
-            <p>{user.photos?.length ?? 0}</p>
+            <p className='profile-numbers'>{user.photos?.length ?? 0}</p>
             <span>Posts</span>
           </div>
 
@@ -214,7 +214,7 @@ const handleUnfollow = async () => {
             className="profile-follow-info"
             onClick={() => setShowFollowerList(true)}
           >
-            <p>{followers.length}</p>
+            <p className='profile-numbers'>{followers.length}</p>
             <span>Followers</span>
           </div>
 
@@ -222,7 +222,7 @@ const handleUnfollow = async () => {
             className="profile-follow-info"
             onClick={() => setShowFollowingList(true)}
           >
-            <p>{following.length}</p>
+            <p className='profile-numbers'>{following.length}</p>
             <span>Following</span>
           </div>
         </div>

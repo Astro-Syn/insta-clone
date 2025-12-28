@@ -1,14 +1,14 @@
 :root {
   --bg: black;
-  --panel: rgb(0, 7, 6);
+  --panel: rgb(7, 4, 0);
   --text: white;
   --bg-image: url(/Images/deacon9.jpg);
-  --sidebar-bg: rgb(0, 7, 6);
+  --sidebar-bg: rgb(7, 4, 0);
   --sidebar-color: rgb(252, 246, 242);
   --sidebar-border: white;
   --sidebar-menu-bg: none;
-  --suggested-users-bg: rgb(0, 7, 6);
-  --theme-title-bg: rgb(0, 7, 6);
+  --suggested-users-bg: rgb(7, 4, 0);
+  --theme-title-bg: rgb(7, 4, 0);
   --theme-title-text-col: rgb(255, 249, 244);
   --feed-card-col: rgb(3, 0, 0);
   --suggested-users-col1: black;
@@ -18,8 +18,8 @@
     --like-heart-bg-after: black;
     --messages-bg: rgba(0, 0, 0, 0.979);
     --follow-btn-bg: black;
-    --follow-btn-text: white;
-    --profile-text-col: black;
+    --follow-btn-text: rgb(255, 250, 244);
+    --profile-text-col: rgb(250, 238, 238);
     --sidebar-border: rgb(0, 2, 2);
 }
 

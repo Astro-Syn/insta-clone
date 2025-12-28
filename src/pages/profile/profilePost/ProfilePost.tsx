@@ -15,6 +15,7 @@ import { auth } from "../../../firebase/firebase";
 import Avatar from "../../../components/avatar/Avatar";
 import LikeButton from "../../../components/likebtn/LikeButton";
 
+
 type ProfilePostProps = {
   img?: string;
   postId: string;
@@ -93,7 +94,6 @@ export default function ProfilePost({
         createdAt: serverTimestamp()
       }
     );
-
    
     await addDoc(
       collection(db, "users", authUser.uid, "activity"),
@@ -103,6 +103,25 @@ export default function ProfilePost({
         createdAt: serverTimestamp()
       }
     );
+
+    if (user.uid !== authUser.uid) {
+      await addDoc(
+        collection(db, "users", user.uid, "notifications"),
+        {
+          type: "comment",
+          fromUid: authUser.uid,
+          fromUsername:
+            currentUserData?.username || authUser.email || "Unknown",
+          fromAvatar:
+            currentUserData?.profilePicUrl ||
+            currentUserData?.profilePicURL ||
+            "/Images/profile-pic.jpg",
+          postId,
+          createdAt: serverTimestamp(),
+          read: false
+        }
+      );
+    }
 
     setComment("");
   };
