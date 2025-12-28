@@ -52,6 +52,7 @@
     align-items: center;
     margin-right: 10px;
     font-size: large;
+    cursor: pointer;
 }
 
 .profile-number {
@@ -207,4 +208,5 @@
 .profile-numbers {
     font-weight: bold;
     margin-right: 5px;
+    
 }

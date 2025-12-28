@@ -7,11 +7,15 @@ import {
   orderBy,
   onSnapshot,
   serverTimestamp,
+  getDoc,
   doc,
   updateDoc
 } from "firebase/firestore";
 import { auth, db } from "../../firebase/firebase";
 import "./Conversation.css";
+import { useNavigate } from "react-router-dom";
+
+
 
 type UserPreview = {
   uid: string;
@@ -34,6 +38,7 @@ export default function Conversation() {
   const [text, setText] = useState("");
   const [otherUser, setOtherUser] = useState<UserPreview | null>(null);
 
+  const navigate = useNavigate();
 
   useEffect(() => {
   if (!conversationId || !user) return;
@@ -48,11 +53,15 @@ export default function Conversation() {
 
     const userSnap = await getDoc(doc(db, "users", otherUid));
     if (userSnap.exists()) {
-      setOtherUser({
-        uid: otherUid,
-        ...(userSnap.data() as any)
-      });
-    }
+  const data = userSnap.data();
+
+  setOtherUser({
+    uid: otherUid,
+    username: data.username,
+    profilePicUrl: data.profilePicURL || data.profilePicUrl
+  });
+}
+
   };
 
   fetchOtherUser();
@@ -111,15 +120,25 @@ export default function Conversation() {
       <div className="conversation-area">
 
 
-  <div className="conversation-header">
-    <img
-      src={otherUser?.profilePicUrl || "/Images/profile-pic.jpg"}
-      className="conversation-header-avatar"
-    />
-    <p className="conversation-header-username">
-      {otherUser?.username || "User"}
-    </p>
-  </div>
+ <div className="conversation-header">
+  <img
+    src={otherUser?.profilePicUrl || "/Images/profile-pic.jpg"}
+    className="conversation-header-avatar clickable"
+    onClick={() =>
+      otherUser?.uid && navigate(`/profile/${otherUser.uid}`)
+    }
+  />
+
+  <p
+    className="conversation-header-username clickable"
+    onClick={() =>
+      otherUser?.uid && navigate(`/profile/${otherUser.uid}`)
+    }
+  >
+    {otherUser?.username || "User"}
+  </p>
+</div>
+
 
  
   <div className="messages-list">
