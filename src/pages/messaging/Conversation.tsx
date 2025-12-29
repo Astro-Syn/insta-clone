@@ -117,6 +117,10 @@ export default function Conversation() {
 
   return (
     <div className="conversation-container">
+      <button 
+      onClick={() => navigate(`/messaging`)}
+      className='bk-to-msg-btn'>
+        Back to Messages</button>
       <div className="conversation-area">
 
 

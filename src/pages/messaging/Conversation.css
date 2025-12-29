@@ -1,5 +1,6 @@
 .conversation-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100vw;
@@ -118,4 +119,8 @@
   background: white;
   border: none;
   cursor: pointer;
+}
+
+.bk-to-msg-btn {
+  margin: 20px;
 }
