@@ -8,6 +8,15 @@
    
 }
 
+.profile-page::after {
+    content: "";
+    background-color: rgba(0, 0, 0, 0.658);
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+
 .profile-page-container{
     position: relative;
     background-color: var(--color1);
@@ -21,6 +30,7 @@
     background: var(--theme-title-bg);
     overflow: hidden;
     padding: 10px;
+    z-index: 2;
 }
 
 .profile-page-container::before {

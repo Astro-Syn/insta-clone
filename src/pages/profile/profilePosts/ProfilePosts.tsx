@@ -153,6 +153,8 @@ export default function ProfilePosts({
 
   return (
     <div className="profile-posts-container">
+
+     
       
       {showUpload && isOwner && (
         <div className="upload-modal">

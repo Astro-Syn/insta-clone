@@ -38,6 +38,8 @@ export default function ProfilePost({
   const [comments, setComments] = useState<any[]>([]);
   const [currentUserData, setCurrentUserData] = useState<any>(null);
 
+  
+
   if (!postId) return null;
 
   

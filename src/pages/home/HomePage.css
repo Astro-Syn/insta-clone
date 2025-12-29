@@ -16,8 +16,9 @@
 .home-container::after {
     content: "";
     background-color: rgba(0, 0, 0, 0.658);
-    position: absolute;
+    position: fixed;
     inset: 0;
+    background-size: cover;
 }
 
 .home-contents {
