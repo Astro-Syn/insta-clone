@@ -49,16 +49,26 @@
     margin-right: 50em;
 }
 
-@media screen and (max-width: 900px){
-    .home-container {
-        margin-left: 10px;
-       width: 100%;
-    }
-    .home-contents {
-        flex-direction: column;   
-        gap: 20px;
-    }
-        .scroll-feed{
-        width: 100%;
-    }
+@media screen and (max-width: 900px) {
+  .home-contents {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .scroll-feed {
+    width: 100%;
+    max-width: none;
+  }
+
+  .suggested-users {
+    width: 100%;
+    margin: 0;
+    display: none; /* optional */
+  }
+
+  .home-container {
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+  }
 }

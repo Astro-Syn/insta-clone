@@ -28,6 +28,7 @@
     border: 1px solid rgba(0, 0, 0, 0.856);
     border-radius: 5px;
     background: var(--theme-title-bg);
+    opacity: 0.95;
     overflow: hidden;
     padding: 10px;
     z-index: 2;

@@ -65,7 +65,7 @@ export default function FollowerListModal({
         className="followers-window"
         onClick={e => e.stopPropagation()}
       >
-        <h2>{title}</h2>
+        <h2 className='status-font'>{title}</h2>
 
         <div className="followers-scroll">
           {users.map(u => (

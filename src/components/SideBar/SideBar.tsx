@@ -1,97 +1,111 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import '../SideBar/SideBar.css';
-import { IoMdNotifications } from "react-icons/io";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import "../SideBar/SideBar.css";
+
+import { IoMdNotifications, IoMdHome, IoMdClose } from "react-icons/io";
 import { RiProfileLine } from "react-icons/ri";
-import { FaRegEnvelope } from "react-icons/fa";
-import { IoMdHome } from "react-icons/io";
-import { FaSearch } from "react-icons/fa";
-import useLogout from '../../hooks/useLogout';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { db, auth } from '../../firebase/firebase';
-import ThemeSwitcher from '../themeSwitcher/ThemeSwitcher';
+import { FaRegEnvelope, FaSearch } from "react-icons/fa";
+import { RxHamburgerMenu } from "react-icons/rx";
 
+import useLogout from "../../hooks/useLogout";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../../firebase/firebase";
+import ThemeSwitcher from "../themeSwitcher/ThemeSwitcher";
 
-export default function SideBar() {
-      const [authUser] = useAuthState(auth);
-    const sideBarItems = [
-        {
-            text: "Home",
-            link: "/",
-            icon: <IoMdHome/>,
-            
-        },
-         {
-            text: "Search",
-            link: "/search",
-            icon: <FaSearch />,
-            
-        },
-         {
-            text: "Activity",
-            link: "/activity",
-            icon: <IoMdNotifications />,
-            
-        },
+const SideBar: React.FC = () => {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [authUser] = useAuthState(auth);
+  const { handleLogout } = useLogout();
 
-        {
-            text: "Messaging",
-            link: "/messaging",
-            icon: <FaRegEnvelope/>
-        },
-         
-         {
-            text: "Profile",
-            link: `/profile/${authUser?.uid}`,
-            icon: <RiProfileLine />,
-        
-        },
-    ];
+  const sideBarItems = [
+    {
+      text: "Home",
+      link: "/",
+      icon: <IoMdHome />,
+    },
+    {
+      text: "Search",
+      link: "/search",
+      icon: <FaSearch />,
+    },
+    {
+      text: "Activity",
+      link: "/activity",
+      icon: <IoMdNotifications />,
+    },
+    {
+      text: "Messaging",
+      link: "/messaging",
+      icon: <FaRegEnvelope />,
+    },
+    {
+      text: "Profile",
+      link: `/profile/${authUser?.uid}`,
+      icon: <RiProfileLine />,
+    },
+  ];
 
-   const {handleLogout, isLoggingOut} =  useLogout();
-   
   return (
-    <div className='sidebar-container'>
-        
-        
-        <div>
-            <Link to={"/"}>
-            <button className='driftergram-logo'>
-                <img src='/Images/driftergram.png' className='logo-pic'/>
-            </button>
-            </Link>
-
-          
-        </div>
-        <div className='sidebar-links-container'>
-        {sideBarItems.map((item, index) => (
-            <Link 
-            className='sidebar-items'
-            key={index}
-            to={item.link ?? "#"}
-            
-            >
-                {item.icon}
-                <span className='item-text'>{item.text}</span>
-            </Link>
-           
-        ))}
-         
-        </div>
+    <>
       
+      <button
+        className="hamburger-btn"
+        onClick={() => setIsOpen((prev) => !prev)}
+        aria-label="Toggle sidebar"
+      >
+        {isOpen ? <IoMdClose /> : <RxHamburgerMenu />}
+      </button>
 
-        <div className='toggle-theme-container'>
-                  <ThemeSwitcher/>
+      
+      {isOpen && (
+        <div
+          className="sidebar-backdrop"
+          onClick={() => setIsOpen(false)}
+        />
+      )}
+
+      
+      <aside className={`sidebar-container ${isOpen ? "open" : ""}`}>
+        
+        <Link to="/" onClick={() => setIsOpen(false)}>
+          <button className="driftergram-logo">
+            <img
+              src="/Images/driftergram.png"
+              alt="Driftergram"
+              className="logo-pic"
+            />
+          </button>
+        </Link>
+
+        
+        <nav className="sidebar-links-container">
+          {sideBarItems.map((item, index) => (
+            <Link
+              key={index}
+              to={item.link}
+              className="sidebar-items"
+              onClick={() => setIsOpen(false)}
+            >
+              {item.icon}
+              <span className="item-text">{item.text}</span>
+            </Link>
+          ))}
+        </nav>
+
+    
+        <div className="toggle-theme-container">
+          <ThemeSwitcher />
         </div>
-        {/*Logout */}
-            <div className='logout-btn-container'>
-                
-                <button className='logout-btn'
-                onClick={handleLogout}
-                >
-                    Logout
-                </button>
-            </div>
-    </div>
-  )
-}
+
+        
+        <div className="logout-btn-container">
+          <button className="logout-btn" onClick={handleLogout}>
+            Logout
+          </button>
+        </div>
+      </aside>
+    </>
+  );
+};
+
+export default SideBar;

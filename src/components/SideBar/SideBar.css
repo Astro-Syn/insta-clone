@@ -124,23 +124,31 @@
     font-family: "Odibee Sans", sans-serif;
 }
 
+.hamburger-btn {
+  display: none;
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 1000;
+  background: none;
+  border: none;
+  color: var(--sidebar-color);
+  font-size: 2rem;
+  cursor: pointer;
+}
 
+@media screen and (max-width: 900px) {
+  .hamburger-btn {
+    display: block;
+  }
 
+  .sidebar-container {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    max-width: 250px;
+  }
 
-@media screen and (max-width: 800px) {
-    .sidebar-container{
-        max-width: 150px;
-    }
-
-    .sidebar-items{
-        font-size: 0;
-    }
-
-    .sidebar-items svg {
-        font-size: 24px;
-    }
-
-    .sidebar-items.text {
-        visibility: hidden;
-    }
+  .sidebar-container.open {
+    transform: translateX(0);
+  }
 }

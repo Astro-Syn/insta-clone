@@ -14,17 +14,21 @@ function Activity() {
         </div>
         
     <div className='button-switcher'>
-        <button className={showNotifications ? "active" : ""}
-        onClick={() => setShowNotifiations(true)}
-        >
-            Notifications
-        </button>
-        <button className={showNotifications ? "active" : ""}
-        onClick={() => setShowNotifiations(false)}
-        >
-            Your Activity
-        </button>
-    </div>
+  <button
+    className={showNotifications ? "active" : ""}
+    onClick={() => setShowNotifiations(true)}
+  >
+    Notifications
+  </button>
+
+  <button
+    className={!showNotifications ? "active" : ""}
+    onClick={() => setShowNotifiations(false)}
+  >
+    Your Activity
+  </button>
+</div>
+
       <div className="activity-slider-wrapper">
         <div
           className={`activity-slider ${
