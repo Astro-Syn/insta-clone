@@ -77,3 +77,10 @@
   
   
 }
+
+@media screen and (max-width: 900px){
+  .activity-slider-wrapper{
+    opacity: 0.95;
+    width: 80vw;
+  }
+}

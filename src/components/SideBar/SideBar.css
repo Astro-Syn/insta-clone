@@ -7,7 +7,6 @@
     background-size: contain;
     background-repeat: no-repeat;
     height: 100vh;
-    max-width: 300px;
     border-right: 2px solid var(--sidebar-border);
     overflow: hidden;
     z-index: 3;
@@ -145,10 +144,50 @@
   .sidebar-container {
     transform: translateX(-100%);
     transition: transform 0.3s ease;
-    max-width: 250px;
+    width: 100vw;
+    height: 30vh;
+    opacity: 0.98;
+    display: flex;
+    flex-direction: row;
   }
+
+ .logout-btn {
+    display: none;
+ }
 
   .sidebar-container.open {
     transform: translateX(0);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
+
+  .sidebar-backdrop {
+    width: 100vw;
+  }
+
+  .sidebar-links-container {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+.driftergram-logo {
+    display: none;
+}
+
+
+.sidebar-items {
+    display: flex;
+    font-size: 1.5em;
+}
+.toggle-theme-container {
+    font-size: 1.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 }

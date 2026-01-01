@@ -3,6 +3,7 @@ import '../home/HomePage.css';
 import FeedPosts from '../../components/feedPosts/FeedPosts';
 import SuggestedUsers from '../../components/suggestedUsers/SuggestedUsers';
 import { TopBar } from '../../components/topbar/TopBar';
+import ThemeSwitcher from '../../components/themeSwitcher/ThemeSwitcher';
 
 export default function HomePage() {
   const [feedMode, setFeedMode] = useState<'regular' | 'daysgone'>('regular');
@@ -20,6 +21,12 @@ export default function HomePage() {
           <SuggestedUsers feedMode={feedMode} />
         </div>
       </div>
+
+      <div className='mobile-theme-switcher'>
+        <ThemeSwitcher variant="mobile"/>
+      </div>
+
+      
     </div>
   );
 }

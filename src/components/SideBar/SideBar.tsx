@@ -6,7 +6,6 @@ import { IoMdNotifications, IoMdHome, IoMdClose } from "react-icons/io";
 import { RiProfileLine } from "react-icons/ri";
 import { FaRegEnvelope, FaSearch } from "react-icons/fa";
 import { RxHamburgerMenu } from "react-icons/rx";
-
 import useLogout from "../../hooks/useLogout";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../firebase/firebase";
@@ -103,6 +102,7 @@ const SideBar: React.FC = () => {
             Logout
           </button>
         </div>
+    
       </aside>
     </>
   );
