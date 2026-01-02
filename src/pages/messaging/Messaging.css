@@ -66,3 +66,15 @@
     letter-spacing: 1px;
     
 }
+
+@media  screen and (max-width: 900px) {
+    
+.messages-box{
+  position: relative;
+  display: flex;
+  background-color: var(--sidebar-bg);
+  width: 80vw;
+  opacity: 0.95;
+  
+}
+}

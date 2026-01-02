@@ -124,3 +124,9 @@
 .bk-to-msg-btn {
   margin: 20px;
 }
+
+@media  screen and  (max-width: 900px){
+  .conversation-area {
+    width: 90vw;
+  }
+}

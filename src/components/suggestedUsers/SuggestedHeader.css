@@ -61,8 +61,33 @@
 }
 
 @media screen and (max-width: 900px) {
-    .user-info {
-        display: hidden;
-        background-color: black;
-    }
+
+  .suggested-header-container {
+      width: 100vw;
+      height: auto;
+      width: 100px;
+      border-radius: 5px;
+      border-radius: 0;
+      font-size: 1.1em;
+      justify-content: center;
+  }
+
+
+  .profile-pic img {
+      width: 60px;
+      height: 60px;
+      border-radius: 6px;
+  }
+
+  .logout-username {
+    display: none;
+    letter-spacing: 1px;
+    font-size: 1.6em;
+  }
+  
+  .users-info,
+  .username-and-followers {
+      display: none;
+  }
 }
+
